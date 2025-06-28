@@ -13,78 +13,53 @@ window.addEventListener("DOMContentLoaded", function () {
   svgArrows.forEach((svg) => {
     const line = svg.querySelector("line");
     const length = line.getTotalLength();
+    // Cache le marker (triangle) au départ
+    const marker = svg.querySelector("marker");
+    if (marker) marker.setAttribute("opacity", "0");
+    // Cache la ligne au départ
     line.style.strokeDasharray = length;
     line.style.strokeDashoffset = length;
+    line.style.opacity = 0;
   });
 
-  // Calcul de déplacement fluide + scale
-  const logoRect = transitionLogo.getBoundingClientRect();
-  const targetRect = centerContainer.getBoundingClientRect();
+  // Déplacer le logo dans le container central avant l'animation
+  centerContainer.insertBefore(transitionLogo, centerContainer.firstChild);
+  transitionLogo.classList.add("center-image");
+  gsap.set(transitionLogo, { clearProps: "all" });
 
-  const deltaX =
-    targetRect.left +
-    centerContainer.clientWidth / 2 -
-    (logoRect.left + logoRect.width / 2);
-  const deltaY =
-    targetRect.top +
-    centerContainer.clientHeight / 2 -
-    (logoRect.top + logoRect.height / 2);
+  // Supprimer l'écran de transition immédiatement
+  transitionElement.style.display = "none";
 
-  const scaleFactor = 0.5; // À adapter selon la taille finale du logo
-
-  const timeline = gsap.timeline({
-    defaults: { ease: "power2.inOut" },
-  });
+  // Animation GSAP
+  const timeline = gsap.timeline({ defaults: { ease: "power2.inOut" } });
 
   timeline
-    // Logo zoome vers sa position finale (avec déplacement progressif)
-    .to(transitionLogo, {
-      duration: 2,
-      scale: scaleFactor,
-      x: deltaX,
-      y: deltaY,
-    })
-    // Fade out progressif du fond de transition
-    .to(
-      transitionElement,
-      {
-        duration: 1,
-        opacity: 0,
-        pointerEvents: "none",
-        onComplete: () => {
-          // Remise en place dans le DOM
-          transitionElement.style.display = "none";
-          transitionLogo.style.transform = "";
-          transitionLogo.classList.add("center-image");
-          centerContainer.insertBefore(
-            transitionLogo,
-            centerContainer.firstChild
-          );
-        },
-      },
-      "-=0.8"
-    )
-    // Affichage du bloc de pictos
+    // Zoom out du logo
+    .fromTo(transitionLogo, { scale: 2 }, { duration: 2, scale: 0.8 })
+    // Affichage des pictos
     .to(logosContainer, { opacity: 1 }, "-=0.3")
-    .to(
-      pictos,
-      {
-        duration: 1,
-        opacity: 1,
-        y: 0,
-        stagger: 0.2,
-      },
-      "-=0.5"
-    )
-    // Tracé progressif des flèches
+    .to(pictos, {
+      duration: 1,
+      opacity: 1,
+      y: 0,
+      stagger: 0.2,
+    })
+    // Tracé des flèches APRÈS la fin complète
     .add(() => {
       svgArrows.forEach((svg) => {
         const line = svg.querySelector("line");
+        const marker = svg.querySelector("marker");
+        if (marker) marker.setAttribute("opacity", "0");
+        // Affiche la ligne juste avant l'animation
+        line.style.opacity = 1;
         gsap.to(line, {
           strokeDashoffset: 0,
           duration: 1.2,
           ease: "power2.out",
+          onComplete: () => {
+            if (marker) marker.setAttribute("opacity", "1");
+          },
         });
       });
-    }, "-=1");
+    }, "+=0.3"); // Légère pause après les pictos pour plus de fluidité
 });
