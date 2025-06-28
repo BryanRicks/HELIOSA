@@ -1,11 +1,10 @@
 // Animation GSAP pour l'intro Heliosa
-window.addEventListener("DOMContentLoaded", function () {
+function runHeliosaIntroAnimation() {
   const transitionElement = document.getElementById("transition");
   const transitionLogo = document.getElementById("transition-logo");
   const centerContainer = document.getElementById("center-container");
   const logosContainer = document.querySelector(".logos-container");
   const pictos = document.querySelectorAll(".logo-link");
-  // Sélectionne tous les labels sous les pictos
   const pictoLabels = logosContainer.querySelectorAll("span");
 
   // Cache les labels au départ
@@ -19,10 +18,13 @@ window.addEventListener("DOMContentLoaded", function () {
   gsap.set(transitionLogo, { clearProps: "all" });
 
   // Supprimer l'écran de transition immédiatement
-  transitionElement.style.display = "none";
+  if (transitionElement) transitionElement.style.display = "none";
 
   // Cacher logosContainer mais pas les pictos (car ils seront animés depuis le logo)
   gsap.set(logosContainer, { opacity: 1 });
+
+  // Forcer un reflow pour garantir que le layout est prêt
+  void document.body.offsetHeight;
 
   // Obtenir la position centrale du logo
   const logoBounds = transitionLogo.getBoundingClientRect();
@@ -73,4 +75,18 @@ window.addEventListener("DOMContentLoaded", function () {
         label.style.opacity = 1;
       });
     });
+}
+
+function launchHeliosaAnimationWithReflow() {
+  // Attendre que tout soit prêt et que le layout soit stable
+  setTimeout(runHeliosaIntroAnimation, 100); // petit délai pour garantir le layout mobile
+}
+
+window.addEventListener("DOMContentLoaded", launchHeliosaAnimationWithReflow);
+window.addEventListener("orientationchange", launchHeliosaAnimationWithReflow);
+window.addEventListener("resize", function () {
+  // Relancer l'animation uniquement si on est sur mobile ou si la taille change beaucoup
+  if (window.innerWidth < 900) {
+    launchHeliosaAnimationWithReflow();
+  }
 });
