@@ -20,16 +20,27 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: white; /* Fond blanc pour la transition */
+        background-color: #1a1a1a; /* Fond noir pour la transition */
         display: flex;
         justify-content: center;
         align-items: center;
         z-index: 1000; /* Assure que la transition est au-dessus de tout */
-        transition: opacity 1s ease-in-out; /* Transition en douceur */
+        opacity: 1;
+        transform: scale(1.2); /* Logo légèrement agrandi au départ */
+        transition: opacity 1.2s ease-in-out,
+          transform 1.2s cubic-bezier(0.77, 0, 0.175, 1); /* Transition plus lente et plus douce */
       }
-      .hidden {
-        opacity: 0;
-        pointer-events: none; /* Empêche l'interaction avec l'élément masqué */
+      .initial-transition img {
+        max-width: 80%;
+        max-height: 80%;
+        transition: transform 1.5s cubic-bezier(0.77, 0, 0.175, 1); /* Smooth and slow zoom effect */
+      }
+      .initial-transition.zoom-out {
+        opacity: 0; /* Disparaît en s'éloignant */
+        transform: scale(1); /* Zoom out effect */
+      }
+      .initial-transition.hidden {
+        display: none;
       }
 
       html,
@@ -69,6 +80,10 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        /* transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; Ajout de la transition */
+        /* transform: translateY(
+          -50px
+        ); Déplace le logo vers le haut pour faire de la place */
       }
 
       .center-image {
@@ -79,25 +94,37 @@
       }
 
       /* Nouveaux styles pour les logos en dessous */
-      .logos-container {
-        display: flex;
-        justify-content: center;
-        gap: clamp(10px, 2vw, 15px); /* Espacement plus petit */
-        margin-top: 10px; /* Marge plus petite au-dessus des logos */
-      }
-
       .logo-link {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 60px; /* Taille plus petite des logos */
+        width: 60px;
         height: 60px;
         border-radius: 50%;
         background-color: rgba(255, 255, 255, 0.1);
-        transition: all 0.3s ease;
+        transition: box-shadow 0.3s ease;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transform: translateY(40px);
       }
-
+      .logo-link.visible {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.7s, transform 0.7s;
+      }
+      .logos-container {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        margin-top: 60px;
+        width: 100%;
+        position: relative;
+        opacity: 0;
+        transition: opacity 0.5s;
+      }
+      .logos-container.visible {
+        opacity: 1;
+      }
       .logo {
         max-width: 40px; /* Taille plus petite des images */
         max-height: 40px;
@@ -119,33 +146,42 @@
         background-color: #e6a118;
       }
 
+      /* Styles pour les flèches SVG */
+      .arrow-svg {
+        position: absolute;
+        top: 65%;
+        width: 15vw;
+        height: 8vh;
+        pointer-events: none;
+        z-index: 4;
+      }
+      .arrow-svg line {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        transition: stroke-dashoffset 0.7s cubic-bezier(0.77, 0, 0.175, 1);
+      }
+      .arrow-svg.animated line {
+        stroke-dashoffset: 0;
+      }
+
       @media (max-height: 500px) {
         .center-image {
           max-height: 40vh;
         }
+
         .center-image-container {
           top: 45%;
         }
       }
     </style>
-    <script>
-      // Fonction pour effectuer la transition
-      window.addEventListener("load", function () {
-        const transitionElement = document.querySelector(".initial-transition");
-        transitionElement.classList.add("hidden"); // Déclenche la transition
-
-        // Permet au corps de défiler après la transition
-        document.body.style.overflow = "auto";
-      });
-    </script>
   </head>
   <body>
     <!-- Transition initiale -->
-    <div class="initial-transition">
+    <div class="initial-transition" id="transition">
       <img
         src="SITE_VISUELS/LOGO/LOGO_SLOGAN_B_HELIOSA.png"
         alt="Heliosa Logo"
-        style="max-width: 80%; max-height: 80%"
+        id="transition-logo"
       />
     </div>
 
@@ -154,46 +190,218 @@
       <!-- Section principale avec les logos et les flèches -->
       <section class="relative">
         <!-- Image centrale -->
-        <div class="center-image-container">
-          <img
-            src="SITE_VISUELS/LOGO/LOGO_SLOGAN_B_HELIOSA.png"
-            alt="Center Logo"
-            class="center-image"
-          />
+        <div
+          class="center-image-container"
+          id="center-container"
+          style="position: relative"
+        >
+          <!-- Le logo sera déplacé ici dynamiquement -->
+          <!-- Flèches SVG centrées -->
+          <svg
+            class="arrow-svg"
+            style="left: 20%; top: 90%; transform: translateX(-50%)"
+            viewBox="0 0 100 60"
+          >
+            <defs>
+              <marker
+                id="arrowhead1"
+                markerWidth="6"
+                markerHeight="6"
+                refX="5"
+                refY="3"
+                orient="auto"
+                markerUnits="strokeWidth"
+              >
+                <polygon points="0 0, 6 3, 0 6" fill="#f0b952" />
+              </marker>
+            </defs>
+            <line
+              x1="50"
+              y1="0"
+              x2="0"
+              y2="60"
+              stroke="#f0b952"
+              stroke-width="3"
+              marker-end="url(#arrowhead1)"
+            />
+          </svg>
+          <svg
+            class="arrow-svg"
+            style="left: 40%; top: 90%; transform: translateX(-50%)"
+            viewBox="0 0 100 60"
+          >
+            <defs>
+              <marker
+                id="arrowhead2"
+                markerWidth="6"
+                markerHeight="6"
+                refX="5"
+                refY="3"
+                orient="auto"
+                markerUnits="strokeWidth"
+              >
+                <polygon points="0 0, 6 3, 0 6" fill="#f0b952" />
+              </marker>
+            </defs>
+            <line
+              x1="50"
+              y1="0"
+              x2="25"
+              y2="60"
+              stroke="#f0b952"
+              stroke-width="3"
+              marker-end="url(#arrowhead2)"
+            />
+          </svg>
+          <svg
+            class="arrow-svg"
+            style="left: 60%; top: 90%; transform: translateX(-50%)"
+            viewBox="0 0 100 60"
+          >
+            <defs>
+              <marker
+                id="arrowhead3"
+                markerWidth="6"
+                markerHeight="6"
+                refX="5"
+                refY="3"
+                orient="auto"
+                markerUnits="strokeWidth"
+              >
+                <polygon points="0 0, 6 3, 0 6" fill="#f0b952" />
+              </marker>
+            </defs>
+            <line
+              x1="50"
+              y1="0"
+              x2="75"
+              y2="60"
+              stroke="#f0b952"
+              stroke-width="3"
+              marker-end="url(#arrowhead3)"
+            />
+          </svg>
+          <svg
+            class="arrow-svg"
+            style="left: 80%; top: 90%; transform: translateX(-50%)"
+            viewBox="0 0 100 60"
+          >
+            <defs>
+              <marker
+                id="arrowhead4"
+                markerWidth="6"
+                markerHeight="6"
+                refX="5"
+                refY="3"
+                orient="auto"
+                markerUnits="strokeWidth"
+              >
+                <polygon points="0 0, 6 3, 0 6" fill="#f0b952" />
+              </marker>
+            </defs>
+            <line
+              x1="50"
+              y1="0"
+              x2="100"
+              y2="60"
+              stroke="#f0b952"
+              stroke-width="3"
+              marker-end="url(#arrowhead4)"
+            />
+          </svg>
+        </div>
 
-          <!-- Logos en dessous -->
-          <div class="logos-container">
-            <a href="produire.html" class="logo-link">
-              <img
-                src="SITE_VISUELS/PICTOGRAMME/PANNEAU.png"
-                alt="Panneaux Solaires"
-                class="logo"
-              />
-            </a>
-            <a href="stocker.html" class="logo-link">
-              <img
-                src="SITE_VISUELS/PICTOGRAMME/BATTERIE.png"
-                alt="Batteries"
-                class="logo"
-              />
-            </a>
-            <a href="charger.html" class="logo-link">
-              <img
-                src="SITE_VISUELS/PICTOGRAMME/BORNE_RECHARGE.png"
-                alt="Bornes de Recharge"
-                class="logo"
-              />
-            </a>
-            <a href="entretien.html" class="logo-link">
-              <img
-                src="SITE_VISUELS/PICTOGRAMME/MAINTENANCE.png"
-                alt="Maintenance"
-                class="logo"
-              />
-            </a>
-          </div>
+        <!-- Logos en dessous -->
+        <div
+          class="logos-container"
+          style="
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 30px;
+            position: relative;
+          "
+        >
+          <a
+            href="produire.html"
+            class="logo-link"
+            style="position: relative; left: 0"
+          >
+            <img
+              src="SITE_VISUELS/PICTOGRAMME/PANNEAU.png"
+              alt="Panneaux Solaires"
+              class="logo"
+            />
+          </a>
+          <a
+            href="stocker.html"
+            class="logo-link"
+            style="position: relative; left: -2vw"
+          >
+            <img
+              src="SITE_VISUELS/PICTOGRAMME/BATTERIE.png"
+              alt="Batteries"
+              class="logo"
+            />
+          </a>
+          <a
+            href="charger.html"
+            class="logo-link"
+            style="position: relative; left: 2vw"
+          >
+            <img
+              src="SITE_VISUELS/PICTOGRAMME/BORNE_RECHARGE.png"
+              alt="Bornes de Recharge"
+              class="logo"
+            />
+          </a>
+          <a
+            href="entretien.html"
+            class="logo-link"
+            style="position: relative; left: 0"
+          >
+            <img
+              src="SITE_VISUELS/PICTOGRAMME/MAINTENANCE.png"
+              alt="Maintenance"
+              class="logo"
+            />
+          </a>
         </div>
       </section>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="gsap-intro.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        const transitionElement = document.getElementById("transition");
+        const transitionLogo = document.getElementById("transition-logo");
+        const centerContainer = document.getElementById("center-container");
+        const logosContainer = document.querySelector(".logos-container");
+        const arrows = document.querySelectorAll(".arrow");
+
+        // Initial zoom-out effect
+        setTimeout(() => {
+          transitionElement.classList.add("zoom-out");
+        }, 900); // délai plus long
+
+        // Transition to main content
+        setTimeout(() => {
+          // Déplacer le logo dans le container central
+          transitionElement.classList.add("hidden");
+          centerContainer.insertBefore(
+            transitionLogo,
+            centerContainer.firstChild
+          );
+          transitionLogo.classList.add("center-image");
+          // Affiche les logos et les flèches
+          setTimeout(() => {
+            logosContainer.classList.add("visible");
+            arrows.forEach((arrow) => arrow.classList.add("visible"));
+          }, 900); // délai plus long
+        }, 2200); // délai plus long
+        document.body.style.overflow = "auto";
+      });
+    </script>
   </body>
 </html>
