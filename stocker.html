@@ -131,8 +131,10 @@
           />
         </a>
 
-        <!-- Liens de navigation -->
-        <div class="flex items-center space-x-6">
+        <!-- Liens de navigation (desktop, centré) -->
+        <div
+          class="hidden md:flex items-center space-x-6 justify-center flex-1"
+        >
           <a href="index.html" class="text-white hover:text-gray-300"
             >Accueil</a
           >
@@ -148,17 +150,100 @@
           <a href="entretien.html" class="text-white hover:text-gray-300"
             >Entretien</a
           >
+          <a href="#contact" class="text-white hover:text-gray-300">Contact</a>
         </div>
 
-        <!-- Bouton Contact -->
-        <div>
+        <!-- Bouton Contact (desktop) -->
+        <!-- <div class="hidden md:block">
           <a
             href="#contact"
             class="bg-gradient-to-r from-[#ff8c3e] to-[#e36213] text-white px-5 py-2 rounded-full hover:shadow-md transition-shadow"
             >Contact</a
           >
-        </div>
+        </div> -->
+
+        <!-- Burger menu button (mobile) -->
+        <button
+          id="burgerBtn"
+          class="md:hidden flex items-center px-3 py-2 border rounded text-white border-white focus:outline-none"
+          aria-label="Ouvrir le menu"
+          aria-expanded="false"
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
       </div>
+      <!-- Menu mobile -->
+      <div
+        id="mobileMenu"
+        class="md:hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex flex-col items-center justify-center space-y-8 text-xl font-semibold transition-opacity duration-300 opacity-0 pointer-events-none"
+      >
+        <button
+          id="closeMenu"
+          class="absolute top-6 right-6 text-white text-3xl"
+          aria-label="Fermer le menu"
+        >
+          &times;
+        </button>
+        <a href="index.html" class="text-white hover:text-secondary-500"
+          >Accueil</a
+        >
+        <a href="charger.html" class="text-white hover:text-secondary-500"
+          >Charger</a
+        >
+        <a href="produire.html" class="text-white hover:text-secondary-500"
+          >Produire</a
+        >
+        <a href="stocker.html" class="text-white hover:text-secondary-500"
+          >Stocker</a
+        >
+        <a href="entretien.html" class="text-white hover:text-secondary-500"
+          >Entretien</a
+        >
+        <a
+          href="#contact"
+          class="bg-gradient-to-r from-[#ff8c3e] to-[#e36213] text-white px-6 py-2 rounded-full hover:shadow-md transition-shadow"
+          >Contact</a
+        >
+      </div>
+      <script>
+        // Menu burger responsive
+        const burgerBtn = document.getElementById("burgerBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const closeMenu = document.getElementById("closeMenu");
+        function openMenu() {
+          mobileMenu.classList.remove("opacity-0", "pointer-events-none");
+          mobileMenu.classList.add("opacity-100");
+          burgerBtn.setAttribute("aria-expanded", "true");
+          document.body.style.overflow = "hidden";
+        }
+        function hideMenu() {
+          mobileMenu.classList.add("opacity-0", "pointer-events-none");
+          mobileMenu.classList.remove("opacity-100");
+          burgerBtn.setAttribute("aria-expanded", "false");
+          document.body.style.overflow = "";
+        }
+        burgerBtn.addEventListener("click", openMenu);
+        closeMenu.addEventListener("click", hideMenu);
+        mobileMenu.addEventListener("click", function (e) {
+          if (e.target === mobileMenu) hideMenu();
+        });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") hideMenu();
+        });
+      </script>
     </nav>
 
     <!-- Section Héros -->
