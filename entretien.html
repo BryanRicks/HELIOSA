@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Solutions de Stockage d'Énergie - Heliosa</title>
+    <title>Entretien Solaire - Heliosa</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
@@ -27,11 +27,10 @@
                 900: "#151515",
               },
               secondary: {
-                50: "#FEF9E7",
-                100: "#FCF3D0",
-                200: "#FAE6A0",
-                300: "#F7DA71",
-                400: "#F3CD42",
+                100: "#FEF9E7",
+                200: "#FCF3D0",
+                300: "#FAE6A0",
+                400: "#F7DA71",
                 500: "#F0B952",
                 600: "#E6A118",
                 700: "#C78306",
@@ -52,7 +51,6 @@
           font-family: "Inter", sans-serif;
         }
       }
-
       .hero-gradient {
         background: linear-gradient(
           135deg,
@@ -61,44 +59,21 @@
           #3d3012 100%
         );
       }
-
       .cta-gradient {
         background: linear-gradient(135deg, #151515 0%, #312411 100%);
       }
-
       .animate-fade-in {
-        animation: fadeIn 0.8s ease-in forwards;
+        animation: fadeIn 1.2s both;
       }
-
       @keyframes fadeIn {
-        0% {
+        from {
           opacity: 0;
-          transform: translateY(20px);
+          transform: translateY(30px);
         }
-        100% {
+        to {
           opacity: 1;
-          transform: translateY(0);
+          transform: none;
         }
-      }
-
-      .animate-delay-100 {
-        animation-delay: 0.1s;
-      }
-      .animate-delay-200 {
-        animation-delay: 0.2s;
-      }
-      .animate-delay-300 {
-        animation-delay: 0.3s;
-      }
-
-      .product-card {
-        transition: all 0.3s ease;
-      }
-
-      .product-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
-          0 10px 10px -5px rgba(0, 0, 0, 0.04);
       }
     </style>
   </head>
@@ -130,7 +105,6 @@
             class="h-auto max-h-full mr-2"
           />
         </a>
-
         <!-- Liens de navigation -->
         <div class="flex items-center space-x-6">
           <a href="index.html" class="text-white hover:text-gray-300"
@@ -145,15 +119,14 @@
           <a href="stocker.html" class="text-white hover:text-gray-300"
             >Stocker</a
           >
-          <a href="entretien.html" class="text-white hover:text-gray-300"
+          <a href="maintenance.html" class="text-secondary-500 font-semibold"
             >Entretien</a
           >
         </div>
-
         <!-- Bouton Contact -->
         <div>
           <a
-            href="#contact"
+            href="contact.html"
             class="bg-gradient-to-r from-[#ff8c3e] to-[#e36213] text-white px-5 py-2 rounded-full hover:shadow-md transition-shadow"
             >Contact</a
           >
@@ -169,15 +142,15 @@
             <h1
               class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in leading-tight"
             >
-              Solutions de <br /><span class="text-secondary-500"
-                >Stockage d'Énergie</span
+              Service d'<br /><span class="text-secondary-500"
+                >Entretien Solaire</span
               >
             </h1>
             <p
               class="text-lg md:text-xl mb-8 max-w-lg mx-auto md:mx-0 text-gray-200 animate-fade-in animate-delay-100"
             >
-              Découvrez nos systèmes de stockage d'énergie innovants pour
-              maximiser votre autonomie et optimiser votre consommation.
+              Prolongez la durée de vie et la performance de vos installations
+              solaires grâce à notre service d'entretien préventif et curatif.
             </p>
             <div
               class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 animate-fade-in animate-delay-200 justify-center md:justify-start"
@@ -189,241 +162,86 @@
                 Demander un devis
               </a>
               <a
-                href="#products"
+                href="#services"
                 class="border-2 border-white text-white px-8 py-3.5 rounded-lg font-medium hover:bg-white hover:text-primary-900 transition-colors inline-block text-center"
               >
-                Voir nos solutions
+                Nos services
               </a>
             </div>
           </div>
-          <div class="md:w-1/2 animate-fade-in animate-delay-200">
+          <div
+            class="md:w-1/2 animate-fade-in animate-delay-200 flex justify-center"
+          >
             <img
-              src="https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              alt="Système de stockage d'énergie"
-              class="rounded-xl shadow-2xl max-w-full"
+              src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+              alt="Technicien effectuant l'entretien solaire"
+              class="rounded-xl shadow-2xl max-w-xs bg-white p-6"
+              style="background: rgba(255, 255, 255, 0.1)"
             />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Types de stockage -->
-    <section id="products" class="py-20 bg-white">
+    <!-- Nos services d’entretien -->
+    <section id="services" class="py-20 bg-white">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16">
-          <span class="text-secondary-500 font-semibold">NOS SOLUTIONS</span>
+          <span class="text-secondary-500 font-semibold">NOS SERVICES</span>
           <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
-            Types de Stockage d'Énergie
+            Entretien & Suivi de vos Installations
           </h2>
           <p class="text-gray-600 max-w-2xl mx-auto">
-            Explorez nos diverses options de stockage d'énergie, conçues pour
-            répondre à vos besoins spécifiques.
+            Nos équipes assurent la surveillance, l'entretien et la réparation
+            de vos équipements solaires pour garantir leur efficacité et leur
+            sécurité.
           </p>
         </div>
-
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Batteries domestiques -->
+          <!-- Service 1 -->
           <div
-            class="bg-gray-50 rounded-xl overflow-hidden shadow-lg product-card"
+            class="bg-gray-50 rounded-xl overflow-hidden shadow-lg p-8 text-center"
           >
             <img
-              src="https://images.pexels.com/photos/5721871/pexels-photo-5721871.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              alt="Batteries domestiques"
-              class="w-full h-56 object-cover"
+              src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=128&q=80"
+              alt="Entretien préventif solaire"
+              class="w-32 h-32 object-cover rounded-lg mx-auto mb-4"
             />
-            <div class="p-6">
-              <h3 class="text-2xl font-bold text-primary-900 mb-2">
-                Batteries Domestiques
-              </h3>
-              <p class="text-gray-600 mb-4">
-                Stockez l'énergie solaire pour une utilisation nocturne ou en
-                cas de coupure de courant.
-              </p>
-              <div class="space-y-2">
-                <div class="flex items-center">
-                  <svg
-                    class="w-5 h-5 text-secondary-500 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>Capacité de 5 kWh à 15 kWh</span>
-                </div>
-                <div class="flex items-center">
-                  <svg
-                    class="w-5 h-5 text-secondary-500 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>Jusqu'à 10 ans de garantie</span>
-                </div>
-                <div class="flex items-center">
-                  <svg
-                    class="w-5 h-5 text-secondary-500 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>Installation facile et rapide</span>
-                </div>
-              </div>
-            </div>
+            <h3 class="text-xl font-bold mb-3">Entretien Préventif</h3>
+            <p class="text-gray-600">
+              Inspections régulières, nettoyage des panneaux, vérification des
+              connexions et contrôle des performances pour éviter toute panne.
+            </p>
           </div>
-
-          <!-- Systèmes de stockage industriels -->
+          <!-- Service 2 -->
           <div
-            class="bg-gray-50 rounded-xl overflow-hidden shadow-lg product-card"
+            class="bg-gray-50 rounded-xl overflow-hidden shadow-lg p-8 text-center"
           >
             <img
-              src="https://images.pexels.com/photos/4042792/pexels-photo-4042792.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              alt="Systèmes de stockage industriels"
-              class="w-full h-56 object-cover"
+              src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=128&q=80"
+              alt="Entretien curatif solaire"
+              class="w-32 h-32 object-cover rounded-lg mx-auto mb-4"
             />
-            <div class="p-6">
-              <h3 class="text-2xl font-bold text-primary-900 mb-2">
-                Stockage Industriel
-              </h3>
-              <p class="text-gray-600 mb-4">
-                Solutions de stockage d'énergie à grande échelle pour les
-                entreprises et les collectivités.
-              </p>
-              <div class="space-y-2">
-                <div class="flex items-center">
-                  <svg
-                    class="w-5 h-5 text-secondary-500 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>Capacité modulable de 50 kWh à 1 MWh</span>
-                </div>
-                <div class="flex items-center">
-                  <svg
-                    class="w-5 h-5 text-secondary-500 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>Intégration facile aux réseaux existants</span>
-                </div>
-                <div class="flex items-center">
-                  <svg
-                    class="w-5 h-5 text-secondary-500 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>Surveillance à distance et maintenance</span>
-                </div>
-              </div>
-            </div>
+            <h3 class="text-xl font-bold mb-3">Entretien Curatif</h3>
+            <p class="text-gray-600">
+              Intervention rapide en cas de dysfonctionnement, remplacement de
+              pièces défectueuses et remise en service de votre installation.
+            </p>
           </div>
-
-          <!-- Solutions de stockage mobiles -->
+          <!-- Service 3 -->
           <div
-            class="bg-gray-50 rounded-xl overflow-hidden shadow-lg product-card"
+            class="bg-gray-50 rounded-xl overflow-hidden shadow-lg p-8 text-center"
           >
             <img
-              src="https://images.pexels.com/photos/6944303/pexels-photo-6944303.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              alt="Solutions de stockage mobiles"
-              class="w-full h-56 object-cover"
+              src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=128&q=80"
+              alt="Surveillance à distance solaire"
+              class="w-32 h-32 object-cover rounded-lg mx-auto mb-4"
             />
-            <div class="p-6">
-              <h3 class="text-2xl font-bold text-primary-900 mb-2">
-                Stockage Mobile
-              </h3>
-              <p class="text-gray-600 mb-4">
-                Unités de stockage d'énergie portables pour les événements, les
-                chantiers et les situations d'urgence.
-              </p>
-              <div class="space-y-2">
-                <div class="flex items-center">
-                  <svg
-                    class="w-5 h-5 text-secondary-500 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>De 1 kWh à 10 kWh par unité</span>
-                </div>
-                <div class="flex items-center">
-                  <svg
-                    class="w-5 h-5 text-secondary-500 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>Facile à transporter et à installer</span>
-                </div>
-                <div class="flex items-center">
-                  <svg
-                    class="w-5 h-5 text-secondary-500 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span
-                    >Rechargeable via solaire, réseau ou groupe
-                    électrogène</span
-                  >
-                </div>
-              </div>
-            </div>
+            <h3 class="text-xl font-bold mb-3">Surveillance à Distance</h3>
+            <p class="text-gray-600">
+              Suivi en temps réel de la production et alertes automatiques en
+              cas d'anomalie pour une réactivité maximale.
+            </p>
           </div>
         </div>
       </div>
@@ -434,22 +252,20 @@
       <div class="container mx-auto px-6">
         <div class="text-center mb-16">
           <span class="text-secondary-500 font-semibold"
-            >POURQUOI CHOISIR NOS SOLUTIONS DE STOCKAGE</span
+            >POURQUOI FAIRE ENTRETENIR VOTRE INSTALLATION ?</span
           >
           <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
-            Les Avantages du Stockage d'Énergie
+            Les Bénéfices d’un Entretien Régulier
           </h2>
           <p class="text-gray-600 max-w-2xl mx-auto">
-            Découvrez comment nos solutions de stockage peuvent transformer
-            votre consommation d'énergie.
+            Optimisez la rentabilité de votre investissement solaire et évitez
+            les mauvaises surprises grâce à un entretien professionnel.
           </p>
         </div>
-
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <!-- Avantage 1 -->
-          <div class="bg-white p-6 rounded-xl shadow-md">
+          <div class="bg-white p-6 rounded-xl shadow-md text-center">
             <div
-              class="w-14 h-14 bg-secondary-500 rounded-lg flex items-center justify-center mb-6"
+              class="w-14 h-14 bg-secondary-500 rounded-lg flex items-center justify-center mx-auto mb-6"
             >
               <svg
                 class="w-8 h-8 text-white"
@@ -462,21 +278,42 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-5 8a2 2 0 100-4m0 4a2 2 0 110-4m5 8V10m0 2a2 2 0 100-4m0 4a2 2 0 110-4m5 8V10m0 2a2 2 0 100-4m0 4a2 2 0 110-4"
+                  d="M9 17v-2a4 4 0 018 0v2m-4-4V7m0 0V5a2 2 0 10-4 0v2m0 0a2 2 0 104 0z"
                 ></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold mb-3">Autonomie Énergétique</h3>
+            <h3 class="text-xl font-bold mb-3">Performance Maximale</h3>
             <p class="text-gray-600">
-              Devenez moins dépendant du réseau électrique et utilisez votre
-              propre énergie stockée.
+              Maintenez un rendement optimal de vos panneaux et équipements.
             </p>
           </div>
-
-          <!-- Avantage 2 -->
-          <div class="bg-white p-6 rounded-xl shadow-md">
+          <div class="bg-white p-6 rounded-xl shadow-md text-center">
             <div
-              class="w-14 h-14 bg-secondary-500 rounded-lg flex items-center justify-center mb-6"
+              class="w-14 h-14 bg-secondary-500 rounded-lg flex items-center justify-center mx-auto mb-6"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Sécurité Garantie</h3>
+            <p class="text-gray-600">
+              Prévenez les risques électriques et les pannes imprévues.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-md text-center">
+            <div
+              class="w-14 h-14 bg-secondary-500 rounded-lg flex items-center justify-center mx-auto mb-6"
             >
               <svg
                 class="w-8 h-8 text-white"
@@ -493,16 +330,14 @@
                 ></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold mb-3">Sécurité Accrue</h3>
+            <h3 class="text-xl font-bold mb-3">Suivi & Rapports</h3>
             <p class="text-gray-600">
-              Assurez une alimentation continue en cas de panne de courant.
+              Recevez des bilans réguliers sur l’état de votre installation.
             </p>
           </div>
-
-          <!-- Avantage 3 -->
-          <div class="bg-white p-6 rounded-xl shadow-md">
+          <div class="bg-white p-6 rounded-xl shadow-md text-center">
             <div
-              class="w-14 h-14 bg-secondary-500 rounded-lg flex items-center justify-center mb-6"
+              class="w-14 h-14 bg-secondary-500 rounded-lg flex items-center justify-center mx-auto mb-6"
             >
               <svg
                 class="w-8 h-8 text-white"
@@ -521,35 +356,7 @@
             </div>
             <h3 class="text-xl font-bold mb-3">Économies Durables</h3>
             <p class="text-gray-600">
-              Réduisez vos coûts énergétiques en stockant l'énergie lorsque les
-              tarifs sont bas.
-            </p>
-          </div>
-
-          <!-- Avantage 4 -->
-          <div class="bg-white p-6 rounded-xl shadow-md">
-            <div
-              class="w-14 h-14 bg-secondary-500 rounded-lg flex items-center justify-center mb-6"
-            >
-              <svg
-                class="w-8 h-8 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 3v2.25c-1.765 0-3.417.984-4.244 2.402a3.75 3.75 0 00-.933 2.603c-.148.368-.269.758-.35 1.162M12 3v10.332c0-.079 0-.159 0-.237 0-.59-.26-1.102-.757-1.477a4.5 4.5 0 01-1.895-.562c-.415-.082-.815-.19-1.162-.35M12 15.75V21"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold mb-3">Technologie Avancée</h3>
-            <p class="text-gray-600">
-              Profitez des dernières innovations en matière de stockage
-              d'énergie pour une efficacité optimale.
+              Réduisez vos coûts sur le long terme grâce à un entretien adapté.
             </p>
           </div>
         </div>
@@ -560,11 +367,11 @@
     <section class="py-20 cta-gradient text-white">
       <div class="container mx-auto px-6 text-center">
         <h2 class="text-3xl md:text-4xl font-bold mb-6">
-          Prêt à Produire Votre Propre Énergie ?
+          Besoin d’un Contrat d’Entretien ?
         </h2>
         <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-          Nos experts sont disponibles pour vous conseiller sur la meilleure
-          solution photovoltaïque adaptée à vos besoins.
+          Contactez nos experts pour un accompagnement personnalisé et une offre
+          sur-mesure.
         </p>
         <div
           class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center"
@@ -591,13 +398,12 @@
         <div class="text-center mb-16">
           <h2 class="text-3xl md:text-4xl font-bold mb-4">Contactez-Nous</h2>
           <p class="text-gray-600 max-w-2xl mx-auto">
-            Nous sommes là pour répondre à toutes vos questions et vous aider à
-            trouver la solution de stockage d'énergie idéale pour vos besoins.
+            Notre équipe est à votre écoute pour toute question ou demande
+            d'entretien.
           </p>
         </div>
-
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <!-- Formulaire de contact -->
+          <!-- Formulaire de Contact -->
           <div class="bg-white p-8 rounded-xl shadow-md">
             <h3 class="text-xl font-bold mb-6">Formulaire de Contact</h3>
             <form action="#" method="POST" class="space-y-4">
@@ -656,7 +462,6 @@
               </div>
             </form>
           </div>
-
           <!-- Informations de contact -->
           <div class="bg-white p-8 rounded-xl shadow-md">
             <h3 class="text-xl font-bold mb-6">Informations de Contact</h3>
@@ -674,7 +479,7 @@
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span class="text-gray-700">contact@heliosa.fr</span>
+                <span class="text-gray-700">+33 1 23 45 67 89</span>
               </div>
               <div class="flex items-center">
                 <svg
@@ -689,7 +494,7 @@
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span class="text-gray-700">+33 1 23 45 67 89</span>
+                <span class="text-gray-700">contact@heliosa.fr</span>
               </div>
               <div class="flex items-center">
                 <svg
