@@ -1,11 +1,19 @@
 // Animation GSAP pour l'intro Heliosa
+let heliosaAnimationRunning = false;
+
 function runHeliosaIntroAnimation() {
+  if (heliosaAnimationRunning) return;
+  heliosaAnimationRunning = true;
+
   const transitionElement = document.getElementById("transition");
   const transitionLogo = document.getElementById("transition-logo");
   const centerContainer = document.getElementById("center-container");
   const logosContainer = document.querySelector(".logos-container");
   const pictos = document.querySelectorAll(".logo-link");
   const pictoLabels = logosContainer.querySelectorAll("span");
+
+  // Nettoyer les styles GSAP sur les pictos
+  pictos.forEach((picto) => gsap.set(picto, { clearProps: "all" }));
 
   // Cache les labels au départ
   pictoLabels.forEach((label) => {
@@ -74,18 +82,19 @@ function runHeliosaIntroAnimation() {
         label.style.transition = "opacity 0.5s";
         label.style.opacity = 1;
       });
+      heliosaAnimationRunning = false;
     });
 }
 
 function launchHeliosaAnimationWithReflow() {
-  // Attendre que tout soit prêt et que le layout soit stable
+  if (heliosaAnimationRunning) return;
   setTimeout(runHeliosaIntroAnimation, 100); // petit délai pour garantir le layout mobile
 }
 
-window.addEventListener("DOMContentLoaded", launchHeliosaAnimationWithReflow);
+// Attendre que toutes les images soient chargées
+window.addEventListener("load", launchHeliosaAnimationWithReflow);
 window.addEventListener("orientationchange", launchHeliosaAnimationWithReflow);
 window.addEventListener("resize", function () {
-  // Relancer l'animation uniquement si on est sur mobile ou si la taille change beaucoup
   if (window.innerWidth < 900) {
     launchHeliosaAnimationWithReflow();
   }
