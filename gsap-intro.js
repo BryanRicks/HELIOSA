@@ -5,10 +5,13 @@ window.addEventListener("DOMContentLoaded", function () {
   const centerContainer = document.getElementById("center-container");
   const logosContainer = document.querySelector(".logos-container");
   const pictos = document.querySelectorAll(".logo-link");
+  // Sélectionne tous les labels sous les pictos
+  const pictoLabels = logosContainer.querySelectorAll("span");
 
-  // Cacher les pictos au départ
-  gsap.set(pictos, { opacity: 0, y: 40 });
-  gsap.set(logosContainer, { opacity: 0 });
+  // Cache les labels au départ
+  pictoLabels.forEach((label) => {
+    label.style.opacity = 0;
+  });
 
   // Déplacer le logo dans le container central avant l'animation
   centerContainer.insertBefore(transitionLogo, centerContainer.firstChild);
@@ -18,18 +21,56 @@ window.addEventListener("DOMContentLoaded", function () {
   // Supprimer l'écran de transition immédiatement
   transitionElement.style.display = "none";
 
+  // Cacher logosContainer mais pas les pictos (car ils seront animés depuis le logo)
+  gsap.set(logosContainer, { opacity: 1 });
+
+  // Obtenir la position centrale du logo
+  const logoBounds = transitionLogo.getBoundingClientRect();
+
+  pictos.forEach((picto) => {
+    const pictoBounds = picto.getBoundingClientRect();
+    // Calculer la différence entre la position du picto et celle du logo
+    const dx =
+      logoBounds.left +
+      logoBounds.width / 2 -
+      (pictoBounds.left + pictoBounds.width / 2);
+    const dy =
+      logoBounds.top +
+      logoBounds.height / 2 -
+      (pictoBounds.top + pictoBounds.height / 2);
+    // Placer chaque picto à la position du logo
+    gsap.set(picto, {
+      opacity: 0,
+      x: dx,
+      y: dy,
+      scale: 0.5,
+    });
+  });
+
   // Animation GSAP
-  const timeline = gsap.timeline({ defaults: { ease: "power2.inOut" } });
+  const timeline = gsap.timeline({ defaults: { ease: "power2.out" } });
 
   timeline
     // Zoom out du logo
     .fromTo(transitionLogo, { scale: 2 }, { duration: 2, scale: 0.8 })
-    // Affichage des pictos
-    .to(logosContainer, { opacity: 1 }, "-=0.3")
-    .to(pictos, {
-      duration: 1,
-      opacity: 1,
-      y: 0,
-      stagger: 0.2,
+    // Animer chaque picto vers sa position finale
+    .to(
+      pictos,
+      {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        scale: 1,
+        stagger: 0.2,
+        duration: 1.2,
+      },
+      "-=1" // overlap avec la fin de l'animation du logo
+    )
+    // Afficher les labels sous les pictos après l'animation
+    .add(() => {
+      pictoLabels.forEach((label) => {
+        label.style.transition = "opacity 0.5s";
+        label.style.opacity = 1;
+      });
     });
 });
