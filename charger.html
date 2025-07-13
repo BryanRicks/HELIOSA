@@ -162,11 +162,6 @@
             >Accueil</a
           >
           <a
-            href="charger.html"
-            class="block md:inline text-white hover:text-gray-300 py-2 md:py-0"
-            >Charger</a
-          >
-          <a
             href="produire.html"
             class="block md:inline text-white hover:text-gray-300 py-2 md:py-0"
             >Produire</a
@@ -177,9 +172,14 @@
             >Stocker</a
           >
           <a
+            href="charger.html"
+            class="block md:inline text-white hover:text-gray-300 py-2 md:py-0"
+            >Charger</a
+          >
+          <a
             href="entretien.html"
             class="block md:inline text-white hover:text-gray-300 py-2 md:py-0"
-            >Entretien</a
+            >Entretenir</a
           >
           <a
             href="#contact"
@@ -213,9 +213,29 @@
     </script>
 
     <!-- Section Héros -->
-    <section class="py-16 md:py-24 hero-gradient text-white">
-      <div class="container mx-auto px-6">
-        <div class="flex flex-col md:flex-row items-center">
+    <section class="py-16 md:py-24 relative text-white overflow-hidden">
+      <!-- Vidéo de fond -->
+      <video
+        autoplay
+        muted
+        playsinline
+        loop
+        class="absolute top-0 left-0 w-full h-full object-cover z-0"
+      >
+        <source
+          src="HELIOSA_VIDEOS_SITE/Borne De Recharge.mp4"
+          type="video/mp4"
+        />
+        Votre navigateur ne supporte pas la vidéo HTML5.
+      </video>
+
+      <!-- Overlay sombre pour améliorer la lisibilité -->
+      <div
+        class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 z-1"
+      ></div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="flex flex-col md:flex-row items-center w-full">
           <div class="md:w-1/2 mb-12 md:mb-0 text-center md:text-left">
             <h1
               class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in leading-tight"
@@ -247,14 +267,6 @@
                 Voir nos produits
               </a>
             </div>
-          </div>
-          <!-- Section Héros - Image complètement nouvelle -->
-          <div class="md:w-1/2 animate-fade-in animate-delay-200">
-            <img
-              src="https://images.pexels.com/photos/3682489/pexels-photo-3682489.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-              alt="Borne de recharge électrique"
-              class="rounded-xl shadow-2xl max-w-full"
-            />
           </div>
         </div>
       </div>
