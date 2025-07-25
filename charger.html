@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bornes de Recharge - Heliosa</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <script>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Bornes de Recharge - Heliosa</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+        <script>
       tailwind.config = {
         theme: {
           extend: {
@@ -46,7 +43,7 @@
         },
       };
     </script>
-    <style type="text/tailwindcss">
+        <style type="text/tailwindcss">
       @layer base {
         body {
           font-family: "Inter", sans-serif;
@@ -101,103 +98,41 @@
           0 10px 10px -5px rgba(0, 0, 0, 0.04);
       }
     </style>
-  </head>
-  <body class="bg-gray-50 text-gray-800">
-    <!-- Navigation -->
-    <nav class="sticky top-0 z-50">
-      <div
-        class="mx-auto px-6 py-3 flex items-center justify-between"
-        style="
+    </head>
+    <body class="bg-gray-50 text-gray-800">
+        <!-- Navigation -->
+        <nav class="sticky top-0 z-50">
+            <div class="mx-auto px-6 py-3 flex items-center justify-between" style="
           background: linear-gradient(to right, #0c1c2d, #2e2e2e);
           height: 70px;
-        "
-      >
-        <!-- Logo -->
-        <a
-          href="index.html"
-          class="text-white text-2xl font-bold flex items-center"
-          style="
+        ">
+                <!-- Logo --><a href="index.html" class="text-white text-2xl font-bold flex items-center" style="
             width: 140px;
             height: 40px;
             display: flex;
             align-items: center;
             padding-left: 20px;
-          "
-        >
-          <img
-            src="SITE_VISUELS/LOGO/LOGO_C_HELIOSA.png"
-            alt="Heliosa Logo"
-            class="h-auto max-h-full mr-2"
-          />
-        </a>
-        <!-- Burger menu (mobile) -->
-        <button
-          id="menu-toggle"
-          class="md:hidden text-white focus:outline-none"
-          aria-label="Ouvrir le menu"
-        >
-          <svg
-            class="w-8 h-8"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            ></path>
-          </svg>
-        </button>
-        <!-- Liens de navigation (desktop centré, mobile menu) -->
-        <div
-          id="nav-links"
-          class="hidden md:flex items-center space-x-6 justify-center flex-1 absolute md:static top-16 left-0 w-full md:w-auto bg-[#0c1c2d] md:bg-transparent px-6 md:px-0 py-6 md:py-0 z-40"
-        >
-          <a
-            href="index.html"
-            class="block md:inline text-white hover:text-gray-300 py-2 md:py-0"
-            >Accueil</a
-          >
-          <a
-            href="produire.html"
-            class="block md:inline text-white hover:text-gray-300 py-2 md:py-0"
-            >Produire</a
-          >
-          <a
-            href="stocker.html"
-            class="block md:inline text-white hover:text-gray-300 py-2 md:py-0"
-            >Stocker</a
-          >
-          <a
-            href="charger.html"
-            class="block md:inline text-white hover:text-gray-300 py-2 md:py-0"
-            >Charger</a
-          >
-          <a
-            href="entretien.html"
-            class="block md:inline text-white hover:text-gray-300 py-2 md:py-0"
-            >Entretenir</a
-          >
-          <a
-            href="#contact"
-            class="block md:inline text-white hover:text-gray-300 py-2 md:py-0"
-            >Contact</a
-          >
-        </div>
-        <!-- Bouton Contact -->
-        <!-- <div class="hidden md:block">
+          "> <img src="SITE_VISUELS/LOGO/LOGO_C_HELIOSA.png" alt="Heliosa Logo" class="h-auto max-h-full mr-2"/> </a>
+                <!-- Burger menu (mobile) -->
+                <button id="menu-toggle" class="md:hidden text-white focus:outline-none" aria-label="Ouvrir le menu">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+                <!-- Liens de navigation (desktop centré, mobile menu) -->
+                <div id="nav-links" class="hidden md:flex items-center space-x-6 justify-center flex-1 absolute md:static top-16 left-0 w-full md:w-auto bg-[#0c1c2d] md:bg-transparent px-6 md:px-0 py-6 md:py-0 z-40"><a href="index.html" class="block md:inline text-white hover:text-gray-300 py-2 md:py-0">Accueil</a><a href="produire.html" class="block md:inline text-white hover:text-gray-300 py-2 md:py-0">Produire</a><a href="stocker.html" class="block md:inline text-white hover:text-gray-300 py-2 md:py-0">Stocker</a><a href="charger.html" class="block md:inline text-white hover:text-gray-300 py-2 md:py-0">Charger</a><a href="entretien.html" class="block md:inline text-white hover:text-gray-300 py-2 md:py-0">Entretenir</a><a href="#contact" class="block md:inline text-white hover:text-gray-300 py-2 md:py-0">Contact</a>
+                </div>
+                <!-- Bouton Contact -->
+                <!-- <div class="hidden md:block">
           <a
             href="#contact"
             class="bg-gradient-to-r from-[#ff8c3e] to-[#e36213] text-white px-5 py-2 rounded-full hover:shadow-md transition-shadow"
             >Contact</a
           >
         </div> -->
-      </div>
-    </nav>
-    <script>
+            </div>
+        </nav>
+        <script>
       // Responsive menu JS
       const menuToggle = document.getElementById("menu-toggle");
       const navLinks = document.getElementById("nav-links");
@@ -211,770 +146,201 @@
         });
       });
     </script>
-
-    <!-- Section Héros -->
-    <section class="py-16 md:py-24 relative text-white overflow-hidden">
-      <!-- Vidéo de fond -->
-      <video
-        autoplay
-        muted
-        playsinline
-        loop
-        class="absolute top-0 left-0 w-full h-full object-cover z-0"
-        style="object-position: center bottom"
-      >
-        <source
-          src="HELIOSA_VIDEOS_SITE/Borne De Recharge.mp4"
-          type="video/mp4"
-        />
-        Votre navigateur ne supporte pas la vidéo HTML5.
-      </video>
-
-      <!-- Overlay sombre pour améliorer la lisibilité -->
-      <div
-        class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 z-1"
-      ></div>
-
-      <div class="container mx-auto px-6 relative z-10">
-        <div class="flex flex-col md:flex-row items-center w-full">
-          <div class="md:w-1/2 mb-12 md:mb-0 text-center md:text-left">
-            <h1
-              class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in leading-tight"
-            >
-              Nos Bornes <br /><span class="text-secondary-500"
-                >de Recharge</span
-              >
-            </h1>
-            <p
-              class="text-lg md:text-xl mb-8 max-w-lg mx-auto md:mx-0 text-gray-200 animate-fade-in animate-delay-100"
-            >
+        <!-- Section Héros -->
+        <section class="py-16 md:py-24 relative text-white overflow-hidden">
+            <!-- Vidéo de fond -->
+            <video autoplay muted playsinline loop class="absolute top-0 left-0 w-full h-full object-cover z-0" style="object-position: center bottom">
+                <source src="HELIOSA_VIDEOS_SITE/Borne De Recharge.mp4" type="video/mp4"/>
+                Votre navigateur ne supporte pas la vidéo HTML5.
+            </video>
+            <!-- Overlay sombre pour améliorer la lisibilité -->
+            <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 z-1"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="flex flex-col md:flex-row items-center w-full">
+                    <div class="md:w-1/2 mb-12 md:mb-0 text-center md:text-left">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in leading-tight">
+              Nos Bornes <br/><span class="text-secondary-500">de Recharge</span> </h1>
+                        <p class="text-lg md:text-xl mb-8 max-w-lg mx-auto md:mx-0 text-gray-200 animate-fade-in animate-delay-100">
               Découvrez notre gamme complète de bornes de recharge pour
               véhicules électriques, alliant performance, fiabilité et design
-              moderne.
-            </p>
-            <div
-              class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 animate-fade-in animate-delay-200 justify-center md:justify-start"
-            >
-              <a
-                href="contact.html"
-                class="bg-secondary-500 text-white px-8 py-4 rounded-lg font-medium hover:bg-secondary-600 transition-colors inline-block text-center"
-              >
-                Demander un devis
-              </a>
-              <a
-                href="#products"
-                class="border-2 border-white text-white px-8 py-3.5 rounded-lg font-medium hover:bg-white hover:text-primary-900 transition-colors inline-block text-center"
-              >
-                Voir nos produits
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Types de bornes -->
-    <section id="products" class="py-20 bg-white">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <span class="text-secondary-500 font-semibold">NOS PRODUITS</span>
-          <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
-            Types de Bornes de Recharge
-          </h2>
-          <p class="text-gray-600 max-w-2xl mx-auto">
-            Nous proposons différents modèles de bornes adaptés à tous les
-            besoins, de la maison individuelle aux entreprises
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Borne Résidentielle avec nouvelle image -->
-          <div
-            class="bg-gray-50 rounded-xl overflow-hidden shadow-lg product-card"
-          >
-            <img
-              src="https://images.pexels.com/photos/9856308/pexels-photo-9856308.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              alt="Borne résidentielle"
-              class="w-full h-56 object-cover"
-            />
-            <div class="p-6">
-              <h3 class="text-2xl font-bold text-primary-900 mb-2">
-                Borne Résidentielle
-              </h3>
-              <p class="text-gray-600 mb-4">
-                Solutions adaptées pour une installation à domicile, avec une
-                puissance de 3,7 à 22 kW.
-              </p>
-              <div class="space-y-2">
-                <div class="flex items-center">
-                  <svg
-                    class="w-5 h-5 text-secondary-500 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>Installation simple et rapide</span>
+              moderne. </p>
+                        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 animate-fade-in animate-delay-200 justify-center md:justify-start"><a href="contact.html" class="bg-secondary-500 text-white px-8 py-4 rounded-lg font-medium hover:bg-secondary-600 transition-colors inline-block text-center">
+                Demander un devis </a><a href="#products" class="border-2 border-white text-white px-8 py-3.5 rounded-lg font-medium hover:bg-white hover:text-primary-900 transition-colors inline-block text-center">
+                Voir nos produits </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex items-center">
-                  <svg
-                    class="w-5 h-5 text-secondary-500 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span
-                    >Recharge jusqu'à 10x plus rapide qu'une prise
-                    standard</span
-                  >
+            </div>
+        </section>
+        <!-- Types de bornes -->
+        <section id="products" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16"><span class="text-secondary-500 font-semibold">NOS PRODUITS</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
+            Nos bornes de recharges </h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto"><p><b>Installation clé en main</b></p><span style="color: rgb(75 85 99 / var(--tw-text-opacity, 1)); background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));">De l&rsquo;étude à la mise en service, nous prenons en charge votre projet de A à Z</span></p>
                 </div>
-                <div class="flex items-center">
-                  <svg
-                    class="w-5 h-5 text-secondary-500 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>Design compact et élégant</span>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Borne Résidentielle avec nouvelle image -->
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg product-card">
+                        <img src="https://images.pexels.com/photos/9856308/pexels-photo-9856308.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1260&amp;h=750&amp;dpr=1" alt="Borne résidentielle" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-primary-900 mb-2">Bornes de recharge intelligentes</h3>
+                            <div class="space-y-2">
+                                <div class="flex items-center"><span>🟡<b> Communication directe avec l&rsquo;onduleur</b><br>&nbsp;Nos bornes de recharge sont capables de communiquer avec l&rsquo;onduleur de votre installation photovoltaïque, afin d&rsquo;adapter automatiquement la recharge en fonction de votre production solaire et du surplus disponible.<br><br></span>
+                                </div>
+                                <div class="flex items-center"><span>🟡 <b>Compatibilité universelle</b><br>Nos bornes sont compatibles avec tous les véhicules électriques et hybrides rechargeables du marché.<br><br></span>
+                                </div>
+                                <div class="flex items-center"><span>🟡 <b>Gestion et suivi à distance</b><br>Grâce à une application dédiée, vous suivez vos recharges en temps réel, programmez les heures, et pilotez votre borne à distance.<br><br></span>
+                                </div>
+                            </div><span>🟡 <b>Puissance adaptée à vos besoins</b><br>Nous installons des bornes de 7,4 kW en monophasé et jusqu&rsquo;à 22 kW en triphasé, selon votre installation électrique.
+Nous proposons également une prise de recharge aux normes pouvant délivrer jusqu&rsquo;à 3,7 kW.</span>
+                        </div>
+                    </div>
+                    <!-- Borne Professionnelle avec nouvelle image -->
+                    <!-- Borne Rapide avec nouvelle image -->
                 </div>
-              </div>
             </div>
-          </div>
-
-          <!-- Borne Professionnelle avec nouvelle image -->
-          <div
-            class="bg-gray-50 rounded-xl overflow-hidden shadow-lg product-card"
-          >
-            <img
-              src="https://images.pexels.com/photos/3819560/pexels-photo-3819560.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              alt="Borne professionnelle"
-              class="w-full h-56 object-cover"
-            />
-            <div class="p-6">
-              <h3 class="text-2xl font-bold text-primary-900 mb-2">
-                Borne Professionnelle
-              </h3>
-              <p class="text-gray-600 mb-4">
-                Idéal pour les entreprises, avec une puissance de 11 à 22 kW et
-                des fonctionnalités avancées.
-              </p>
-              <div class="space-y-2">
-                <div class="flex items-center">
-                  <svg
-                    class="w-5 h-5 text-secondary-500 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>Gestion multi-utilisateurs</span>
+        </section>
+        <!-- Avantages -->
+        <!-- Témoignages -->
+        <!-- FAQ -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16"><span class="text-secondary-500 font-semibold">QUESTIONS FRÉQUENTES</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
+            FAQ - Bornes de Recharge </h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+            Vous avez des questions ? Nous avons les réponses. </p>
                 </div>
-                <div class="flex items-center">
-                  <svg
-                    class="w-5 h-5 text-secondary-500 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>Facturation et rapports automatisés</span>
+                <div class="space-y-8">
+                    <!-- Question 1 -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold mb-4">Q1: Quelle puissance de borne faut-il installer chez moi ?</h3>
+                        <p class="text-gray-600">R: La puissance de recharge dépend de votre installation électrique : en monophasé, la borne peut délivrer jusqu&rsquo;à 7,4 kW, tandis qu&rsquo;en triphasé, elle peut atteindre 22 kW.
+Attention toutefois à votre câble de recharge, qui doit être compatible triphasé pour profiter pleinement de la puissance maximale. Sinon, même avec une installation triphasée, la recharge sera limitée à 7,4 kW.</p>
+                    </div>
+                    <!-- Question 2 -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold mb-4">Q2: Qui installe la borne ?</h3>
+                        <p class="text-gray-600">R: Nous nous chargeons de l&rsquo;installation complète : étude de faisabilité, pose, configuration et mise en service. Vous n&rsquo;avez rien à gérer, tout est clé en main.</p>
+                    </div>
+                    <!-- Question 3 -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold mb-4">Q3: Ai-je droit à des aides pour l&rsquo;installation d&rsquo;une borne de recharge ?</h3>
+                        <p class="text-gray-600">R: Oui, plusieurs aides sont disponibles pour vous aider à financer votre borne de recharge :<br>- La TVA est réduite à 5,5 % sur le matériel et la main d&apos;oeuvre<br>- Vous pouvez bénéficier d&rsquo;un crédit d&rsquo;impôt allant jusqu&rsquo;à 500 &euro; selon votre situation et votre région.</p>
+                    </div>
+                    <!-- Question 4 -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold mb-4">Q4: Pourquoi installer une borne de recharge alors que je peux recharger sur une prise classique ?&nbsp;</h3>
+                        <p class="text-gray-600">R: Recharger un véhicule électrique sur une prise classique présente plusieurs risques et inconvénients. Les prises domestiques ne sont pas conçues pour supporter une charge prolongée et peuvent chauffer, ce qui augmente le risque d&rsquo;incendie. De plus, la recharge est beaucoup plus lente, souvent 3 à 4 fois plus longue qu&rsquo;avec une borne dédiée. Installer une borne de recharge sécurisée et adaptée permet non seulement d&rsquo;optimiser la vitesse de recharge, mais aussi d&rsquo;assurer la sécurité de votre installation électrique.</p>
+                    </div>
                 </div>
-                <div class="flex items-center">
-                  <svg
-                    class="w-5 h-5 text-secondary-500 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>Compatible avec tous types de véhicules</span>
-                </div>
-              </div>
             </div>
-          </div>
-
-          <!-- Borne Rapide avec nouvelle image -->
-          <div
-            class="bg-gray-50 rounded-xl overflow-hidden shadow-lg product-card"
-          >
-            <img
-              src="https://images.pexels.com/photos/6657376/pexels-photo-6657376.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              alt="Borne rapide"
-              class="w-full h-56 object-cover"
-            />
-            <div class="p-6">
-              <h3 class="text-2xl font-bold text-primary-900 mb-2">
-                Borne Rapide DC
-              </h3>
-              <p class="text-gray-600 mb-4">
-                Solution haute puissance jusqu'à 150 kW pour une recharge
-                ultra-rapide.
-              </p>
-              <div class="space-y-2">
-                <div class="flex items-center">
-                  <svg
-                    class="w-5 h-5 text-secondary-500 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>Recharge 80% de la batterie en 30 minutes</span>
-                </div>
-                <div class="flex items-center">
-                  <svg
-                    class="w-5 h-5 text-secondary-500 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>Écran tactile intégré</span>
-                </div>
-                <div class="flex items-center">
-                  <svg
-                    class="w-5 h-5 text-secondary-500 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>Idéal pour stations-service et commerces</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Avantages -->
-    <section class="py-20 bg-gray-50">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <span class="text-secondary-500 font-semibold"
-            >POURQUOI NOUS CHOISIR</span
-          >
-          <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
-            Avantages de Nos Bornes
-          </h2>
-          <p class="text-gray-600 max-w-2xl mx-auto">
-            Découvrez ce qui rend nos bornes de recharge supérieures à la
-            concurrence
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <!-- Avantage 1 -->
-          <div class="bg-white p-6 rounded-xl shadow-md">
-            <div
-              class="w-14 h-14 bg-secondary-500 rounded-lg flex items-center justify-center mb-6"
-            >
-              <svg
-                class="w-8 h-8 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M13 10V3L4 14h7v7l9-11h-7z"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold mb-3">Recharge Optimisée</h3>
-            <p class="text-gray-600">
-              Technologie de pointe permettant une recharge plus rapide et plus
-              efficace que les solutions standards.
-            </p>
-          </div>
-
-          <!-- Avantage 2 -->
-          <div class="bg-white p-6 rounded-xl shadow-md">
-            <div
-              class="w-14 h-14 bg-secondary-500 rounded-lg flex items-center justify-center mb-6"
-            >
-              <svg
-                class="w-8 h-8 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold mb-3">Sécurité Maximale</h3>
-            <p class="text-gray-600">
-              Systèmes de protection intégrés contre les surtensions,
-              courts-circuits et températures excessives.
-            </p>
-          </div>
-
-          <!-- Avantage 3 -->
-          <div class="bg-white p-6 rounded-xl shadow-md">
-            <div
-              class="w-14 h-14 bg-secondary-500 rounded-lg flex items-center justify-center mb-6"
-            >
-              <svg
-                class="w-8 h-8 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.025 12.025 0 011 12a12.025 12.025 0 012.382 7.056A11.955 11.955 0 0112 21.056a11.955 11.955 0 018.618-3.04A12.025 12.025 0 0123 12a12.025 12.025 0 01-2.382-7.056A11.955 11.955 0 0112 2.944z"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold mb-3">Durabilité Assurée</h3>
-            <p class="text-gray-600">
-              Conçues pour résister aux conditions les plus exigeantes, avec des
-              matériaux de haute qualité et une protection IP65.
-            </p>
-          </div>
-
-          <!-- Avantage 4 -->
-          <div class="bg-white p-6 rounded-xl shadow-md">
-            <div
-              class="w-14 h-14 bg-secondary-500 rounded-lg flex items-center justify-center mb-6"
-            >
-              <svg
-                class="w-8 h-8 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7M10 3H4a2 2 0 00-2 2v4h16V5a2 2 0 00-2-2h-6z"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold mb-3">Facilité d'Utilisation</h3>
-            <p class="text-gray-600">
-              Interfaces intuitives avec écran tactile, connectivité Wi-Fi et
-              applications dédiées pour un contrôle total.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Témoignages -->
-    <section class="py-20 bg-white">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <span class="text-secondary-500 font-semibold"
-            >ILS NOUS FONT CONFIANCE</span
-          >
-          <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
-            Témoignages Clients
-          </h2>
-          <p class="text-gray-600 max-w-2xl mx-auto">
-            Découvrez les retours d'expérience de nos clients satisfaits
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Témoignage 1 -->
-          <div class="bg-gray-50 p-6 rounded-xl shadow-md">
-            <p class="text-gray-600 mb-4">
-              "Depuis que nous avons installé les bornes Heliosa, la
-              satisfaction de nos clients a augmenté. Recharge rapide et facile,
-              que demander de plus ?"
-            </p>
-            <div class="flex items-center">
-              <img
-                src="https://randomuser.me/api/portraits/men/32.jpg"
-                alt="Client 1"
-                class="w-12 h-12 rounded-full mr-3"
-              />
-              <div>
-                <p class="text-primary-900 font-semibold">Jean Dupont</p>
-                <p class="text-gray-500 text-sm">Directeur, Entreprise X</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Témoignage 2 -->
-          <div class="bg-gray-50 p-6 rounded-xl shadow-md">
-            <p class="text-gray-600 mb-4">
-              "Les bornes de recharge Heliosa sont non seulement performantes
-              mais aussi esthétiques. Elles s'intègrent parfaitement à notre
-              environnement."
-            </p>
-            <div class="flex items-center">
-              <img
-                src="https://randomuser.me/api/portraits/women/32.jpg"
-                alt="Client 2"
-                class="w-12 h-12 rounded-full mr-3"
-              />
-              <div>
-                <p class="text-primary-900 font-semibold">Marie Curie</p>
-                <p class="text-gray-500 text-sm">Gérante, Boutique Y</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Témoignage 3 -->
-          <div class="bg-gray-50 p-6 rounded-xl shadow-md">
-            <p class="text-gray-600 mb-4">
-              "Installation rapide, service après-vente réactif, je recommande
-              vivement Heliosa à toutes les entreprises souhaitant se doter de
-              bornes de recharge."
-            </p>
-            <div class="flex items-center">
-              <img
-                src="https://randomuser.me/api/portraits/men/33.jpg"
-                alt="Client 3"
-                class="w-12 h-12 rounded-full mr-3"
-              />
-              <div>
-                <p class="text-primary-900 font-semibold">Paul Martin</p>
-                <p class="text-gray-500 text-sm">Responsable, Société Z</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="py-20 bg-white">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <span class="text-secondary-500 font-semibold"
-            >QUESTIONS FRÉQUENTES</span
-          >
-          <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
-            FAQ - Bornes de Recharge
-          </h2>
-          <p class="text-gray-600 max-w-2xl mx-auto">
-            Vous avez des questions ? Nous avons les réponses.
-          </p>
-        </div>
-
-        <div class="space-y-8">
-          <!-- Question 1 -->
-          <div class="bg-gray-50 p-6 rounded-xl shadow-md">
-            <h3 class="text-xl font-bold mb-4">
-              Q1: Quels sont les délais d'installation ?
-            </h3>
-            <p class="text-gray-600">
-              R: Nos délais d'installation varient en fonction de la complexité
-              du projet et de votre localisation. En général, comptez entre 5 à
-              10 jours ouvrés.
-            </p>
-          </div>
-
-          <!-- Question 2 -->
-          <div class="bg-gray-50 p-6 rounded-xl shadow-md">
-            <h3 class="text-xl font-bold mb-4">
-              Q2: Les bornes sont-elles compatibles avec tous les véhicules ?
-            </h3>
-            <p class="text-gray-600">
-              R: Oui, nos bornes sont compatibles avec tous les véhicules
-              électriques courants grâce à leurs prises standards.
-            </p>
-          </div>
-
-          <!-- Question 3 -->
-          <div class="bg-gray-50 p-6 rounded-xl shadow-md">
-            <h3 class="text-xl font-bold mb-4">
-              Q3: Proposez-vous des solutions de financement ?
-            </h3>
-            <p class="text-gray-600">
-              R: Oui, nous proposons des solutions de financement adaptées à vos
-              besoins. N'hésitez pas à nous contacter pour plus d'informations.
-            </p>
-          </div>
-
-          <!-- Question 4 -->
-          <div class="bg-gray-50 p-6 rounded-xl shadow-md">
-            <h3 class="text-xl font-bold mb-4">
-              Q4: Comment puis-je suivre l'état de ma commande ?
-            </h3>
-            <p class="text-gray-600">
-              R: Vous recevrez un email de confirmation avec un lien de suivi
-              une fois votre commande expédiée.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="py-20 bg-gray-50" id="contact">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <span class="text-secondary-500 font-semibold">NOUS CONTACTER</span>
-          <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
-            Contactez-Nous
-          </h2>
-          <p class="text-gray-600 max-w-2xl mx-auto">
+        </section>
+        <!-- Contact -->
+        <section class="py-20 bg-gray-50" id="contact">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16"><span class="text-secondary-500 font-semibold">NOUS CONTACTER</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
+            Contactez-Nous </h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
             Vous avez des questions ou souhaitez un devis ? Remplissez le
             formulaire ci-dessous, et nous reviendrons vers vous dans les plus
-            brefs délais.
-          </p>
-        </div>
-
-        <div class="max-w-xl mx-auto">
-          <form
-            action="#"
-            method="POST"
-            class="bg-white p-8 rounded-xl shadow-md"
-          >
-            <div class="grid grid-cols-1 gap-6">
-              <div>
-                <label
-                  for="name"
-                  class="block text-gray-700 font-semibold mb-2"
-                >
-                  Nom Complet
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  class="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary-500"
-                  placeholder="Votre nom complet"
-                />
-              </div>
-              <div>
-                <label
-                  for="email"
-                  class="block text-gray-700 font-semibold mb-2"
-                >
-                  Adresse Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  class="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary-500"
-                  placeholder="Votre adresse email"
-                />
-              </div>
-              <div>
-                <label
-                  for="phone"
-                  class="block text-gray-700 font-semibold mb-2"
-                >
-                  Numéro de Téléphone
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  required
-                  class="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary-500"
-                  placeholder="Votre numéro de téléphone"
-                />
-              </div>
-              <div>
-                <label
-                  for="message"
-                  class="block text-gray-700 font-semibold mb-2"
-                >
-                  Votre Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="4"
-                  required
-                  class="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary-500"
-                  placeholder="Dites-nous en plus sur votre projet"
-                ></textarea>
-              </div>
+            brefs délais. </p>
+                </div>
+                <div class="max-w-xl mx-auto">
+                    <form action="#" method="POST" class="bg-white p-8 rounded-xl shadow-md">
+                        <div class="grid grid-cols-1 gap-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-semibold mb-2">
+                                    Nom Complet
+</label>
+                                <input type="text" id="name" name="name" required class="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary-500" placeholder="Votre nom complet"/>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 font-semibold mb-2">
+                                    Adresse Email
+</label>
+                                <input type="email" id="email" name="email" required class="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary-500" placeholder="Votre adresse email"/>
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-gray-700 font-semibold mb-2">
+                                    Numéro de Téléphone
+</label>
+                                <input type="tel" id="phone" name="phone" required class="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary-500" placeholder="Votre numéro de téléphone"/>
+                            </div>
+                            <div>
+                                <label for="message" class="block text-gray-700 font-semibold mb-2">
+                                    Votre Message
+</label>
+                                <textarea id="message" name="message" rows="4" required class="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary-500" placeholder="Dites-nous en plus sur votre projet"></textarea>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <button type="submit" class="w-full bg-secondary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-secondary-600 transition-colors">
+                                Envoyer votre message
+</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="mt-4">
-              <button
-                type="submit"
-                class="w-full bg-secondary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-secondary-600 transition-colors"
-              >
-                Envoyer votre message
-              </button>
+        </section>
+        <!-- Footer -->
+        <footer class="py-10 bg-gray-900 text-white">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row justify-between">
+                    <div class="mb-6 md:mb-0"><a href="index.html" class="text-white text-2xl font-bold flex items-center" style="height: 60px; display: flex; align-items: center"> <img src="SITE_VISUELS/LOGO/LOGO_C_HELIOSA.png" alt="Heliosa Logo" class="h-auto max-h-full mr-2" style="max-height: 60px"/> </a>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div>
+                            <h3 class="text-lg font-semibold mb-4">Liens Utiles</h3>
+                            <ul class="space-y-2">
+                                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    Politique de Confidentialité </a>
+                                </li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    Conditions d'Utilisation </a>
+                                </li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    FAQ </a>
+                                </li>
+                                <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">
+                    Nous Contacter </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold mb-4">Suivez-Nous</h3>
+                            <ul class="space-y-2">
+                                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    Facebook </a>
+                                </li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    Twitter </a>
+                                </li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    LinkedIn </a>
+                                </li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    Instagram </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold mb-4">Contactez-Nous</h3>
+                            <p class="text-gray-400 mb-2">
+                123 Rue de l'Industrie, 75000 Paris, France </p>
+                            <p class="text-gray-400 mb-2">Téléphone : +33 1 23 45 67 89</p>
+                            <p class="text-gray-400">Email : contact@heliosa.fr</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-10 border-t border-gray-800 pt-6 text-center">
+                    <p class="text-gray-400 text-sm">
+            &copy; 2023 Heliosa. Tous droits réservés. </p>
+                </div>
             </div>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-10 bg-gray-900 text-white">
-      <div class="container mx-auto px-6">
-        <div class="flex flex-col md:flex-row justify-between">
-          <div class="mb-6 md:mb-0">
-            <a
-              href="index.html"
-              class="text-white text-2xl font-bold flex items-center"
-              style="height: 60px; display: flex; align-items: center"
-            >
-              <img
-                src="SITE_VISUELS/LOGO/LOGO_C_HELIOSA.png"
-                alt="Heliosa Logo"
-                class="h-auto max-h-full mr-2"
-                style="max-height: 60px"
-              />
-            </a>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <h3 class="text-lg font-semibold mb-4">Liens Utiles</h3>
-              <ul class="space-y-2">
-                <li>
-                  <a
-                    href="#"
-                    class="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Politique de Confidentialité
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Conditions d'Utilisation
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="text-gray-400 hover:text-white transition-colors"
-                  >
-                    FAQ
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="contact.html"
-                    class="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Nous Contacter
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 class="text-lg font-semibold mb-4">Suivez-Nous</h3>
-              <ul class="space-y-2">
-                <li>
-                  <a
-                    href="#"
-                    class="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Facebook
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Twitter
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="text-gray-400 hover:text-white transition-colors"
-                  >
-                    LinkedIn
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Instagram
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 class="text-lg font-semibold mb-4">Contactez-Nous</h3>
-              <p class="text-gray-400 mb-2">
-                123 Rue de l'Industrie, 75000 Paris, France
-              </p>
-              <p class="text-gray-400 mb-2">Téléphone : +33 1 23 45 67 89</p>
-              <p class="text-gray-400">Email : contact@heliosa.fr</p>
-            </div>
-          </div>
-        </div>
-        <div class="mt-10 border-t border-gray-800 pt-6 text-center">
-          <p class="text-gray-400 text-sm">
-            &copy; 2023 Heliosa. Tous droits réservés.
-          </p>
-        </div>
-      </div>
-    </footer>
-  </body>
+        </footer>
+    </body>
 </html>

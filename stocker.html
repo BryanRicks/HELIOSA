@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Solutions de Stockage d'Énergie - Heliosa</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <script>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Solutions de Stockage d'Énergie - Heliosa</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+        <script>
       tailwind.config = {
         theme: {
           extend: {
@@ -46,7 +43,7 @@
         },
       };
     </script>
-    <style type="text/tailwindcss">
+        <style type="text/tailwindcss">
       @layer base {
         body {
           font-family: "Inter", sans-serif;
@@ -101,124 +98,46 @@
           0 10px 10px -5px rgba(0, 0, 0, 0.04);
       }
     </style>
-  </head>
-  <body class="bg-gray-50 text-gray-800">
-    <!-- Navigation -->
-    <nav class="sticky top-0 z-50">
-      <div
-        class="mx-auto px-6 py-3 flex items-center justify-between"
-        style="
+    </head>
+    <body class="bg-gray-50 text-gray-800">
+        <!-- Navigation -->
+        <nav class="sticky top-0 z-50">
+            <div class="mx-auto px-6 py-3 flex items-center justify-between" style="
           background: linear-gradient(to right, #0c1c2d, #2e2e2e);
           height: 70px;
-        "
-      >
-        <!-- Logo -->
-        <a
-          href="index.html"
-          class="text-white text-2xl font-bold flex items-center"
-          style="
+        ">
+                <!-- Logo --><a href="index.html" class="text-white text-2xl font-bold flex items-center" style="
             width: 140px;
             height: 40px;
             display: flex;
             align-items: center;
             padding-left: 20px;
-          "
-        >
-          <img
-            src="SITE_VISUELS/LOGO/LOGO_C_HELIOSA.png"
-            alt="Heliosa Logo"
-            class="h-auto max-h-full mr-2"
-          />
-        </a>
-
-        <!-- Liens de navigation (desktop, centré) -->
-        <div
-          class="hidden md:flex items-center space-x-6 justify-center flex-1"
-        >
-          <a href="index.html" class="text-white hover:text-gray-300"
-            >Accueil</a
-          >
-          <a href="produire.html" class="text-white hover:text-gray-300"
-            >Produire</a
-          >
-          <a href="stocker.html" class="text-white hover:text-gray-300"
-            >Stocker</a
-          >
-          <a href="charger.html" class="text-white hover:text-gray-300"
-            >Charger</a
-          >
-          <a href="entretien.html" class="text-white hover:text-gray-300"
-            >Entretenir</a
-          >
-          <a href="#contact" class="text-white hover:text-gray-300">Contact</a>
-        </div>
-
-        <!-- Bouton Contact (desktop) -->
-        <!-- <div class="hidden md:block">
+          "> <img src="SITE_VISUELS/LOGO/LOGO_C_HELIOSA.png" alt="Heliosa Logo" class="h-auto max-h-full mr-2"/> </a>
+                <!-- Liens de navigation (desktop, centré) -->
+                <div class="hidden md:flex items-center space-x-6 justify-center flex-1"><a href="index.html" class="text-white hover:text-gray-300">Accueil</a><a href="produire.html" class="text-white hover:text-gray-300">Produire</a><a href="stocker.html" class="text-white hover:text-gray-300">Stocker</a><a href="charger.html" class="text-white hover:text-gray-300">Charger</a><a href="entretien.html" class="text-white hover:text-gray-300">Entretenir</a><a href="#contact" class="text-white hover:text-gray-300">Contact</a>
+                </div>
+                <!-- Bouton Contact (desktop) -->
+                <!-- <div class="hidden md:block">
           <a
             href="#contact"
             class="bg-gradient-to-r from-[#ff8c3e] to-[#e36213] text-white px-5 py-2 rounded-full hover:shadow-md transition-shadow"
             >Contact</a
           >
         </div> -->
-
-        <!-- Burger menu button (mobile) -->
-        <button
-          id="burgerBtn"
-          class="md:hidden flex items-center px-3 py-2 border rounded text-white border-white focus:outline-none"
-          aria-label="Ouvrir le menu"
-          aria-expanded="false"
-        >
-          <svg
-            class="h-6 w-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            ></path>
-          </svg>
-        </button>
-      </div>
-      <!-- Menu mobile -->
-      <div
-        id="mobileMenu"
-        class="md:hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex flex-col items-center justify-center space-y-8 text-xl font-semibold transition-opacity duration-300 opacity-0 pointer-events-none"
-      >
-        <button
-          id="closeMenu"
-          class="absolute top-6 right-6 text-white text-3xl"
-          aria-label="Fermer le menu"
-        >
-          &times;
-        </button>
-        <a href="index.html" class="text-white hover:text-secondary-500"
-          >Accueil</a
-        >
-        <a href="produire.html" class="text-white hover:text-secondary-500"
-          >Produire</a
-        >
-        <a href="stocker.html" class="text-white hover:text-secondary-500"
-          >Stocker</a
-        >
-        <a href="charger.html" class="text-white hover:text-secondary-500"
-          >Charger</a
-        >
-        <a href="entretien.html" class="text-white hover:text-secondary-500"
-          >Entretien</a
-        >
-        <a
-          href="#contact"
-          class="bg-gradient-to-r from-[#ff8c3e] to-[#e36213] text-white px-6 py-2 rounded-full hover:shadow-md transition-shadow"
-          >Contact</a
-        >
-      </div>
-      <script>
+                <!-- Burger menu button (mobile) -->
+                <button id="burgerBtn" class="md:hidden flex items-center px-3 py-2 border rounded text-white border-white focus:outline-none" aria-label="Ouvrir le menu" aria-expanded="false">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Menu mobile -->
+            <div id="mobileMenu" class="md:hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex flex-col items-center justify-center space-y-8 text-xl font-semibold transition-opacity duration-300 opacity-0 pointer-events-none">
+                <button id="closeMenu" class="absolute top-6 right-6 text-white text-3xl" aria-label="Fermer le menu">
+                    &times;
+</button><a href="index.html" class="text-white hover:text-secondary-500">Accueil</a><a href="produire.html" class="text-white hover:text-secondary-500">Produire</a><a href="stocker.html" class="text-white hover:text-secondary-500">Stocker</a><a href="charger.html" class="text-white hover:text-secondary-500">Charger</a><a href="entretien.html" class="text-white hover:text-secondary-500">Entretien</a><a href="#contact" class="bg-gradient-to-r from-[#ff8c3e] to-[#e36213] text-white px-6 py-2 rounded-full hover:shadow-md transition-shadow">Contact</a>
+            </div>
+            <script>
         // Menu burger responsive
         const burgerBtn = document.getElementById("burgerBtn");
         const mobileMenu = document.getElementById("mobileMenu");
@@ -244,652 +163,196 @@
           if (e.key === "Escape") hideMenu();
         });
       </script>
-    </nav>
-
-    <!-- Section Héros -->
-    <section class="py-16 md:py-24 relative text-white overflow-hidden">
-      <!-- Vidéo de fond -->
-      <video
-        autoplay
-        muted
-        playsinline
-        loop
-        class="absolute top-0 left-0 w-full h-full object-cover z-0"
-      >
-        <source src="HELIOSA_VIDEOS_SITE/Stockage 1.Mp4.mp4" type="video/mp4" />
-        Votre navigateur ne supporte pas la vidéo HTML5.
-      </video>
-
-      <!-- Overlay sombre pour améliorer la lisibilité -->
-      <div
-        class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 z-1"
-      ></div>
-
-      <div class="container mx-auto px-6 relative z-10">
-        <div class="flex flex-col md:flex-row items-center">
-          <div class="md:w-1/2 mb-12 md:mb-0 text-center md:text-left">
-            <h1
-              class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in leading-tight"
-            >
-              Solutions de <br /><span class="text-secondary-500"
-                >Stockage d'Énergie</span
-              >
-            </h1>
-            <p
-              class="text-lg md:text-xl mb-8 max-w-lg mx-auto md:mx-0 text-gray-200 animate-fade-in animate-delay-100"
-            >
+        </nav>
+        <!-- Section Héros -->
+        <section class="py-16 md:py-24 relative text-white overflow-hidden">
+            <!-- Vidéo de fond -->
+            <video autoplay muted playsinline loop class="absolute top-0 left-0 w-full h-full object-cover z-0">
+                <source src="HELIOSA_VIDEOS_SITE/Stockage 1.Mp4.mp4" type="video/mp4"/>
+                Votre navigateur ne supporte pas la vidéo HTML5.
+            </video>
+            <!-- Overlay sombre pour améliorer la lisibilité -->
+            <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 z-1"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-12 md:mb-0 text-center md:text-left">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in leading-tight">
+              Solutions de <br/><span class="text-secondary-500">Stockage d'Énergie</span> </h1>
+                        <p class="text-lg md:text-xl mb-8 max-w-lg mx-auto md:mx-0 text-gray-200 animate-fade-in animate-delay-100">
               Découvrez nos systèmes de stockage d'énergie innovants pour
-              maximiser votre autonomie et optimiser votre consommation.
-            </p>
-            <div
-              class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 animate-fade-in animate-delay-200 justify-center md:justify-start"
-            >
-              <a
-                href="#contact"
-                class="bg-secondary-500 text-white px-8 py-4 rounded-lg font-medium hover:bg-secondary-600 transition-colors inline-block text-center"
-              >
-                Demander un devis
-              </a>
-              <a
-                href="#products"
-                class="border-2 border-white text-white px-8 py-3.5 rounded-lg font-medium hover:bg-white hover:text-primary-900 transition-colors inline-block text-center"
-              >
-                Voir nos solutions
-              </a>
+              maximiser votre autonomie et optimiser votre consommation. </p>
+                        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 animate-fade-in animate-delay-200 justify-center md:justify-start"><a href="#contact" class="bg-secondary-500 text-white px-8 py-4 rounded-lg font-medium hover:bg-secondary-600 transition-colors inline-block text-center">
+                Demander un devis </a><a href="#products" class="border-2 border-white text-white px-8 py-3.5 rounded-lg font-medium hover:bg-white hover:text-primary-900 transition-colors inline-block text-center">
+                Voir nos solutions </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Types de stockage -->
-    <section id="products" class="py-20 bg-white">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <span class="text-secondary-500 font-semibold">NOS SOLUTIONS</span>
-          <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
-            Types de Stockage d'Énergie
-          </h2>
-          <p class="text-gray-600 max-w-2xl mx-auto">
-            Nous proposons différentes solutions adaptées à vos besoins, de la
-            maison individuelle aux installations professionnelles
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Batteries domestiques -->
-          <div
-            class="bg-gray-50 rounded-xl overflow-hidden shadow-lg product-card"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=60"
-              alt="Batteries domestiques"
-              class="w-full h-56 object-cover"
-            />
-            <div class="p-6">
-              <h3 class="text-2xl font-bold text-primary-900 mb-2">
-                Batteries Domestiques
-              </h3>
-              <p class="text-gray-600 mb-4">
+        </section>
+        <!-- Types de stockage -->
+        <section id="products" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16"><span class="text-secondary-500 font-semibold">NOS SOLUTIONS</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">Nos solutions de stockage et de système hors réseau<br></h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Batteries domestiques -->
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg product-card">
+                        <img src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=60" alt="Batteries domestiques" class="w-full h-56 object-cover"/>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-primary-900 mb-2">Batteries Physiques</h3>
+                            <p class="text-gray-600 mb-4">
                 Systèmes compacts et performants pour stocker l'énergie produite
-                par vos panneaux solaires.
-              </p>
-              <div class="space-y-2">
-                <div class="flex items-center">
-                  <svg
-                    class="w-5 h-5 text-secondary-500 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>Capacités de 5 à 15 kWh</span>
+                par vos panneaux solaires. </p>
+                            <div class="space-y-2">
+                                <div class="flex items-center"><span>🟡 <b>Autoconsommation renforcée</b><br>Stockez l&rsquo;énergie produite par vos panneaux solaires pour l&rsquo;utiliser quand vous en avez vraiment besoin<br>Idéal pour les foyers innocupés la journée<br><br></span>
+                                </div>
+                                <div class="flex items-center">
+</div><span>🟡 <b>Technologie fiable et durable</b><br>Nous installons des batteries <b>LFP</b> (Lithium Fer Phosphate), reconnues pour leur robustesse et leur longue durée de vie. Grâce à un système de gestion intelligent (<b>BMS</b>), votre batterie est protégée en permanence, garantissant une performance optimale et une sécurité maximale.<br><br></span>
+                                <span><br>🟡 <b>Installation clé en main</b><br>De l&rsquo;étude à la mise en service, nous prenons en charge votre projet de stockage d&rsquo;énergie, avec un suivi et un accompagnement personnalisés.<br><br></span>
+                                <div class="flex items-center"><span></span>
+                                </div>
+                            </div>
+                            <b>🟡 Installation murale ou au sol</b>
+                        </div>
+                    </div>
+                    <!-- Stockage professionnel avec nouvelle image -->
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg product-card">
+                        <img src="https://images.pexels.com/photos/9574734/pexels-photo-9574734.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Stockage professionnel" class="w-full h-56 object-cover"/>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-primary-900 mb-2">Système Back-UP</h3>
+                            <p class="text-gray-600 mb-4">Marre des coupures de courants ? Découvrez le système back-up<br></p>
+                            <div class="space-y-2">
+                                <div class="flex items-center"><span>🟡 <b>Alimentation de secours garantie</b><br>Grâce à notre système backup, vous bénéficiez d&rsquo;une alimentation électrique continue même en cas de coupure de courant. <br>Votre maison reste alimentée grace aux batteries<br><br></span>
+                                </div>
+                                <div class="flex items-center"><span><b>🟡 Vous n&apos;êtes pas raccordé au réseau ?</b><br>Avec le système Victron Energy, profitez de vos panneaux solaires même hors réseau<br><br></span>
+                                </div>
+                                <div class="flex items-center"><span>🟡 <b>Protection contre les coupures de courant<br></b>Protégez vos appareils des interruptions intempestives et continuez d&rsquo;alimenter votre maison grâce à une solution autonome.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Systèmes hybrides avec nouvelle image -->
                 </div>
-                <div class="flex items-center">
-                  <svg
-                    class="w-5 h-5 text-secondary-500 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>Installation murale ou au sol</span>
-                </div>
-                <div class="flex items-center">
-                  <svg
-                    class="w-5 h-5 text-secondary-500 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>Idéal pour les habitations</span>
-                </div>
-              </div>
             </div>
-          </div>
-
-          <!-- Stockage professionnel avec nouvelle image -->
-          <div
-            class="bg-gray-50 rounded-xl overflow-hidden shadow-lg product-card"
-          >
-            <img
-              src="https://images.pexels.com/photos/9574734/pexels-photo-9574734.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              alt="Stockage professionnel"
-              class="w-full h-56 object-cover"
-            />
-            <div class="p-6">
-              <h3 class="text-2xl font-bold text-primary-900 mb-2">
-                Stockage Professionnel
-              </h3>
-              <p class="text-gray-600 mb-4">
-                Solutions à grande échelle pour entreprises et collectivités
-                avec gestion avancée de l'énergie.
-              </p>
-              <div class="space-y-2">
-                <div class="flex items-center">
-                  <svg
-                    class="w-5 h-5 text-secondary-500 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>Systèmes de 20 kWh à 1 MWh</span>
-                </div>
-                <div class="flex items-center">
-                  <svg
-                    class="w-5 h-5 text-secondary-500 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>Intégration multi-sources</span>
-                </div>
-                <div class="flex items-center">
-                  <svg
-                    class="w-5 h-5 text-secondary-500 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>Réduction des coûts énergétiques</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Systèmes hybrides avec nouvelle image -->
-          <div
-            class="bg-gray-50 rounded-xl overflow-hidden shadow-lg product-card"
-          >
-            <img
-              src="https://images.pexels.com/photos/433308/pexels-photo-433308.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              alt="Systèmes hybrides"
-              class="w-full h-56 object-cover"
-            />
-            <div class="p-6">
-              <h3 class="text-2xl font-bold text-primary-900 mb-2">
-                Systèmes Hybrides
-              </h3>
-              <p class="text-gray-600 mb-4">
-                Solutions combinant stockage et production pour une autonomie
-                énergétique complète.
-              </p>
-              <!-- Le reste du contenu reste inchangé -->
-              <div class="space-y-2">
-                <div class="flex items-center">
-                  <svg
-                    class="w-5 h-5 text-secondary-500 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>Intégration solaire + stockage</span>
-                </div>
-                <div class="flex items-center">
-                  <svg
-                    class="w-5 h-5 text-secondary-500 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>Fonction backup automatique</span>
-                </div>
-                <div class="flex items-center">
-                  <svg
-                    class="w-5 h-5 text-secondary-500 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>Adaptable selon vos besoins</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Avantages -->
-    <section class="py-20 bg-gray-50">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <span class="text-secondary-500 font-semibold"
-            >POURQUOI STOCKER L'ÉNERGIE</span
-          >
-          <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
-            Avantages des Solutions de Stockage
-          </h2>
-          <p class="text-gray-600 max-w-2xl mx-auto">
-            Découvrez les bénéfices concrets du stockage d'énergie pour votre
-            installation
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <!-- Avantage 1 -->
-          <div class="bg-white p-6 rounded-xl shadow-md">
-            <div
-              class="w-14 h-14 bg-secondary-500 rounded-lg flex items-center justify-center mb-6"
-            >
-              <svg
-                class="w-8 h-8 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M13 10V3L4 14h7v7l9-11h-7z"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold mb-3">Autonomie Énergétique</h3>
-            <p class="text-gray-600">
-              Utilisez votre énergie solaire même quand le soleil ne brille pas
-              et réduisez votre dépendance au réseau.
-            </p>
-          </div>
-
-          <!-- Avantage 2 -->
-          <div class="bg-white p-6 rounded-xl shadow-md">
-            <div
-              class="w-14 h-14 bg-secondary-500 rounded-lg flex items-center justify-center mb-6"
-            >
-              <svg
-                class="w-8 h-8 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold mb-3">Économies Optimisées</h3>
-            <p class="text-gray-600">
-              Stockez l'énergie quand elle est moins chère et utilisez-la
-              pendant les heures de pointe pour maximiser vos économies.
-            </p>
-          </div>
-
-          <!-- Avantage 3 -->
-          <div class="bg-white p-6 rounded-xl shadow-md">
-            <div
-              class="w-14 h-14 bg-secondary-500 rounded-lg flex items-center justify-center mb-6"
-            >
-              <svg
-                class="w-8 h-8 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold mb-3">Protection Anti-Coupure</h3>
-            <p class="text-gray-600">
-              Restez alimenté même lors des coupures de courant grâce au système
-              de secours intégré à nos solutions.
-            </p>
-          </div>
-
-          <!-- Avantage 4 -->
-          <div class="bg-white p-6 rounded-xl shadow-md">
-            <div
-              class="w-14 h-14 bg-secondary-500 rounded-lg flex items-center justify-center mb-6"
-            >
-              <svg
-                class="w-8 h-8 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-                ></path>
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold mb-3">Gestion Intelligente</h3>
-            <p class="text-gray-600">
-              Pilotez et suivez votre consommation d'énergie en temps réel via
-              notre application dédiée.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-20 cta-gradient text-white">
-      <div class="container mx-auto px-6 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6">
-          Prêt à Stocker Votre Énergie ?
-        </h2>
-        <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+        </section>
+        <!-- Avantages -->
+        <section class="py-20 bg-gray-50">
+</section>
+        <!-- CTA Section -->
+        <section class="py-20 cta-gradient text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">
+          Prêt à Stocker Votre Énergie ? </h2>
+                <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
           Nos experts sont disponibles pour vous conseiller sur la meilleure
-          solution de stockage adaptée à vos besoins.
-        </p>
-        <div
-          class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center"
-        >
-          <a
-            href="#contact"
-            class="bg-secondary-500 text-white px-8 py-4 rounded-lg font-medium hover:bg-secondary-600 transition-colors inline-block"
-          >
-            Demander un Devis Gratuit
-          </a>
-          <a
-            href="tel:+33123456789"
-            class="bg-white text-primary-900 px-8 py-4 rounded-lg font-medium hover:bg-gray-100 transition-colors inline-block"
-          >
-            Nous Appeler
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ Stockage d'énergie -->
-    <section class="py-20 bg-white">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <span class="text-secondary-500 font-semibold"
-            >QUESTIONS FRÉQUENTES</span
-          >
-          <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
-            FAQ - Stockage d'Énergie
-          </h2>
-          <p class="text-gray-600 max-w-2xl mx-auto">
-            Vous avez une question ? Nous avons la réponse.
-          </p>
-        </div>
-        <div class="space-y-8 max-w-3xl mx-auto">
-          <!-- Question 1 -->
-          <div class="bg-gray-50 p-6 rounded-xl shadow-md">
-            <h3 class="text-xl font-bold mb-4">
-              Q1 : Qu'est-ce qu'un système de stockage d'énergie ?
-            </h3>
-            <p class="text-gray-600">
-              R : Un système de stockage d'énergie permet d'accumuler
-              l'électricité produite (par exemple via des panneaux solaires)
-              pour l'utiliser plus tard, notamment la nuit ou lors de coupures
-              de courant.
-            </p>
-          </div>
-          <!-- Question 2 -->
-          <div class="bg-gray-50 p-6 rounded-xl shadow-md">
-            <h3 class="text-xl font-bold mb-4">
-              Q2 : Quels sont les avantages d'un stockage domestique ?
-            </h3>
-            <p class="text-gray-600">
-              R : Le stockage domestique permet d'augmenter votre autonomie, de
-              réduire votre facture d'électricité et d'assurer une alimentation
-              continue en cas de coupure.
-            </p>
-          </div>
-          <!-- Question 3 -->
-          <div class="bg-gray-50 p-6 rounded-xl shadow-md">
-            <h3 class="text-xl font-bold mb-4">
-              Q3 : Quelle est la durée de vie d'une batterie de stockage ?
-            </h3>
-            <p class="text-gray-600">
-              R : Nos batteries offrent généralement une durée de vie de 10 ans
-              ou plus, selon l'utilisation et le modèle choisi.
-            </p>
-          </div>
-          <!-- Question 4 -->
-          <div class="bg-gray-50 p-6 rounded-xl shadow-md">
-            <h3 class="text-xl font-bold mb-4">
-              Q4 : Peut-on installer un système de stockage sur une installation
-              existante ?
-            </h3>
-            <p class="text-gray-600">
-              R : Oui, nos solutions sont compatibles avec la plupart des
-              installations photovoltaïques existantes. Un diagnostic préalable
-              est recommandé.
-            </p>
-          </div>
-          <!-- Question 5 -->
-          <div class="bg-gray-50 p-6 rounded-xl shadow-md">
-            <h3 class="text-xl font-bold mb-4">
-              Q5 : Faut-il un entretien particulier ?
-            </h3>
-            <p class="text-gray-600">
-              R : Nos systèmes nécessitent peu d'entretien. Un contrôle annuel
-              est conseillé pour garantir performance et sécurité.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="py-20 bg-gray-50" id="contact">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4">Contactez-Nous</h2>
-          <p class="text-gray-600 max-w-2xl mx-auto">
-            Nous sommes là pour répondre à toutes vos questions et vous aider à
-            trouver la solution de stockage d'énergie idéale pour vos besoins.
-          </p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <!-- Formulaire de contact -->
-          <div class="bg-white p-8 rounded-xl shadow-md">
-            <h3 class="text-xl font-bold mb-6">Formulaire de Contact</h3>
-            <form action="#" method="POST" class="space-y-4">
-              <div>
-                <label
-                  for="name"
-                  class="block text-sm font-medium text-gray-700"
-                  >Nom</label
-                >
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-secondary-500 focus:outline-none"
-                  placeholder="Votre nom complet"
-                />
-              </div>
-              <div>
-                <label
-                  for="email"
-                  class="block text-sm font-medium text-gray-700"
-                  >Email</label
-                >
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-secondary-500 focus:outline-none"
-                  placeholder="Votre adresse email"
-                />
-              </div>
-              <div>
-                <label
-                  for="message"
-                  class="block text-sm font-medium text-gray-700"
-                  >Message</label
-                >
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="4"
-                  required
-                  class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-secondary-500 focus:outline-none"
-                  placeholder="Votre message ou question"
-                ></textarea>
-              </div>
-              <div>
-                <button
-                  type="submit"
-                  class="w-full bg-secondary-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-secondary-600 transition-colors"
-                >
-                  Envoyer le Message
-                </button>
-              </div>
-            </form>
-          </div>
-
-          <!-- Informations de contact -->
-          <div class="bg-white p-8 rounded-xl shadow-md">
-            <h3 class="text-xl font-bold mb-6">Informations de Contact</h3>
-            <div class="space-y-4">
-              <div class="flex items-center">
-                <svg
-                  class="w-6 h-6 text-secondary-500 mr-3"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.35l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span class="text-gray-700"
-                  >Heliosa, 10 Rue de l'Énergie, 75000 Paris</span
-                >
-              </div>
-              <div class="flex items-center">
-                <svg
-                  class="w-6 h-6 text-secondary-500 mr-3"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M2 3a1 1 0 011-1h2.153a1 1 0 01.984.825l.158.541A1 1 0 006.079 5l.485.642a1 1 0 01.229.795l-.397 1.588a1 1 0 001.386 1l.852.64a1 1 0 011.133 0l.851-.64a1 1 0 001.387-1l-.397-1.588a1 1 0 01.23-.795l.484-.641a1 1 0 00.951-.69l.159-.54a1 1 0 01.984-.825H19a1 1 0 011 1v12a1 1 0 01-1 1H2a1 1 0 01-1-1V3z"
-                  ></path>
-                </svg>
-                <span class="text-gray-700">+33 1 23 45 67 89</span>
-              </div>
-              <div class="flex items-center">
-                <svg
-                  class="w-6 h-6 text-secondary-500 mr-3"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span class="text-gray-700">contact@heliosa.fr</span>
-              </div>
+          solution de stockage adaptée à vos besoins. </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center"><a href="#contact" class="bg-secondary-500 text-white px-8 py-4 rounded-lg font-medium hover:bg-secondary-600 transition-colors inline-block">
+            Demander un Devis Gratuit </a><a href="tel:+33123456789" class="bg-white text-primary-900 px-8 py-4 rounded-lg font-medium hover:bg-gray-100 transition-colors inline-block">
+            Nous Appeler </a>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer simple -->
-    <footer class="bg-gray-900 text-white py-8">
-      <div class="container mx-auto px-6 text-center">
-        <p>© 2025 Heliosa - Tous droits réservés</p>
-      </div>
-    </footer>
-  </body>
+        </section>
+        <!-- FAQ Stockage d'énergie -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16"><span class="text-secondary-500 font-semibold">QUESTIONS FRÉQUENTES</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
+            FAQ - Stockage d'Énergie </h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+            Vous avez une question ? Nous avons la réponse. </p>
+                </div>
+                <div class="space-y-8 max-w-3xl mx-auto">
+                    <!-- Question 1 -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold mb-4">
+              Q1 : Qu'est-ce qu'un système de stockage d'énergie ? </h3>
+                        <p class="text-gray-600">R : Les batteries emmagasinent l&rsquo;énergie générée par vos panneaux solaires afin que vous puissiez l&rsquo;utiliser à tout moment, même la nuit ou par temps couvert. Elles maximisent votre autoconsommation et diminuent votre dépendance au réseau.
+La priorité d&rsquo;alimentation de votre maison est la suivante : d&rsquo;abord l&rsquo;énergie solaire, puis la batterie, et enfin le réseau.
+De même, le surplus solaire est d&rsquo;abord stocké dans les batteries avant d&rsquo;être injecté sur le réseau.</p>
+                    </div>
+                    <!-- Question 2 -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold mb-4">Q2 : Quelle est la durée de vie d&rsquo;une batterie solaire ?</h3>
+                        <p class="text-gray-600">R : Les batteries Lithium Fer Phosphate (LFP) que nous installons durent généralement entre 10 et 15 ans, avec une gestion intelligente pour maximiser leur durée et leur performance.<br>Elles sont garantis sur environ 5000-6000 cycles et pendant 10 à 15 ans.</p>
+                    </div>
+                    <!-- Question 3 -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold mb-4">Q3 : Les batteries nécessitent-elles beaucoup d&rsquo;entretien ?</h3>
+                        <p class="text-gray-600">R : Non, nos batteries LFP sont conçues pour être fiables et quasiment sans entretien. Leur système de gestion (BMS) assure sécurité et performance en continu.</p>
+                    </div>
+                    <!-- Question 4 -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold mb-4">Q4 : Pourquoi ne pas installer une batterie virtuelle ?&nbsp;</h3>
+                        <p class="text-gray-600">R :  La batterie virtuelle est une solution encore récente, et nous n&rsquo;avons pas encore suffisamment de recul pour en garantir la rentabilité. <br>De plus, elle nécessite de changer de fournisseur d&rsquo;électricité et entraîne le paiement de taxes d&rsquo;acheminement sur l&rsquo;énergie stockée. <br>En pratique, cela revient à racheter votre kWh stocké à environ 10 centimes&nbsp;<br><br>Nous n&apos;intervenons pas pour cette solution, car le client peut procéder lui même à la mise en place d&apos;une batterie virtuelle, l&apos;ajout d&apos;un boitier n&apos;est plus nécessaire.<br><br>Nous restons néanmoins attentifs à l&rsquo;évolution des batteries virtuelles et proposons malgré tout des études personnalisées entre une batterie physique et virtuelle.</p>
+                    </div>
+                    <!-- Question 5 -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold mb-4">Q5 : Les batteries sont-elles compatibles avec tous les types d&rsquo;installations photovoltaïques ?</h3>
+                        <p class="text-gray-600">R : Oui, nos solutions de stockage s&rsquo;adaptent à la plupart des installations et sont compatibles avec les principaux onduleurs et systèmes du marché.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contact -->
+        <section class="py-20 bg-gray-50" id="contact">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Contactez-Nous</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+            Nous sommes là pour répondre à toutes vos questions et vous aider à
+            trouver la solution de stockage d'énergie idéale pour vos besoins. </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- Formulaire de contact -->
+                    <div class="bg-white p-8 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold mb-6">Formulaire de Contact</h3>
+                        <form action="#" method="POST" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700">Nom</label>
+                                <input type="text" id="name" name="name" required class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-secondary-500 focus:outline-none" placeholder="Votre nom complet"/>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                                <input type="email" id="email" name="email" required class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-secondary-500 focus:outline-none" placeholder="Votre adresse email"/>
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                                <textarea id="message" name="message" rows="4" required class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-secondary-500 focus:outline-none" placeholder="Votre message ou question"></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" class="w-full bg-secondary-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-secondary-600 transition-colors">
+                                    Envoyer le Message
+</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Informations de contact -->
+                    <div class="bg-white p-8 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold mb-6">Informations de Contact</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+</div>
+                            <div class="flex items-center">
+                                <svg class="w-6 h-6 text-secondary-500 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.984.825l.158.541A1 1 0 006.079 5l.485.642a1 1 0 01.229.795l-.397 1.588a1 1 0 001.386 1l.852.64a1 1 0 011.133 0l.851-.64a1 1 0 001.387-1l-.397-1.588a1 1 0 01.23-.795l.484-.641a1 1 0 00.951-.69l.159-.54a1 1 0 01.984-.825H19a1 1 0 011 1v12a1 1 0 01-1 1H2a1 1 0 01-1-1V3z"></path>
+                                </svg><span class="text-gray-700">+33 1 23 45 67 89</span>
+                            </div>
+                            <div class="flex items-center">
+                                <svg class="w-6 h-6 text-secondary-500 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg><span class="text-gray-700">contact@heliosa-pv.fr</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer simple -->
+        <footer class="bg-gray-900 text-white py-8">
+            <div class="container mx-auto px-6 text-center">
+                <p>© 2025 Heliosa - Tous droits réservés</p>
+            </div>
+        </footer>
+    </body>
 </html>
