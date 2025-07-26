@@ -75,6 +75,14 @@
           transform: none;
         }
       }
+      .product-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
     </style>
   </head>
   <body class="bg-gray-50 text-gray-800">
@@ -245,82 +253,105 @@
             nous intervenons chez vous pour :
           </p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Service 1 -->
-          <div
-            class="bg-gray-50 rounded-xl overflow-hidden shadow-lg p-8 text-center"
-          >
-            <h3 class="text-xl font-bold mb-3">
-              Maintenance&nbsp;<br />Electrique
-            </h3>
-            <p class="text-gray-600">
-              🟡<b> Vérification des connexions<br /></b>Contrôle et resserrage
-              des connexions électriques pour garantir la sécurité et la
-              performance. <br /><br />
-            </p>
-            <p class="text-gray-600">
-              🟡 <b>Contrôle des tensions<br /></b>Mesure régulière des tensions
-              pour s&rsquo;assurer que vos panneaux fonctionnent dans les plages
-              optimales.<br /><br />
-            </p>
-            <p class="text-gray-600">
-              <b>🟡 Inspection de(s) onduleur(s)</b><br />&nbsp;Surveillance de
-              l&rsquo;état et du bon fonctionnement de l&rsquo;onduleur, cœur de
-              votre installation.<br /><br />
-            </p>
-            <p class="text-gray-600">
-              <b>🟡Nettoyage du tableau et de l&apos;onduleur</b
-              ><br />Dépoussiérage et nettoyage pour éviter les surchauffes et
-              garantir une bonne dissipation thermique.<br />
-            </p>
+
+        <!-- Section Maintenance Électrique -->
+        <div class="mb-20">
+          <div class="flex flex-col lg:flex-row items-center gap-12">
+            <div
+              class="lg:w-2/5 bg-white p-8 rounded-xl shadow-lg product-card"
+            >
+              <h3 class="text-2xl font-bold text-primary-900 mb-4">
+                Maintenance Électrique
+              </h3>
+              <div class="space-y-4">
+                <p>
+                  🟡 <b>Vérification des connexions</b><br />
+                  Contrôle et resserrage des connexions électriques pour
+                  garantir la sécurité et la performance.<br />
+                </p>
+                <p>
+                  🟡 <b>Contrôle des tensions</b><br />
+                  Mesure régulière des tensions pour s'assurer que vos panneaux
+                  fonctionnent dans les plages optimales.<br />
+                </p>
+                <p>
+                  🟡 <b>Inspection de(s) onduleur(s)</b><br />
+                  Surveillance de l'état et du bon fonctionnement de l'onduleur,
+                  cœur de votre installation.<br />
+                </p>
+                <p>
+                  🟡 <b>Nettoyage du tableau et de l'onduleur</b><br />
+                  Dépoussiérage et nettoyage pour éviter les surchauffes et
+                  garantir une bonne dissipation thermique.
+                </p>
+              </div>
+            </div>
+            <div class="lg:w-3/5"></div>
           </div>
-          <!-- Service 2 -->
-          <div
-            class="bg-gray-50 rounded-xl overflow-hidden shadow-lg p-8 text-center"
-          >
-            <h3 class="text-xl font-bold mb-3">
-              Maintenance et&nbsp;<br />Nettoyage des panneaux
-            </h3>
-            <p class="text-gray-600">
-              <b>🟡 Vérification des fixations</b><br />Contrôle et resserrage
-              des supports et fixations pour assurer la stabilité des panneaux.
-              <br /><br />
-            </p>
-            <p class="text-gray-600">
-              <b>🟡</b><b>&nbsp;Contrôle des connexions</b
-              ><br />&nbsp;Vérification des connexions électriques entre
-              panneaux et onduleur.<br /><br />
-            </p>
-            <p class="text-gray-600">
-              🟡 <b>Nettoyage des panneaux</b><br />&nbsp;Nettoyage pour
-              optimiser la production en éliminant poussières, feuilles et
-              saletés.<br /><br />
-            </p>
-            <p class="text-gray-600">
-              🟡<b> Inspection des tuiles<br /></b>&nbsp;Contrôle des tuiles
-              autour des panneaux pour éviter tout dommage ou infiltration.<br /><br />
-            </p>
-            <p class="text-gray-600">🟡 <b>Nettoyage des gouttières</b></p>
+        </div>
+
+        <!-- Section Maintenance et Nettoyage des panneaux -->
+        <div class="mb-20">
+          <div class="flex flex-col lg:flex-row items-center gap-12">
+            <div
+              class="lg:w-2/5 bg-white p-8 rounded-xl shadow-lg product-card"
+            >
+              <h3 class="text-2xl font-bold text-primary-900 mb-4">
+                Maintenance et Nettoyage des panneaux
+              </h3>
+              <div class="space-y-4">
+                <p>
+                  🟡 <b>Vérification des fixations</b><br />
+                  Contrôle et resserrage des supports et fixations pour assurer
+                  la stabilité des panneaux.<br />
+                </p>
+                <p>
+                  🟡 <b>Contrôle des connexions</b><br />
+                  Vérification des connexions électriques entre panneaux et
+                  onduleur.<br />
+                </p>
+                <p>
+                  🟡 <b>Nettoyage des panneaux</b><br />
+                  Nettoyage pour optimiser la production en éliminant
+                  poussières, feuilles et saletés.<br />
+                </p>
+                <p>
+                  🟡 <b>Inspection des tuiles</b><br />
+                  Contrôle des tuiles autour des panneaux pour éviter tout
+                  dommage ou infiltration.<br />
+                </p>
+                <p>🟡 <b>Nettoyage des gouttières</b></p>
+              </div>
+            </div>
+            <div class="lg:w-3/5"></div>
           </div>
-          <!-- Service 3 -->
-          <div
-            class="bg-gray-50 rounded-xl overflow-hidden shadow-lg p-8 text-center"
-          >
-            <h3 class="text-xl font-bold mb-3">
-              Entretien annuel avec le client
-            </h3>
-            <p class="text-gray-600">
-              <b>🟡 Suivi de satisfaction</b><br />Nous échangeons avec vous
-              pour recueillir vos impressions sur l&rsquo;installation et le
-              service fourni.<br /><br />
-            </p>
-            <p class="text-gray-600">
-              🟡 <b>Analyse et optimisation</b><br />Nous réalisons un bilan
-              ensemble de la production annuelle, analysons le surplus
-              d&rsquo;électricité injecté au réseau, et vous proposons des
-              conseils personnalisés pour optimiser votre installation et
-              maximiser vos économies d&rsquo;énergie.
-            </p>
+        </div>
+
+        <!-- Section Entretien annuel avec le client -->
+        <div class="mb-20">
+          <div class="flex flex-col lg:flex-row items-center gap-12">
+            <div
+              class="lg:w-2/5 bg-white p-8 rounded-xl shadow-lg product-card"
+            >
+              <h3 class="text-2xl font-bold text-primary-900 mb-4">
+                Entretien annuel avec le client
+              </h3>
+              <div class="space-y-4">
+                <p>
+                  🟡 <b>Suivi de satisfaction</b><br />
+                  Nous échangeons avec vous pour recueillir vos impressions sur
+                  l'installation et le service fourni.<br />
+                </p>
+                <p>
+                  🟡 <b>Analyse et optimisation</b><br />
+                  Nous réalisons un bilan ensemble de la production annuelle,
+                  analysons le surplus d'électricité injecté au réseau, et vous
+                  proposons des conseils personnalisés pour optimiser votre
+                  installation et maximiser vos économies d'énergie.
+                </p>
+              </div>
+            </div>
+            <div class="lg:w-3/5"></div>
           </div>
         </div>
       </div>
