@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Entretien Solaire - Heliosa</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-        <script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Entretien Solaire - Heliosa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
       tailwind.config = {
         theme: {
           extend: {
@@ -42,7 +45,7 @@
         },
       };
     </script>
-        <style type="text/tailwindcss">
+    <style type="text/tailwindcss">
       @layer base {
         body {
           font-family: "Inter", sans-serif;
@@ -73,41 +76,97 @@
         }
       }
     </style>
-    </head>
-    <body class="bg-gray-50 text-gray-800">
-        <!-- Navigation -->
-        <nav class="sticky top-0 z-50">
-            <div class="mx-auto px-6 py-3 flex items-center justify-between" style="
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50">
+      <div
+        class="mx-auto px-6 py-3 flex items-center justify-between"
+        style="
           background: linear-gradient(to right, #0c1c2d, #2e2e2e);
           height: 70px;
-        ">
-                <!-- Logo --><a href="index.html" class="text-white text-2xl font-bold flex items-center" style="
+        "
+      >
+        <!-- Logo --><a
+          href="index.html"
+          class="text-white text-2xl font-bold flex items-center"
+          style="
             width: 140px;
             height: 40px;
             display: flex;
             align-items: center;
             padding-left: 20px;
-          "> <img src="SITE_VISUELS/LOGO/LOGO_C_HELIOSA.png" alt="Heliosa Logo" class="h-auto max-h-full mr-2"/> </a>
-                <!-- Burger menu (mobile) -->
-                <button id="menu-toggle" class="md:hidden text-white focus:outline-none" aria-label="Ouvrir le menu">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-                <!-- Liens de navigation (desktop centré, mobile menu) -->
-                <div id="nav-links" class="hidden md:flex items-center space-x-6 justify-center flex-1 absolute md:static top-16 left-0 w-full md:w-auto bg-[#0c1c2d] md:bg-transparent px-6 md:px-0 py-6 md:py-0 z-40"><a href="index.html" class="block md:inline text-white hover:text-gray-300 py-2 md:py-0">Accueil</a><a href="produire.html" class="block md:inline text-white hover:text-gray-300 py-2 md:py-0">Produire</a><a href="stocker.html" class="block md:inline text-white hover:text-gray-300 py-2 md:py-0">Stocker</a><a href="charger.html" class="block md:inline text-white hover:text-gray-300 py-2 md:py-0">Charger</a><a href="entretien.html" class="block md:inline text-secondary-500 font-semibold py-2 md:py-0">Entretenir</a><a href="#contact" class="block md:inline text-white hover:text-gray-300 py-2 md:py-0">Contact</a>
-                </div>
-                <!-- Bouton Contact -->
-                <!-- <div class="hidden md:block">
+          "
+        >
+          <img
+            src="SITE_VISUELS/LOGO/LOGO_C_HELIOSA.png"
+            alt="Heliosa Logo"
+            class="h-auto max-h-full mr-2"
+          />
+        </a>
+        <!-- Burger menu (mobile) -->
+        <button
+          id="menu-toggle"
+          class="md:hidden text-white focus:outline-none"
+          aria-label="Ouvrir le menu"
+        >
+          <svg
+            class="w-8 h-8"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+        <!-- Liens de navigation (desktop centré, mobile menu) -->
+        <div
+          id="nav-links"
+          class="hidden md:flex items-center space-x-6 justify-center flex-1 absolute md:static top-16 left-0 w-full md:w-auto bg-[#0c1c2d] md:bg-transparent px-6 md:px-0 py-6 md:py-0 z-40"
+        >
+          <a
+            href="index.html"
+            class="block md:inline text-white hover:text-gray-300 py-2 md:py-0"
+            >Accueil</a
+          ><a
+            href="produire.html"
+            class="block md:inline text-white hover:text-gray-300 py-2 md:py-0"
+            >Produire</a
+          ><a
+            href="stocker.html"
+            class="block md:inline text-white hover:text-gray-300 py-2 md:py-0"
+            >Stocker</a
+          ><a
+            href="charger.html"
+            class="block md:inline text-white hover:text-gray-300 py-2 md:py-0"
+            >Charger</a
+          ><a
+            href="entretien.html"
+            class="block md:inline text-secondary-500 font-semibold py-2 md:py-0"
+            >Entretenir</a
+          ><a
+            href="#contact"
+            class="block md:inline text-white hover:text-gray-300 py-2 md:py-0"
+            >Contact</a
+          >
+        </div>
+        <!-- Bouton Contact -->
+        <!-- <div class="hidden md:block">
           <a
             href="#contact"
             class="bg-gradient-to-r from-[#ff8c3e] to-[#e36213] text-white px-5 py-2 rounded-full hover:shadow-md transition-shadow"
             >Contact</a
           >
         </div> -->
-            </div>
-        </nav>
-        <script>
+      </div>
+    </nav>
+    <script>
       // Responsive menu JS
       const menuToggle = document.getElementById("menu-toggle");
       const navLinks = document.getElementById("nav-links");
@@ -121,238 +180,517 @@
         });
       });
     </script>
-        <!-- Section Héros -->
-        <section class="py-16 md:py-24 hero-gradient text-white">
-            <div class="container mx-auto px-6">
-                <div class="flex flex-col md:flex-row items-center">
-                    <div class="md:w-1/2 mb-12 md:mb-0 text-center md:text-left">
-                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in leading-tight">Maintenance<br><font color="#f0b952">Solaire</font></h1>
-                        <p class="text-lg md:text-xl mb-8 max-w-lg mx-auto md:mx-0 text-gray-200 animate-fade-in animate-delay-100">Prolongez la durée de vie et la performance de vos installations
-              solaires grâce à notre service d&apos;entretien</p>
-                        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 animate-fade-in animate-delay-200 justify-center md:justify-start"><a href="contact.html" class="bg-secondary-500 text-white px-8 py-4 rounded-lg font-medium hover:bg-secondary-600 transition-colors inline-block text-center">
-                Demander un devis </a><a href="#services" class="border-2 border-white text-white px-8 py-3.5 rounded-lg font-medium hover:bg-white hover:text-primary-900 transition-colors inline-block text-center">
-                Nos services </a>
-                        </div>
-                    </div>
-                    <div class="md:w-1/2 animate-fade-in animate-delay-200 flex justify-center">
-                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Technicien effectuant l'entretien solaire" class="rounded-xl shadow-2xl max-w-xs bg-white p-6" style="background: rgba(255, 255, 255, 0.1)"/>
-                    </div>
-                </div>
+    <!-- Section Héros -->
+    <section class="py-16 md:py-24 relative text-white overflow-hidden">
+      <!-- Vidéo de fond -->
+      <video
+        autoplay
+        muted
+        playsinline
+        loop
+        class="absolute top-0 left-0 w-full h-full object-cover z-0"
+      >
+        <source src="HELIOSA_VIDEOS_SITE/ENTRETENIR.mp4" type="video/mp4" />
+        Votre navigateur ne supporte pas la vidéo HTML5.
+      </video>
+
+      <!-- Overlay sombre pour améliorer la lisibilité -->
+      <div
+        class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 z-1"
+      ></div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 mb-12 md:mb-0 text-center md:text-left">
+            <h1
+              class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in leading-tight"
+            >
+              Maintenance<br /><span class="text-secondary-500">Solaire</span>
+            </h1>
+            <p
+              class="text-lg md:text-xl mb-8 max-w-lg mx-auto md:mx-0 text-gray-200 animate-fade-in animate-delay-100"
+            >
+              Prolongez la durée de vie et la performance de vos installations
+              solaires grâce à notre service d&apos;entretien
+            </p>
+            <div
+              class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 animate-fade-in animate-delay-200 justify-center md:justify-start"
+            >
+              <a
+                href="contact.html"
+                class="bg-secondary-500 text-white px-8 py-4 rounded-lg font-medium hover:bg-secondary-600 transition-colors inline-block text-center"
+              >
+                Demander un devis </a
+              ><a
+                href="#services"
+                class="border-2 border-white text-white px-8 py-3.5 rounded-lg font-medium hover:bg-white hover:text-primary-900 transition-colors inline-block text-center"
+              >
+                Nos services
+              </a>
             </div>
-        </section>
-        <!-- Nos services d’entretien -->
-        <section id="services" class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16"><span class="text-secondary-500 font-semibold">NOS SERVICES</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
-            Entretien & Suivi de vos Installations </h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">Une fois par an, et si vous avez souscris au contrat de maintenance, nous intervenons chez vous pour :</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Service 1 -->
-                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg p-8 text-center">
-                        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=128&q=80" alt="Entretien préventif solaire" class="w-32 h-32 object-cover rounded-lg mx-auto mb-4"/>
-                        <h3 class="text-xl font-bold mb-3">Maintenance&nbsp;<br>Electrique</h3>
-                        <p class="text-gray-600">🟡<b> Vérification des connexions<br></b>Contrôle et resserrage des connexions électriques pour garantir la sécurité et la performance. <br><br></p>
-                        <p class="text-gray-600">🟡 <b>Contrôle des tensions<br></b>Mesure régulière des tensions pour s&rsquo;assurer que vos panneaux fonctionnent dans les plages optimales.<br><br></p>
-                        <p class="text-gray-600"><b>🟡 Inspection de(s) onduleur(s)</b><br>&nbsp;Surveillance de l&rsquo;état et du bon fonctionnement de l&rsquo;onduleur, cœur de votre installation.<br><br></p>
-                        <p class="text-gray-600"><b>🟡Nettoyage du tableau et de l&apos;onduleur</b><br>Dépoussiérage et nettoyage pour éviter les surchauffes et garantir une bonne dissipation thermique.<br></p>
-                    </div>
-                    <!-- Service 2 -->
-                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg p-8 text-center">
-                        <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=128&q=80" alt="Entretien curatif solaire" class="w-32 h-32 object-cover rounded-lg mx-auto mb-4"/>
-                        <h3 class="text-xl font-bold mb-3">Maintenance et&nbsp;<br>Nettoyage des panneaux</h3>
-                        <p class="text-gray-600"><b>🟡 Vérification des fixations</b><br>Contrôle et resserrage des supports et fixations pour assurer la stabilité des panneaux. <br><br></p>
-                        <p class="text-gray-600"><b>🟡</b><b>&nbsp;Contrôle des connexions</b><br>&nbsp;Vérification des connexions électriques entre panneaux et onduleur.<br><br></p>
-                        <p class="text-gray-600">🟡 <b>Nettoyage des panneaux</b><br>&nbsp;Nettoyage pour optimiser la production en éliminant poussières, feuilles et saletés.<br><br></p>
-                        <p class="text-gray-600">🟡<b> Inspection des tuiles<br></b>&nbsp;Contrôle des tuiles autour des panneaux pour éviter tout dommage ou infiltration.<br><br></p>
-                        <p class="text-gray-600">🟡 <b>Nettoyage des gouttières</b></p>
-                    </div>
-                    <!-- Service 3 -->
-                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg p-8 text-center">
-                        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=128&q=80" alt="Surveillance à distance solaire" class="w-32 h-32 object-cover rounded-lg mx-auto mb-4"/>
-                        <h3 class="text-xl font-bold mb-3">Entretien annuel avec le client</h3>
-                        <p class="text-gray-600"><b>🟡 Suivi de satisfaction</b><br>Nous échangeons avec vous pour recueillir vos impressions sur l&rsquo;installation et le service fourni.<br><br></p>
-                        <p class="text-gray-600">🟡 <b>Analyse et optimisation</b><br>Nous réalisons un bilan ensemble de la production annuelle, analysons le surplus d&rsquo;électricité injecté au réseau, et vous proposons des conseils personnalisés pour optimiser votre installation et maximiser vos économies d&rsquo;énergie.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Avantages -->
-        <section class="py-20 bg-gray-50">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16"><span class="text-secondary-500 font-semibold">POURQUOI FAIRE ENTRETENIR VOTRE INSTALLATION ?</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
-            Les Bénéfices d’un Entretien Régulier </h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Nos services d’entretien -->
+    <section id="services" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <span class="text-secondary-500 font-semibold">NOS SERVICES</span>
+          <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
+            Entretien & Suivi de vos Installations
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Une fois par an, et si vous avez souscris au contrat de maintenance,
+            nous intervenons chez vous pour :
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Service 1 -->
+          <div
+            class="bg-gray-50 rounded-xl overflow-hidden shadow-lg p-8 text-center"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=128&q=80"
+              alt="Entretien préventif solaire"
+              class="w-32 h-32 object-cover rounded-lg mx-auto mb-4"
+            />
+            <h3 class="text-xl font-bold mb-3">
+              Maintenance&nbsp;<br />Electrique
+            </h3>
+            <p class="text-gray-600">
+              🟡<b> Vérification des connexions<br /></b>Contrôle et resserrage
+              des connexions électriques pour garantir la sécurité et la
+              performance. <br /><br />
+            </p>
+            <p class="text-gray-600">
+              🟡 <b>Contrôle des tensions<br /></b>Mesure régulière des tensions
+              pour s&rsquo;assurer que vos panneaux fonctionnent dans les plages
+              optimales.<br /><br />
+            </p>
+            <p class="text-gray-600">
+              <b>🟡 Inspection de(s) onduleur(s)</b><br />&nbsp;Surveillance de
+              l&rsquo;état et du bon fonctionnement de l&rsquo;onduleur, cœur de
+              votre installation.<br /><br />
+            </p>
+            <p class="text-gray-600">
+              <b>🟡Nettoyage du tableau et de l&apos;onduleur</b
+              ><br />Dépoussiérage et nettoyage pour éviter les surchauffes et
+              garantir une bonne dissipation thermique.<br />
+            </p>
+          </div>
+          <!-- Service 2 -->
+          <div
+            class="bg-gray-50 rounded-xl overflow-hidden shadow-lg p-8 text-center"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=128&q=80"
+              alt="Entretien curatif solaire"
+              class="w-32 h-32 object-cover rounded-lg mx-auto mb-4"
+            />
+            <h3 class="text-xl font-bold mb-3">
+              Maintenance et&nbsp;<br />Nettoyage des panneaux
+            </h3>
+            <p class="text-gray-600">
+              <b>🟡 Vérification des fixations</b><br />Contrôle et resserrage
+              des supports et fixations pour assurer la stabilité des panneaux.
+              <br /><br />
+            </p>
+            <p class="text-gray-600">
+              <b>🟡</b><b>&nbsp;Contrôle des connexions</b
+              ><br />&nbsp;Vérification des connexions électriques entre
+              panneaux et onduleur.<br /><br />
+            </p>
+            <p class="text-gray-600">
+              🟡 <b>Nettoyage des panneaux</b><br />&nbsp;Nettoyage pour
+              optimiser la production en éliminant poussières, feuilles et
+              saletés.<br /><br />
+            </p>
+            <p class="text-gray-600">
+              🟡<b> Inspection des tuiles<br /></b>&nbsp;Contrôle des tuiles
+              autour des panneaux pour éviter tout dommage ou infiltration.<br /><br />
+            </p>
+            <p class="text-gray-600">🟡 <b>Nettoyage des gouttières</b></p>
+          </div>
+          <!-- Service 3 -->
+          <div
+            class="bg-gray-50 rounded-xl overflow-hidden shadow-lg p-8 text-center"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=128&q=80"
+              alt="Surveillance à distance solaire"
+              class="w-32 h-32 object-cover rounded-lg mx-auto mb-4"
+            />
+            <h3 class="text-xl font-bold mb-3">
+              Entretien annuel avec le client
+            </h3>
+            <p class="text-gray-600">
+              <b>🟡 Suivi de satisfaction</b><br />Nous échangeons avec vous
+              pour recueillir vos impressions sur l&rsquo;installation et le
+              service fourni.<br /><br />
+            </p>
+            <p class="text-gray-600">
+              🟡 <b>Analyse et optimisation</b><br />Nous réalisons un bilan
+              ensemble de la production annuelle, analysons le surplus
+              d&rsquo;électricité injecté au réseau, et vous proposons des
+              conseils personnalisés pour optimiser votre installation et
+              maximiser vos économies d&rsquo;énergie.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Avantages -->
+    <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <span class="text-secondary-500 font-semibold"
+            >POURQUOI FAIRE ENTRETENIR VOTRE INSTALLATION ?</span
+          >
+          <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
+            Les Bénéfices d’un Entretien Régulier
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
             Optimisez la rentabilité de votre investissement solaire et évitez
-            les mauvaises surprises grâce à un entretien professionnel. </p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="bg-white p-6 rounded-xl shadow-md text-center">
-                        <div class="w-14 h-14 bg-secondary-500 rounded-lg flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 018 0v2m-4-4V7m0 0V5a2 2 0 10-4 0v2m0 0a2 2 0 104 0z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Performance Maximale</h3>
-                        <p class="text-gray-600">
-              Maintenez un rendement optimal de vos panneaux et équipements. </p>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-md text-center">
-                        <div class="w-14 h-14 bg-secondary-500 rounded-lg flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Sécurité Garantie</h3>
-                        <p class="text-gray-600">
-              Prévenez les risques électriques et les pannes imprévues. </p>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-md text-center">
-                        <div class="w-14 h-14 bg-secondary-500 rounded-lg flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2v-10zM3 10l7 4 7-4m-9-4v7m0 0l-2 2m2-2l2 2"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Suivi & Rapports</h3>
-                        <p class="text-gray-600">
-              Recevez des bilans réguliers sur l’état de votre installation. </p>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-md text-center">
-                        <div class="w-14 h-14 bg-secondary-500 rounded-lg flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Économies Durables</h3>
-                        <p class="text-gray-600">Assurez la longévité de votre installation grâce à une maintenance effectuée par des professionnels.</p>
-                    </div>
-                </div>
+            les mauvaises surprises grâce à un entretien professionnel.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="bg-white p-6 rounded-xl shadow-md text-center">
+            <div
+              class="w-14 h-14 bg-secondary-500 rounded-lg flex items-center justify-center mx-auto mb-6"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 17v-2a4 4 0 018 0v2m-4-4V7m0 0V5a2 2 0 10-4 0v2m0 0a2 2 0 104 0z"
+                ></path>
+              </svg>
             </div>
-        </section>
-        <!-- CTA Section -->
-        <section class="py-20 cta-gradient text-white">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">
-          Besoin d’un Contrat d’Entretien ? </h2>
-                <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            <h3 class="text-xl font-bold mb-3">Performance Maximale</h3>
+            <p class="text-gray-600">
+              Maintenez un rendement optimal de vos panneaux et équipements.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-md text-center">
+            <div
+              class="w-14 h-14 bg-secondary-500 rounded-lg flex items-center justify-center mx-auto mb-6"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Sécurité Garantie</h3>
+            <p class="text-gray-600">
+              Prévenez les risques électriques et les pannes imprévues.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-md text-center">
+            <div
+              class="w-14 h-14 bg-secondary-500 rounded-lg flex items-center justify-center mx-auto mb-6"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 10a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2v-10zM3 10l7 4 7-4m-9-4v7m0 0l-2 2m2-2l2 2"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Suivi & Rapports</h3>
+            <p class="text-gray-600">
+              Recevez des bilans réguliers sur l’état de votre installation.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-md text-center">
+            <div
+              class="w-14 h-14 bg-secondary-500 rounded-lg flex items-center justify-center mx-auto mb-6"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Économies Durables</h3>
+            <p class="text-gray-600">
+              Assurez la longévité de votre installation grâce à une maintenance
+              effectuée par des professionnels.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- CTA Section -->
+    <section class="py-20 cta-gradient text-white">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+          Besoin d’un Contrat d’Entretien ?
+        </h2>
+        <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
           Contactez nos experts pour un accompagnement personnalisé et une offre
-          sur-mesure. </p>
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center"><a href="contact.html" class="bg-secondary-500 text-white px-8 py-4 rounded-lg font-medium hover:bg-secondary-600 transition-colors inline-block">
-            Demander un Devis Gratuit </a><a href="tel:+33123456789" class="bg-white text-primary-900 px-8 py-4 rounded-lg font-medium hover:bg-gray-100 transition-colors inline-block">
-            Nous Appeler </a>
-                </div>
-            </div>
-        </section>
-        <!-- FAQ Entretien Solaire -->
-        <section class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16"><span class="text-secondary-500 font-semibold">QUESTIONS FRÉQUENTES</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
-            FAQ - Entretien Solaire </h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">
-            Vous avez des questions ? Nous avons les réponses. </p>
-                </div>
-                <div class="space-y-8 max-w-3xl mx-auto">
-                    <!-- Question 1 -->
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-md">
-                        <h3 class="text-xl font-bold mb-4">
+          sur-mesure.
+        </p>
+        <div
+          class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center"
+        >
+          <a
+            href="contact.html"
+            class="bg-secondary-500 text-white px-8 py-4 rounded-lg font-medium hover:bg-secondary-600 transition-colors inline-block"
+          >
+            Demander un Devis Gratuit </a
+          ><a
+            href="tel:+33123456789"
+            class="bg-white text-primary-900 px-8 py-4 rounded-lg font-medium hover:bg-gray-100 transition-colors inline-block"
+          >
+            Nous Appeler
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- FAQ Entretien Solaire -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <span class="text-secondary-500 font-semibold"
+            >QUESTIONS FRÉQUENTES</span
+          >
+          <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
+            FAQ - Entretien Solaire
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Vous avez des questions ? Nous avons les réponses.
+          </p>
+        </div>
+        <div class="space-y-8 max-w-3xl mx-auto">
+          <!-- Question 1 -->
+          <div class="bg-gray-50 p-6 rounded-xl shadow-md">
+            <h3 class="text-xl font-bold mb-4">
               Q1 : À quelle fréquence faut-il entretenir une installation
-              solaire ? </h3>
-                        <p class="text-gray-600">R : Un contrôle annuel est recommandé pour garantir la performance
+              solaire ?
+            </h3>
+            <p class="text-gray-600">
+              R : Un contrôle annuel est recommandé pour garantir la performance
               et la sécurité de votre installation. Un nettoyage régulier des
-              panneaux est aussi conseillé. <br>Le nettoyage se fait idéalement tôt le matin avec un jet d&rsquo;eau douce pour éviter les chocs thermiques. Évitez les produits abrasifs ou détergents qui pourraient endommager la surface des panneaux.</p>
-                    </div>
-                    <!-- Question 2 -->
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-md">
-                        <h3 class="text-xl font-bold mb-4">Q2 : Quels sont les points clés de la maintenance électrique ?</h3>
-                        <p class="text-gray-600">R : La maintenance inclut le resserrage des connexions, la vérification des tensions, l&rsquo;inspection des onduleurs, et le nettoyage du tableau électrique pour assurer sécurité et performance optimale.</p>
-                    </div>
-                    <!-- Question 3 -->
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-md">
-                        <h3 class="text-xl font-bold mb-4">Q3 : Puis-je faire la maintenance moi-même ?</h3>
-                        <p class="text-gray-600">R : Certaines opérations simples, comme le nettoyage, peuvent être réalisées par vos soins, mais pour tout contrôle électrique ou technique, il est fortement conseillé de faire appel à un professionnel qualifié.</p>
-                    </div>
-                    <!-- Question 4 -->
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-md">
-                        <h3 class="text-xl font-bold mb-4">
-              Q4 : L'entretien est-il obligatoire pour conserver la garantie ? </h3>
-                        <p class="text-gray-600">
+              panneaux est aussi conseillé. <br />Le nettoyage se fait
+              idéalement tôt le matin avec un jet d&rsquo;eau douce pour éviter
+              les chocs thermiques. Évitez les produits abrasifs ou détergents
+              qui pourraient endommager la surface des panneaux.
+            </p>
+          </div>
+          <!-- Question 2 -->
+          <div class="bg-gray-50 p-6 rounded-xl shadow-md">
+            <h3 class="text-xl font-bold mb-4">
+              Q2 : Quels sont les points clés de la maintenance électrique ?
+            </h3>
+            <p class="text-gray-600">
+              R : La maintenance inclut le resserrage des connexions, la
+              vérification des tensions, l&rsquo;inspection des onduleurs, et le
+              nettoyage du tableau électrique pour assurer sécurité et
+              performance optimale.
+            </p>
+          </div>
+          <!-- Question 3 -->
+          <div class="bg-gray-50 p-6 rounded-xl shadow-md">
+            <h3 class="text-xl font-bold mb-4">
+              Q3 : Puis-je faire la maintenance moi-même ?
+            </h3>
+            <p class="text-gray-600">
+              R : Certaines opérations simples, comme le nettoyage, peuvent être
+              réalisées par vos soins, mais pour tout contrôle électrique ou
+              technique, il est fortement conseillé de faire appel à un
+              professionnel qualifié.
+            </p>
+          </div>
+          <!-- Question 4 -->
+          <div class="bg-gray-50 p-6 rounded-xl shadow-md">
+            <h3 class="text-xl font-bold mb-4">
+              Q4 : L'entretien est-il obligatoire pour conserver la garantie ?
+            </h3>
+            <p class="text-gray-600">
               R : Oui, la plupart des fabricants exigent un entretien régulier
               pour maintenir la garantie des équipements solaires.
             </p>
-                    </div>
-                    <!-- Question 5 -->
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-md">
-                        <h3 class="text-xl font-bold mb-4">Q5 : Quels sont les signes d&rsquo;une installation nécessitant une maintenance urgente ?</h3>
-                        <p class="text-gray-600">R : Une baisse significative de production, des bruits inhabituels de l&rsquo;onduleur, des voyants d&rsquo;alerte ou une surchauffe sont des signaux qui indiquent qu&rsquo;une intervention rapide est nécessaire.<br></p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Contact -->
-        <section class="py-20 bg-gray-50" id="contact">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Contactez-Nous</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">
+          </div>
+          <!-- Question 5 -->
+          <div class="bg-gray-50 p-6 rounded-xl shadow-md">
+            <h3 class="text-xl font-bold mb-4">
+              Q5 : Quels sont les signes d&rsquo;une installation nécessitant
+              une maintenance urgente ?
+            </h3>
+            <p class="text-gray-600">
+              R : Une baisse significative de production, des bruits inhabituels
+              de l&rsquo;onduleur, des voyants d&rsquo;alerte ou une surchauffe
+              sont des signaux qui indiquent qu&rsquo;une intervention rapide
+              est nécessaire.<br />
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact -->
+    <section class="py-20 bg-gray-50" id="contact">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Contactez-Nous</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
             Notre équipe est à votre écoute pour toute question ou demande
-            d'entretien. </p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <!-- Formulaire de Contact -->
-                    <div class="bg-white p-8 rounded-xl shadow-md">
-                        <h3 class="text-xl font-bold mb-6">Formulaire de Contact</h3>
-                        <form action="#" method="POST" class="space-y-4">
-                            <div>
-                                <label for="name" class="block text-sm font-medium text-gray-700">Nom</label>
-                                <input type="text" id="name" name="name" required class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-secondary-500 focus:outline-none" placeholder="Votre nom complet"/>
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                                <input type="email" id="email" name="email" required class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-secondary-500 focus:outline-none" placeholder="Votre adresse email"/>
-                            </div>
-                            <div>
-                                <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                                <textarea id="message" name="message" rows="4" required class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-secondary-500 focus:outline-none" placeholder="Votre message ou question"></textarea>
-                            </div>
-                            <div>
-                                <button type="submit" class="w-full bg-secondary-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-secondary-600 transition-colors">
-                                    Envoyer le Message
-</button>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- Informations de contact -->
-                    <div class="bg-white p-8 rounded-xl shadow-md">
-                        <h3 class="text-xl font-bold mb-6">Informations de Contact</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-center">
-                                <svg class="w-6 h-6 text-secondary-500 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg><span class="text-gray-700">+33 1 23 45 67 89</span>
-                            </div>
-                            <div class="flex items-center">
-                                <svg class="w-6 h-6 text-secondary-500 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg><span class="text-gray-700">contact@heliosa.fr</span>
-                            </div>
-                            <div class="flex items-center">
-                                <svg class="w-6 h-6 text-secondary-500 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg><span class="text-gray-700">Heliosa, 10 Rue de l'Énergie, 75000 Paris</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            d'entretien.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <!-- Formulaire de Contact -->
+          <div class="bg-white p-8 rounded-xl shadow-md">
+            <h3 class="text-xl font-bold mb-6">Formulaire de Contact</h3>
+            <form action="#" method="POST" class="space-y-4">
+              <div>
+                <label
+                  for="name"
+                  class="block text-sm font-medium text-gray-700"
+                  >Nom</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-secondary-500 focus:outline-none"
+                  placeholder="Votre nom complet"
+                />
+              </div>
+              <div>
+                <label
+                  for="email"
+                  class="block text-sm font-medium text-gray-700"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-secondary-500 focus:outline-none"
+                  placeholder="Votre adresse email"
+                />
+              </div>
+              <div>
+                <label
+                  for="message"
+                  class="block text-sm font-medium text-gray-700"
+                  >Message</label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  required
+                  class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-secondary-500 focus:outline-none"
+                  placeholder="Votre message ou question"
+                ></textarea>
+              </div>
+              <div>
+                <button
+                  type="submit"
+                  class="w-full bg-secondary-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-secondary-600 transition-colors"
+                >
+                  Envoyer le Message
+                </button>
+              </div>
+            </form>
+          </div>
+          <!-- Informations de contact -->
+          <div class="bg-white p-8 rounded-xl shadow-md">
+            <h3 class="text-xl font-bold mb-6">Informations de Contact</h3>
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <svg
+                  class="w-6 h-6 text-secondary-500 mr-3"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path></svg
+                ><span class="text-gray-700">+33 1 23 45 67 89</span>
+              </div>
+              <div class="flex items-center">
+                <svg
+                  class="w-6 h-6 text-secondary-500 mr-3"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path></svg
+                ><span class="text-gray-700">contact@heliosa.fr</span>
+              </div>
+              <div class="flex items-center">
+                <svg
+                  class="w-6 h-6 text-secondary-500 mr-3"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path></svg
+                ><span class="text-gray-700"
+                  >Heliosa, 10 Rue de l'Énergie, 75000 Paris</span
+                >
+              </div>
             </div>
-        </section>
-        <!-- Footer simple -->
-        <footer class="bg-gray-900 text-white py-8">
-            <div class="container mx-auto px-6 text-center">
-                <p>© 2025 Heliosa - Tous droits réservés</p>
-            </div>
-        </footer>
-    </body>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer simple -->
+    <footer class="bg-gray-900 text-white py-8">
+      <div class="container mx-auto px-6 text-center">
+        <p>© 2025 Heliosa - Tous droits réservés</p>
+      </div>
+    </footer>
+  </body>
 </html>
