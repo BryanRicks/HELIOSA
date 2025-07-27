@@ -86,6 +86,7 @@
         opacity: 0;
         transform: scale(0.1);
         position: relative;
+        z-index: 15;
       }
 
       .logo-link.visible {
@@ -183,48 +184,48 @@
         }
       }
 
-      /* Animations pour chaque pictogramme depuis le centre de la vidéo */
+      /* Animations pour chaque pictogramme - sortent du centre vers leurs positions */
       @keyframes slideFromCenter1 {
         0% {
           opacity: 0;
-          transform: translate(-300px, 0px) scale(0.1);
+          transform: scale(0.1) translate(200px, -150px);
         }
         100% {
           opacity: 1;
-          transform: translate(0, 0) scale(1);
+          transform: scale(1) translate(0, 0);
         }
       }
 
       @keyframes slideFromCenter2 {
         0% {
           opacity: 0;
-          transform: translate(-100px, 0px) scale(0.1);
+          transform: scale(0.1) translate(60px, -150px);
         }
         100% {
           opacity: 1;
-          transform: translate(0, 0) scale(1);
+          transform: scale(1) translate(0, 0);
         }
       }
 
       @keyframes slideFromCenter3 {
         0% {
           opacity: 0;
-          transform: translate(100px, 0px) scale(0.1);
+          transform: scale(0.1) translate(-60px, -150px);
         }
         100% {
           opacity: 1;
-          transform: translate(0, 0) scale(1);
+          transform: scale(1) translate(0, 0);
         }
       }
 
       @keyframes slideFromCenter4 {
         0% {
           opacity: 0;
-          transform: translate(300px, 0px) scale(0.1);
+          transform: scale(0.1) translate(-200px, -150px);
         }
         100% {
           opacity: 1;
-          transform: translate(0, 0) scale(1);
+          transform: scale(1) translate(0, 0);
         }
       }
 
@@ -300,6 +301,7 @@
       @media (max-width: 768px) {
         .heliosa-text {
           font-size: 3rem;
+          top: 55% !important; /* Remonté légèrement */
         }
 
         .center-video {
@@ -315,7 +317,7 @@
 
         .logos-container {
           gap: 20px !important;
-          margin-top: 20px !important;
+          margin-top: 160px !important; /* Position plus basse pour mobile */
           flex-wrap: wrap !important;
           justify-content: space-around !important;
         }
@@ -346,6 +348,7 @@
       @media (max-width: 480px) {
         .heliosa-text {
           font-size: 2.5rem;
+          top: 52% !important; /* Remonté légèrement pour petits écrans */
         }
 
         .center-video {
@@ -361,7 +364,7 @@
 
         .logos-container {
           gap: 15px !important;
-          margin-top: 15px !important;
+          margin-top: 180px !important; /* Position encore plus basse pour très petits écrans */
         }
 
         .logos-container > div {
@@ -485,7 +488,7 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            margin-top: 420px;
+            margin-top: 370px;
             position: relative;
             gap: 32px;
           "
@@ -499,11 +502,7 @@
               min-width: 110px;
             "
           >
-            <a
-              href="produire.html"
-              class="logo-link"
-              style="position: relative; left: 0"
-            >
+            <a href="produire.html" class="logo-link">
               <img
                 src="SITE_VISUELS/PICTOGRAMME/PANNEAU.png"
                 alt="Panneaux Solaires"
@@ -521,11 +520,7 @@
               min-width: 110px;
             "
           >
-            <a
-              href="stocker.html"
-              class="logo-link"
-              style="position: relative; left: 0"
-            >
+            <a href="stocker.html" class="logo-link">
               <img
                 src="SITE_VISUELS/PICTOGRAMME/BATTERIE.png"
                 alt="Batteries"
@@ -543,11 +538,7 @@
               min-width: 110px;
             "
           >
-            <a
-              href="charger.html"
-              class="logo-link"
-              style="position: relative; left: 0"
-            >
+            <a href="charger.html" class="logo-link">
               <img
                 src="SITE_VISUELS/PICTOGRAMME/BORNE_RECHARGE.png"
                 alt="Bornes de Recharge"
@@ -565,11 +556,7 @@
               min-width: 110px;
             "
           >
-            <a
-              href="entretien.html"
-              class="logo-link"
-              style="position: relative; left: 0"
-            >
+            <a href="entretien.html" class="logo-link">
               <img
                 src="SITE_VISUELS/PICTOGRAMME/MAINTENANCE.png"
                 alt="Maintenance"
@@ -635,9 +622,7 @@
                         } arrivé (${completedAnimations}/${
                           logoContainers.length
                         })`
-                      );
-
-                      // Quand tous les pictogrammes ont fini leur animation
+                      ); // Quand tous les pictogrammes ont fini leur animation
                       if (completedAnimations === logoContainers.length) {
                         console.log(
                           "Tous les pictogrammes sont arrivés, affichage des labels..."
@@ -655,7 +640,7 @@
                             );
                           });
                       }
-                    }, 800); // Durée réduite (0.8s au lieu de 1.5s)
+                    }, 50); // Durée réduite à 50ms pour un affichage quasi-instantané
                   }, index * 300); // Délai progressif pour chaque pictogramme
                 });
 
