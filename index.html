@@ -341,6 +341,51 @@
           padding: 1px 8px !important;
           margin-top: 8px !important;
         }
+
+        /* Animations adaptées pour mobile - positions plus basses */
+        @keyframes slideFromCenter1 {
+          0% {
+            opacity: 0;
+            transform: translate(-120px, 0px) scale(0.1);
+          }
+          100% {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+          }
+        }
+
+        @keyframes slideFromCenter2 {
+          0% {
+            opacity: 0;
+            transform: translate(-40px, 0px) scale(0.1);
+          }
+          100% {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+          }
+        }
+
+        @keyframes slideFromCenter3 {
+          0% {
+            opacity: 0;
+            transform: translate(40px, 0px) scale(0.1);
+          }
+          100% {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+          }
+        }
+
+        @keyframes slideFromCenter4 {
+          0% {
+            opacity: 0;
+            transform: translate(120px, 0px) scale(0.1);
+          }
+          100% {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+          }
+        }
       }
 
       @media (max-width: 480px) {
@@ -383,6 +428,51 @@
           font-size: 0.85rem !important;
           padding: 1px 6px !important;
           margin-top: 6px !important;
+        }
+
+        /* Animations encore plus réduites pour très petits écrans */
+        @keyframes slideFromCenter1 {
+          0% {
+            opacity: 0;
+            transform: translate(-80px, 20px) scale(0.1);
+          }
+          100% {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+          }
+        }
+
+        @keyframes slideFromCenter2 {
+          0% {
+            opacity: 0;
+            transform: translate(-30px, 20px) scale(0.1);
+          }
+          100% {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+          }
+        }
+
+        @keyframes slideFromCenter3 {
+          0% {
+            opacity: 0;
+            transform: translate(30px, 20px) scale(0.1);
+          }
+          100% {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+          }
+        }
+
+        @keyframes slideFromCenter4 {
+          0% {
+            opacity: 0;
+            transform: translate(80px, 20px) scale(0.1);
+          }
+          100% {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+          }
         }
       }
 
