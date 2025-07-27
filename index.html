@@ -10,37 +10,9 @@
       rel="stylesheet"
     />
     <style>
-      /* Styles pour la transition initiale */
+      /* Styles pour le body */
       body {
         overflow: hidden; /* Empêche le défilement pendant la transition */
-      }
-      .initial-transition {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #1a1a1a; /* Fond noir pour la transition */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000; /* Assure que la transition est au-dessus de tout */
-        opacity: 1;
-        transform: scale(1.2); /* Logo légèrement agrandi au départ */
-        transition: opacity 1.2s ease-in-out,
-          transform 1.2s cubic-bezier(0.77, 0, 0.175, 1); /* Transition plus lente et plus douce */
-      }
-      .initial-transition img {
-        max-width: 80%;
-        max-height: 80%;
-        transition: transform 1.5s cubic-bezier(0.77, 0, 0.175, 1); /* Smooth and slow zoom effect */
-      }
-      .initial-transition.zoom-out {
-        opacity: 0; /* Disparaît en s'éloignant */
-        transform: scale(1); /* Zoom out effect */
-      }
-      .initial-transition.hidden {
-        display: none;
       }
 
       html,
@@ -91,6 +63,111 @@
         max-height: 60vh; /* Logo plus grand */
         object-fit: contain;
         margin-bottom: 60px; /* Espace pour les flèches */
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      .center-image.show {
+        opacity: 1;
+      }
+
+      /* Animation pour faire sortir les pictogrammes du centre */
+      .logo-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #23272f 0%, #444b58 100%);
+        box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.18),
+          0 1.5px 4px 0 rgba(0, 0, 0, 0.1);
+        border: 2.5px solid #f0b952;
+        transition: all 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        opacity: 0;
+        transform: scale(0.1);
+        position: relative;
+      }
+
+      .logo-link.visible {
+        opacity: 1;
+        transform: scale(1);
+        box-shadow: 0 8px 24px 0 rgba(240, 185, 82, 0.25),
+          0 2px 8px 0 rgba(0, 0, 0, 0.1);
+        border-color: #e6a118;
+        background: linear-gradient(135deg, #23272f 0%, #444b58 100%);
+      }
+
+      .logo-link.visible:hover {
+        animation: pulse 0.8s ease-in-out infinite;
+        box-shadow: 0 12px 30px rgba(240, 185, 82, 0.35),
+          0 4px 12px rgba(0, 0, 0, 0.15);
+        border-color: #f0b952;
+      }
+
+      /* Vidéo de transition au centre */
+      .transition-center-video {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 45%;
+        max-height: 40vh;
+        z-index: 5;
+        opacity: 0;
+      }
+
+      .transition-center-video.show {
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      /* Animation pour le texte HELIOSA */
+      .heliosa-text {
+        position: absolute;
+        top: 58%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 4rem;
+        font-weight: 700;
+        color: #f0b952;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        opacity: 0;
+        letter-spacing: 0.2em;
+        z-index: 10;
+      }
+
+      /* Vidéo centrale qui remplace le logo B */
+      .center-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 65%;
+        max-height: 60vh;
+        z-index: 5;
+        opacity: 0;
+      }
+
+      .center-video.show {
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      /* Animation pour faire apparaître le texte */
+      .heliosa-text.show {
+        opacity: 1;
+        animation: fadeInText 2s ease-in-out forwards;
+      }
+
+      @keyframes fadeInText {
+        0% {
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(0.8);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1);
+        }
       }
 
       /* Animation pulse pour les pictogrammes */
@@ -106,40 +183,69 @@
         }
       }
 
-      /* Nouveaux styles pour les logos en dessous */
-      .logo-link {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 70px;
-        height: 70px;
-        border-radius: 50%;
-        background: linear-gradient(
-          135deg,
-          #23272f 0%,
-          #444b58 100%
-        ); /* Fond sombre pour contraste avec pictogrammes blancs */
-        box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.18),
-          0 1.5px 4px 0 rgba(0, 0, 0, 0.1);
-        border: 2.5px solid #f0b952;
-        transition: box-shadow 0.3s, border-color 0.3s, background 0.3s;
-        opacity: 0;
-        transform: translateY(40px);
+      /* Animations pour chaque pictogramme depuis le centre de la vidéo */
+      @keyframes slideFromCenter1 {
+        0% {
+          opacity: 0;
+          transform: translate(-300px, -200px) scale(0.1);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0, 0) scale(1);
+        }
       }
-      .logo-link.visible {
-        opacity: 1;
-        transform: translateY(0);
-        transition: opacity 0.7s, transform 0.3s ease-in-out, background 0.3s;
-        box-shadow: 0 8px 24px 0 rgba(240, 185, 82, 0.25),
-          0 2px 8px 0 rgba(0, 0, 0, 0.1);
-        border-color: #e6a118;
-        background: linear-gradient(135deg, #23272f 0%, #444b58 100%);
+
+      @keyframes slideFromCenter2 {
+        0% {
+          opacity: 0;
+          transform: translate(-100px, -200px) scale(0.1);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0, 0) scale(1);
+        }
       }
-      .logo-link.visible:hover {
-        animation: pulse 0.8s ease-in-out infinite;
-        box-shadow: 0 12px 30px rgba(240, 185, 82, 0.35),
-          0 4px 12px rgba(0, 0, 0, 0.15);
-        border-color: #f0b952;
+
+      @keyframes slideFromCenter3 {
+        0% {
+          opacity: 0;
+          transform: translate(100px, -200px) scale(0.1);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0, 0) scale(1);
+        }
+      }
+
+      @keyframes slideFromCenter4 {
+        0% {
+          opacity: 0;
+          transform: translate(300px, -200px) scale(0.1);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0, 0) scale(1);
+        }
+      }
+
+      .logo-link:nth-child(1) .logo-link.animate {
+        animation: slideFromCenter1 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+          forwards;
+      }
+
+      .logo-link:nth-child(2) .logo-link.animate {
+        animation: slideFromCenter2 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+          forwards;
+      }
+
+      .logo-link:nth-child(3) .logo-link.animate {
+        animation: slideFromCenter3 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+          forwards;
+      }
+
+      .logo-link:nth-child(4) .logo-link.animate {
+        animation: slideFromCenter4 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+          forwards;
       }
       .logo {
         max-width: 44px;
@@ -149,18 +255,30 @@
         filter: none;
       }
       .logo-label {
-        margin-top: 12px;
-        color: #2e2e2e;
+        margin-top: 15px;
+        color: #1a1a1a;
         font-weight: 700;
         letter-spacing: 0.5px;
-        font-size: 1.08rem;
+        font-size: 1.2rem;
         text-align: center;
-        text-shadow: 0 2px 8px #fffbe6, 0 1px 2px #f0b952;
-        background: rgba(255, 255, 255, 0.85);
-        border-radius: 8px;
-        padding: 2px 12px;
-        box-shadow: 0 2px 8px 0 rgba(240, 185, 82, 0.1);
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 12px;
+        padding: 8px 16px;
+        box-shadow: 0 4px 12px rgba(240, 185, 82, 0.3);
         display: inline-block;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-in-out;
+        border: 2px solid #f0b952;
+        z-index: 100;
+        position: relative;
+        min-width: 80px;
+      }
+
+      .logo-label.visible {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
       }
 
       .logo-nav-button {
@@ -180,6 +298,15 @@
 
       /* Responsive pour mobile */
       @media (max-width: 768px) {
+        .heliosa-text {
+          font-size: 3rem;
+        }
+
+        .center-video {
+          max-width: 80%;
+          max-height: 45vh;
+        }
+
         .center-image {
           max-width: 80%;
           max-height: 45vh;
@@ -217,6 +344,15 @@
       }
 
       @media (max-width: 480px) {
+        .heliosa-text {
+          font-size: 2.5rem;
+        }
+
+        .center-video {
+          max-width: 85%;
+          max-height: 35vh;
+        }
+
         .center-image {
           max-width: 85%;
           max-height: 35vh;
@@ -266,15 +402,6 @@
     </style>
   </head>
   <body>
-    <!-- Transition initiale -->
-    <div class="initial-transition" id="transition">
-      <img
-        src="SITE_VISUELS/LOGO/LOGO_SLOGAN_B_HELIOSA.png"
-        alt="Heliosa Logo"
-        id="transition-logo"
-      />
-    </div>
-
     <!-- Vidéo de fond -->
     <video
       autoplay
@@ -311,6 +438,34 @@
 
     <!-- Contenu principal de la page -->
     <div class="main-container" style="z-index: 5; position: relative">
+      <!-- Vidéo de transition au centre (output.webm) -->
+      <video
+        id="transition-center-video"
+        class="transition-center-video"
+        muted
+        playsinline
+        preload="metadata"
+      >
+        <source src="HELIOSA_VIDEOS_SITE/output.webm" type="video/webm" />
+      </video>
+
+      <!-- Vidéo centrale qui remplace le logo B -->
+      <video
+        id="center-video"
+        class="center-video"
+        muted
+        playsinline
+        style="mix-blend-mode: screen"
+      >
+        <source
+          src="HELIOSA_VIDEOS_SITE/VID-20250726-WA0007e4"
+          type="video/mp4"
+        />
+      </video>
+
+      <!-- Texte HELIOSA animé -->
+      <div class="heliosa-text" id="heliosa-text">HELIOSA</div>
+
       <!-- Section principale avec les logos et les flèches -->
       <section class="relative">
         <!-- Image centrale -->
@@ -319,7 +474,7 @@
           id="center-container"
           style="position: relative"
         >
-          <!-- Le logo sera déplacé ici dynamiquement -->
+          <!-- Zone centrale vide pour l'animation des pictogrammes -->
         </div>
 
         <!-- Logos en dessous + labels corrigés -->
@@ -330,7 +485,7 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            margin-top: 30px;
+            margin-top: 420px;
             position: relative;
             gap: 32px;
           "
@@ -431,37 +586,85 @@
     <script src="gsap-intro.js"></script>
     <script>
       window.addEventListener("load", function () {
-        const transitionElement = document.getElementById("transition");
-        const transitionLogo = document.getElementById("transition-logo");
+        const transitionCenterVideo = document.getElementById(
+          "transition-center-video"
+        );
         const centerContainer = document.getElementById("center-container");
         const logosContainer = document.querySelector(".logos-container");
+        const heliosaltext = document.getElementById("heliosa-text");
+        const centerVideo = document.getElementById("center-video");
         const arrows = document.querySelectorAll(".arrow");
 
-        // Initial zoom-out effect
+        // Démarrer directement la vidéo de transition au centre
         setTimeout(() => {
-          transitionElement.classList.add("zoom-out");
-        }, 900); // délai plus long
+          transitionCenterVideo.classList.add("show");
+          transitionCenterVideo.play();
 
-        // Transition to main content
-        setTimeout(() => {
-          // Déplacer le logo dans le container central
-          transitionElement.classList.add("hidden");
-          centerContainer.insertBefore(
-            transitionLogo,
-            centerContainer.firstChild
-          );
-          transitionLogo.classList.add("center-image");
+          // Écouter la fin de la vidéo de transition pour afficher le texte HELIOSA
+          transitionCenterVideo.addEventListener("ended", function () {
+            // Garder la dernière image en pause
+            transitionCenterVideo.currentTime = transitionCenterVideo.duration;
 
-          // Affiche les logos et les flèches
-          setTimeout(() => {
-            // ➕ C'est ici qu'on ajoute `.visible` à CHAQUE bouton :
-            document.querySelectorAll(".logo-link").forEach((link) => {
-              link.classList.add("visible");
-            });
+            // Faire apparaître le texte HELIOSA
+            setTimeout(() => {
+              heliosaltext.classList.add("show");
 
-            arrows.forEach((arrow) => arrow.classList.add("visible"));
-          }, 900);
-        }, 2200);
+              // Après l'apparition du texte, faire apparaître les pictogrammes
+              setTimeout(() => {
+                const logoContainers = document.querySelectorAll(
+                  ".logos-container > div"
+                );
+                let completedAnimations = 0;
+
+                logoContainers.forEach((container, index) => {
+                  const link = container.querySelector(".logo-link");
+
+                  setTimeout(() => {
+                    // Ajouter l'animation spécifique selon l'index
+                    link.classList.add("visible");
+                    link.style.animation = `slideFromCenter${
+                      index + 1
+                    } 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards`;
+
+                    // Simuler la fin de l'animation avec setTimeout
+                    setTimeout(() => {
+                      completedAnimations++;
+                      console.log(
+                        `Pictogramme ${
+                          index + 1
+                        } arrivé (${completedAnimations}/${
+                          logoContainers.length
+                        })`
+                      );
+
+                      // Quand tous les pictogrammes ont fini leur animation
+                      if (completedAnimations === logoContainers.length) {
+                        console.log(
+                          "Tous les pictogrammes sont arrivés, affichage des labels..."
+                        );
+
+                        // Faire apparaître tous les labels en même temps
+                        document
+                          .querySelectorAll(".logo-label")
+                          .forEach((label, labelIndex) => {
+                            label.classList.add("visible");
+                            label.style.opacity = "1";
+                            label.style.transform = "translateY(0)";
+                            console.log(
+                              `Label ${labelIndex} ("${label.textContent}") affiché`
+                            );
+                          });
+                      }
+                    }, 800); // Durée réduite (0.8s au lieu de 1.5s)
+                  }, index * 300); // Délai progressif pour chaque pictogramme
+                });
+
+                arrows.forEach((arrow) => arrow.classList.add("visible"));
+              }, 2000); // 2 secondes après l'apparition du texte
+            }, 500);
+          });
+        }, 1000); // Délai de 1 seconde après le chargement de la page
+
         document.body.style.overflow = "auto";
       });
     </script>
