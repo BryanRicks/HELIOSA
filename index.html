@@ -105,19 +105,17 @@
       .transition-center-video.show {
         opacity: 1;
         transition: opacity 0.5s ease-in-out;
-      } /* Animation pour le texte HELIOSA */
+      } /* Animation pour l'image HELIOSA */
       .heliosa-text {
         position: absolute;
         top: 58%;
         left: 50%;
         transform: translate(-50%, -50%);
-        font-size: 4rem;
-        font-weight: 700;
-        color: #f0b952;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        max-width: 1000px;
+        max-height: 400px;
         opacity: 0;
-        letter-spacing: 0.2em;
         z-index: 10;
+        object-fit: contain;
       } /* Vidéo centrale qui remplace le logo B */
       .center-video {
         position: absolute;
@@ -260,7 +258,8 @@
       } /* Responsive pour mobile */
       @media (max-width: 768px) {
         .heliosa-text {
-          font-size: 3rem;
+          max-width: 600px;
+          max-height: 160px;
           top: 55% !important; /* Remonté légèrement */
         }
         .center-video {
@@ -299,7 +298,8 @@
       }
       @media (max-width: 480px) {
         .heliosa-text {
-          font-size: 2.5rem;
+          max-width: 500px;
+          max-height: 120px;
           top: 52% !important; /* Remonté légèrement pour petits écrans */
         }
         .center-video {
@@ -404,8 +404,13 @@
           type="video/mp4"
         />
       </video>
-      <!-- Texte HELIOSA animé -->
-      <div class="heliosa-text" id="heliosa-text">HELIOSA</div>
+      <!-- Image HELIOSA animée -->
+      <img
+        src="SITE_VISUELS/IMAGE/HELIOSA_TYPO.png"
+        alt="HELIOSA"
+        class="heliosa-text"
+        id="heliosa-text"
+      />
       <!-- Section principale avec les logos et les flèches -->
       <section class="relative">
         <!-- Image centrale -->
