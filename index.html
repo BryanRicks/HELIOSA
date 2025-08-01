@@ -14,7 +14,6 @@
       body {
         overflow: hidden; /* Empêche le défilement pendant la transition */
       }
-
       html,
       body {
         font-family: "Inter", sans-serif;
@@ -25,7 +24,6 @@
         overflow: hidden;
         background: #000; /* Noir pour éviter le flash blanc avant la vidéo */
       }
-
       .main-container {
         position: relative;
         width: 100%;
@@ -35,7 +33,6 @@
         justify-content: center; /* Ajout pour centrer verticalement */
         align-items: center; /* Ajout pour centrer verticalement */
       }
-
       .background-image {
         position: absolute;
         top: 0;
@@ -45,19 +42,15 @@
         object-fit: cover;
         z-index: 1;
       }
-
       .center-image-container {
         position: relative; /* Changement pour positionnement relatif */
         z-index: 5;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        /* transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; Ajout de la transition */
-        /* transform: translateY(
+        align-items: center; /* transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; Ajout de la transition */ /* transform: translateY(
           -50px
         ); Déplace le logo vers le haut pour faire de la place */
       }
-
       .center-image {
         max-width: 65%; /* Logo plus grand */
         max-height: 60vh; /* Logo plus grand */
@@ -65,12 +58,9 @@
         margin-bottom: 60px; /* Espace pour les flèches */
         transition: opacity 0.5s ease-in-out;
       }
-
       .center-image.show {
         opacity: 1;
-      }
-
-      /* Animation pour faire sortir les pictogrammes du centre */
+      } /* Animation pour faire sortir les pictogrammes du centre */
       .logo-link {
         display: flex;
         align-items: center;
@@ -88,7 +78,6 @@
         position: relative;
         z-index: 15;
       }
-
       .logo-link.visible {
         opacity: 1;
         transform: scale(1);
@@ -97,15 +86,12 @@
         border-color: #e6a118;
         background: linear-gradient(135deg, #23272f 0%, #444b58 100%);
       }
-
       .logo-link.visible:hover {
         animation: pulse 0.8s ease-in-out infinite;
         box-shadow: 0 12px 30px rgba(240, 185, 82, 0.35),
           0 4px 12px rgba(0, 0, 0, 0.15);
         border-color: #f0b952;
-      }
-
-      /* Vidéo de transition au centre */
+      } /* Vidéo de transition au centre */
       .transition-center-video {
         position: absolute;
         top: 40%;
@@ -116,13 +102,10 @@
         z-index: 5;
         opacity: 0;
       }
-
       .transition-center-video.show {
         opacity: 1;
         transition: opacity 0.5s ease-in-out;
-      }
-
-      /* Animation pour le texte HELIOSA */
+      } /* Animation pour le texte HELIOSA */
       .heliosa-text {
         position: absolute;
         top: 58%;
@@ -135,9 +118,7 @@
         opacity: 0;
         letter-spacing: 0.2em;
         z-index: 10;
-      }
-
-      /* Vidéo centrale qui remplace le logo B */
+      } /* Vidéo centrale qui remplace le logo B */
       .center-video {
         position: absolute;
         top: 50%;
@@ -148,18 +129,14 @@
         z-index: 5;
         opacity: 0;
       }
-
       .center-video.show {
         opacity: 1;
         transition: opacity 0.5s ease-in-out;
-      }
-
-      /* Animation pour faire apparaître le texte */
+      } /* Animation pour faire apparaître le texte */
       .heliosa-text.show {
         opacity: 1;
         animation: fadeInText 1s ease-in-out forwards;
       }
-
       @keyframes fadeInText {
         0% {
           opacity: 0;
@@ -169,9 +146,7 @@
           opacity: 1;
           transform: translate(-50%, -50%) scale(1);
         }
-      }
-
-      /* Animation pulse pour les pictogrammes */
+      } /* Animation pulse pour les pictogrammes */
       @keyframes pulse {
         0% {
           transform: scale(1);
@@ -182,9 +157,7 @@
         100% {
           transform: scale(1);
         }
-      }
-
-      /* Animations pour chaque pictogramme - sortent du centre vers leurs positions */
+      } /* Animations pour chaque pictogramme - sortent du centre vers leurs positions */
       @keyframes slideFromCenter1 {
         0% {
           opacity: 0;
@@ -195,7 +168,6 @@
           transform: scale(1) translate(0, 0);
         }
       }
-
       @keyframes slideFromCenter2 {
         0% {
           opacity: 0;
@@ -206,7 +178,6 @@
           transform: scale(1) translate(0, 0);
         }
       }
-
       @keyframes slideFromCenter3 {
         0% {
           opacity: 0;
@@ -217,7 +188,6 @@
           transform: scale(1) translate(0, 0);
         }
       }
-
       @keyframes slideFromCenter4 {
         0% {
           opacity: 0;
@@ -228,22 +198,18 @@
           transform: scale(1) translate(0, 0);
         }
       }
-
       .logo-link:nth-child(1) .logo-link.animate {
         animation: slideFromCenter1 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)
           forwards;
       }
-
       .logo-link:nth-child(2) .logo-link.animate {
         animation: slideFromCenter2 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)
           forwards;
       }
-
       .logo-link:nth-child(3) .logo-link.animate {
         animation: slideFromCenter3 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)
           forwards;
       }
-
       .logo-link:nth-child(4) .logo-link.animate {
         animation: slideFromCenter4 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)
           forwards;
@@ -251,8 +217,7 @@
       .logo {
         max-width: 44px;
         max-height: 44px;
-        object-fit: contain;
-        /* Suppression du drop-shadow fluorescent */
+        object-fit: contain; /* Suppression du drop-shadow fluorescent */
         filter: none;
       }
       .logo-label {
@@ -276,12 +241,10 @@
         position: relative;
         min-width: 80px;
       }
-
       .logo-label.visible {
         opacity: 1 !important;
         transform: translateY(0) !important;
       }
-
       .logo-nav-button {
         padding: 10px 20px;
         background: rgba(240, 185, 82, 0.9);
@@ -291,114 +254,93 @@
         transition: all 0.3s ease;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
-
       .logo-nav-button:hover {
         transform: translateY(-3px);
         background-color: #e6a118;
-      }
-
-      /* Responsive pour mobile */
+      } /* Responsive pour mobile */
       @media (max-width: 768px) {
         .heliosa-text {
           font-size: 3rem;
           top: 55% !important; /* Remonté légèrement */
         }
-
         .center-video {
           max-width: 80%;
           max-height: 45vh;
         }
-
         .center-image {
           max-width: 80%;
           max-height: 45vh;
           margin-bottom: 40px;
         }
-
         .logos-container {
           gap: 20px !important;
           margin-top: 160px !important; /* Position plus basse pour mobile */
           flex-wrap: wrap !important;
           justify-content: space-around !important;
         }
-
         .logos-container > div {
           width: 22% !important;
           min-width: 90px !important;
         }
-
         .logo-link {
           width: 60px !important;
           height: 60px !important;
           border: 2px solid #f0b952 !important;
         }
-
         .logo {
           max-width: 36px !important;
           max-height: 36px !important;
         }
-
         .logo-label {
           font-size: 0.95rem !important;
           padding: 1px 8px !important;
           margin-top: 8px !important;
         }
       }
-
       @media (max-width: 480px) {
         .heliosa-text {
           font-size: 2.5rem;
           top: 52% !important; /* Remonté légèrement pour petits écrans */
         }
-
         .center-video {
           max-width: 85%;
           max-height: 35vh;
         }
-
         .center-image {
           max-width: 85%;
           max-height: 35vh;
           margin-bottom: 30px;
         }
-
         .logos-container {
           gap: 15px !important;
           margin-top: 180px !important; /* Position encore plus basse pour très petits écrans */
         }
-
         .logos-container > div {
           width: 20% !important;
           min-width: 75px !important;
         }
-
         .logo-link {
           width: 50px !important;
           height: 50px !important;
         }
-
         .logo {
           max-width: 30px !important;
           max-height: 30px !important;
         }
-
         .logo-label {
           font-size: 0.85rem !important;
           padding: 1px 6px !important;
           margin-top: 6px !important;
         }
       }
-
       @media (max-height: 500px) {
         .center-image {
           max-height: 40vh;
         }
-
         .center-image-container {
           top: 45%;
         }
       }
-
       #background-video {
         background: #000; /* Noir derrière la vidéo si elle n'est pas encore chargée */
       }
@@ -425,7 +367,6 @@
       <source src="HELIOSA_VIDEOS_SITE/Accueil.mp4" type="video/mp4" />
       Votre navigateur ne supporte pas la vidéo HTML5.
     </video>
-
     <!-- Overlay sombre pour améliorer la lisibilité -->
     <div
       style="
@@ -438,7 +379,6 @@
         z-index: 1;
       "
     ></div>
-
     <!-- Contenu principal de la page -->
     <div class="main-container" style="z-index: 5; position: relative">
       <!-- Vidéo de transition au centre (output.webm) -->
@@ -451,7 +391,6 @@
       >
         <source src="HELIOSA_VIDEOS_SITE/output.webm" type="video/webm" />
       </video>
-
       <!-- Vidéo centrale qui remplace le logo B -->
       <video
         id="center-video"
@@ -465,10 +404,8 @@
           type="video/mp4"
         />
       </video>
-
       <!-- Texte HELIOSA animé -->
       <div class="heliosa-text" id="heliosa-text">HELIOSA</div>
-
       <!-- Section principale avec les logos et les flèches -->
       <section class="relative">
         <!-- Image centrale -->
@@ -479,7 +416,6 @@
         >
           <!-- Zone centrale vide pour l'animation des pictogrammes -->
         </div>
-
         <!-- Logos en dessous + labels corrigés -->
         <div
           class="logos-container"
@@ -507,9 +443,8 @@
                 src="SITE_VISUELS/PICTOGRAMME/PANNEAU.png"
                 alt="Panneaux Solaires"
                 class="logo"
-              />
-            </a>
-            <span class="logo-label">Produire</span>
+              /> </a
+            ><span class="logo-label">Produire</span>
           </div>
           <div
             style="
@@ -525,9 +460,8 @@
                 src="SITE_VISUELS/PICTOGRAMME/BATTERIE.png"
                 alt="Batteries"
                 class="logo"
-              />
-            </a>
-            <span class="logo-label">Stocker</span>
+              /> </a
+            ><span class="logo-label">Stocker</span>
           </div>
           <div
             style="
@@ -543,9 +477,8 @@
                 src="SITE_VISUELS/PICTOGRAMME/BORNE_RECHARGE.png"
                 alt="Bornes de Recharge"
                 class="logo"
-              />
-            </a>
-            <span class="logo-label">Charger</span>
+              /> </a
+            ><span class="logo-label">Charger</span>
           </div>
           <div
             style="
@@ -561,14 +494,12 @@
                 src="SITE_VISUELS/PICTOGRAMME/MAINTENANCE.png"
                 alt="Maintenance"
                 class="logo"
-              />
-            </a>
-            <span class="logo-label">Entretenir</span>
+              /> </a
+            ><span class="logo-label">Entretenir</span>
           </div>
         </div>
       </section>
     </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="gsap-intro.js"></script>
     <script>
