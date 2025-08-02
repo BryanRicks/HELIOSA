@@ -404,238 +404,102 @@
     <section class="py-20 bg-gray-50" id="contact">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16">
-          <span class="text-secondary-500 font-semibold">NOUS CONTACTER</span>
-          <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
-            Contactez-Nous
-          </h2>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Contactez-Nous</h2>
           <p class="text-gray-600 max-w-2xl mx-auto">
             Nous sommes là pour répondre à toutes vos questions et vous aider à
             trouver la solution la plus adaptée à vos besoins
           </p>
         </div>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          <!-- Formulaire de Contact -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <!-- Formulaire de contact -->
           <div class="bg-white p-8 rounded-xl shadow-md">
-            <h3 class="text-2xl font-bold text-primary-900 mb-6">
-              Formulaire de Contact
-            </h3>
-            <form action="#" method="POST">
-              <div class="grid grid-cols-1 gap-6">
-                <div>
-                  <label
-                    for="name"
-                    class="block text-gray-700 font-semibold mb-2"
-                  >
-                    Nom Complet
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    class="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary-500"
-                    placeholder="Votre nom complet"
-                  />
-                </div>
-                <div>
-                  <label
-                    for="email"
-                    class="block text-gray-700 font-semibold mb-2"
-                  >
-                    Adresse Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    class="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary-500"
-                    placeholder="Votre adresse email"
-                  />
-                </div>
-                <div>
-                  <label
-                    for="phone"
-                    class="block text-gray-700 font-semibold mb-2"
-                  >
-                    Numéro de Téléphone
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    required
-                    class="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary-500"
-                    placeholder="Votre numéro de téléphone"
-                  />
-                </div>
-                <div>
-                  <label
-                    for="message"
-                    class="block text-gray-700 font-semibold mb-2"
-                  >
-                    Votre Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows="4"
-                    required
-                    class="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary-500"
-                    placeholder="Dites-nous en plus sur votre projet"
-                  ></textarea>
-                </div>
+            <h3 class="text-xl font-bold mb-6">Formulaire de Contact</h3>
+            <form action="#" method="POST" class="space-y-4">
+              <div>
+                <label
+                  for="name"
+                  class="block text-sm font-medium text-gray-700"
+                  >Nom</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required=""
+                  class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-secondary-500 focus:outline-none"
+                  placeholder="Votre nom complet"
+                />
               </div>
-              <div class="mt-4">
+              <div>
+                <label
+                  for="email"
+                  class="block text-sm font-medium text-gray-700"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required=""
+                  class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-secondary-500 focus:outline-none"
+                  placeholder="Votre adresse email"
+                />
+              </div>
+              <div>
+                <label
+                  for="message"
+                  class="block text-sm font-medium text-gray-700"
+                  >Message</label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  required=""
+                  class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-secondary-500 focus:outline-none"
+                  placeholder="Votre message ou question"
+                ></textarea>
+              </div>
+              <div>
                 <button
                   type="submit"
-                  class="w-full bg-secondary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-secondary-600 transition-colors"
+                  class="w-full bg-secondary-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-secondary-600 transition-colors"
                 >
-                  Envoyer votre message
+                  Envoyer le Message
                 </button>
               </div>
             </form>
           </div>
-
-          <!-- Informations de Contact -->
+          <!-- Informations de contact -->
           <div class="bg-white p-8 rounded-xl shadow-md">
-            <h3 class="text-2xl font-bold text-primary-900 mb-6">
-              Informations de Contact
-            </h3>
-            <div class="space-y-6">
-              <div class="flex items-start space-x-4">
-                <div class="flex-shrink-0">
-                  <div
-                    class="w-12 h-12 bg-secondary-500 rounded-lg flex items-center justify-center"
-                  >
-                    <svg
-                      class="w-6 h-6 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                      ></path>
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                      ></path>
-                    </svg>
-                  </div>
-                </div>
-                <div>
-                  <h4 class="text-lg font-semibold text-gray-900">Adresse</h4>
-                  <p class="text-gray-600">
-                    123 Rue de l'Industrie<br />75000 Paris, France
-                  </p>
-                </div>
+            <h3 class="text-xl font-bold mb-6">Informations de Contact</h3>
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <span class="text-gray-700">📧&nbsp;contact@heliosa-pv.fr</span>
               </div>
-
-              <div class="flex items-start space-x-4">
-                <div class="flex-shrink-0">
-                  <div
-                    class="w-12 h-12 bg-secondary-500 rounded-lg flex items-center justify-center"
-                  >
-                    <svg
-                      class="w-6 h-6 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                      ></path>
-                    </svg>
-                  </div>
-                </div>
-                <div>
-                  <h4 class="text-lg font-semibold text-gray-900">Téléphone</h4>
-                  <p class="text-gray-600">+33 1 23 45 67 89</p>
-                </div>
+              <div class="flex items-center">
+                <span class="text-gray-700">📞 06 07 99 69 29</span>
               </div>
-
-              <div class="flex items-start space-x-4">
-                <div class="flex-shrink-0">
-                  <div
-                    class="w-12 h-12 bg-secondary-500 rounded-lg flex items-center justify-center"
-                  >
-                    <svg
-                      class="w-6 h-6 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                      ></path>
-                    </svg>
-                  </div>
-                </div>
-                <div>
-                  <h4 class="text-lg font-semibold text-gray-900">Email</h4>
-                  <p class="text-gray-600">contact@heliosa.fr</p>
-                </div>
+              <div class="flex items-center">
+                <span class="text-gray-700"
+                  ><b><br />Qui sommes nous ?&nbsp;<br /></b><br />Heliosa est
+                  une entreprise spécialisée dans l&rsquo;installation de
+                  solutions photovolaïques dans un rayon de 50 km autour de
+                  Colmar.<br />&nbsp;<br />Nous proposons des solutions solaires
+                  complètes pour l&rsquo;autoconsommation : <br />🟡 Panneaux
+                  solaires en surimposition <br />🟡 Bornes de recharge pour
+                  véhicules électriques <br />🟡 Batteries de stockage
+                  <br /><br />Nous assurons également un service de maintenance
+                  pour garantir la performance et la longévité de vos
+                  équipements. <br /><br />Votre installation clef en main !
+                  <br />Heliosa prend en charge toutes les étapes de votre
+                  projet solaire : étude, démarches administratives,
+                  installation, raccordement et mise en service.
+                  <br /><br />Chez Heliosa, nos valeurs sont la transparence,
+                  l&rsquo;honnêteté et la proximité, pour un accompagnement
+                  personnalisé tout au long de votre projet.<br /><br
+                /></span>
               </div>
-
-              <div class="flex items-start space-x-4">
-                <div class="flex-shrink-0">
-                  <div
-                    class="w-12 h-12 bg-secondary-500 rounded-lg flex items-center justify-center"
-                  >
-                    <svg
-                      class="w-6 h-6 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                      ></path>
-                    </svg>
-                  </div>
-                </div>
-                <div>
-                  <h4 class="text-lg font-semibold text-gray-900">
-                    Horaires d'ouverture
-                  </h4>
-                  <p class="text-gray-600">
-                    Lundi - Vendredi : 8h00 - 18h00<br />Samedi : 9h00 - 12h00
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-8 p-6 bg-gray-50 rounded-lg">
-              <h4 class="text-lg font-semibold text-gray-900 mb-3">
-                À propos de HELIOSA
-              </h4>
-              <p class="text-gray-600 text-sm leading-relaxed">
-                HELIOSA est votre partenaire de confiance pour toutes vos
-                solutions d'énergie solaire. Spécialisés dans la production, le
-                stockage et la recharge d'énergie photovoltaïque, nous proposons
-                des installations sur mesure, adaptées à vos besoins
-                spécifiques. Notre équipe d'experts qualifiés vous accompagne de
-                la conception à la mise en service, en passant par
-                l'installation et la maintenance de vos équipements. Avec
-                HELIOSA, optez pour une énergie propre, durable et économique,
-                tout en bénéficiant d'un service de qualité et d'un suivi
-                personnalisé.
-              </p>
             </div>
           </div>
         </div>
