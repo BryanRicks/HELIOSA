@@ -298,14 +298,16 @@
           margin-bottom: 40px;
         }
         .logos-container {
-          gap: 15px !important;
-          margin-top: 200px !important; /* Position plus basse pour éviter l'interférence */
+          gap: 25px !important;
+          margin-top: 200px !important;
           flex-wrap: nowrap !important;
           justify-content: center !important;
+          padding: 0 20px !important;
         }
         .logos-container > div {
           width: 20% !important;
-          min-width: 70px !important;
+          min-width: 75px !important;
+          max-width: 100px !important;
         }
         .logo-link {
           width: 50px !important;
@@ -313,13 +315,15 @@
           border: 2px solid #f0b952 !important;
         }
         .logo {
-          max-width: 30px !important;
-          max-height: 30px !important;
+          max-width: 32px !important;
+          max-height: 32px !important;
         }
         .logo-label {
-          font-size: 0.8rem !important;
-          padding: 1px 6px !important;
+          font-size: 0.75rem !important;
+          padding: 3px 6px !important;
           margin-top: 6px !important;
+          white-space: nowrap !important;
+          min-width: auto !important;
         }
       }
       @media (max-width: 650px) {
@@ -335,13 +339,13 @@
         }
         .logos-container {
           margin-top: 210px !important;
-          gap: 12px !important;
+          gap: 18px !important;
           flex-wrap: nowrap !important;
           justify-content: center !important;
         }
         .logos-container > div {
-          width: 20% !important;
-          min-width: 65px !important;
+          width: 18% !important;
+          min-width: 70px !important;
         }
         .logo-link {
           width: 45px !important;
@@ -352,9 +356,10 @@
           max-height: 28px !important;
         }
         .logo-label {
-          font-size: 0.75rem !important;
-          padding: 1px 4px !important;
+          font-size: 0.7rem !important;
+          padding: 1px 3px !important;
           margin-top: 5px !important;
+          white-space: nowrap !important;
         }
       }
       @media (max-width: 480px) {
@@ -378,27 +383,31 @@
           margin-bottom: 30px;
         }
         .logos-container {
-          gap: 10px !important;
-          margin-top: 220px !important; /* Position encore plus basse pour éviter l'interférence sur petits écrans */
+          gap: 20px !important;
+          margin-top: 220px !important;
           flex-wrap: nowrap !important;
           justify-content: center !important;
+          padding: 0 15px !important;
         }
         .logos-container > div {
-          width: 18% !important;
-          min-width: 60px !important;
+          width: 20% !important;
+          min-width: 70px !important;
+          max-width: 85px !important;
         }
         .logo-link {
-          width: 40px !important;
-          height: 40px !important;
+          width: 45px !important;
+          height: 45px !important;
         }
         .logo {
-          max-width: 24px !important;
-          max-height: 24px !important;
+          max-width: 28px !important;
+          max-height: 28px !important;
         }
         .logo-label {
           font-size: 0.7rem !important;
-          padding: 1px 3px !important;
+          padding: 2px 4px !important;
           margin-top: 4px !important;
+          white-space: nowrap !important;
+          min-width: auto !important;
         }
       }
       @media (max-width: 380px) {
@@ -414,26 +423,30 @@
         }
         .logos-container {
           margin-top: 230px !important;
-          gap: 8px !important;
+          gap: 15px !important;
           flex-wrap: nowrap !important;
           justify-content: center !important;
+          padding: 0 10px !important;
         }
         .logos-container > div {
-          width: 16% !important;
-          min-width: 55px !important;
+          width: 22% !important;
+          min-width: 65px !important;
+          max-width: 80px !important;
         }
         .logo-link {
-          width: 35px !important;
-          height: 35px !important;
+          width: 38px !important;
+          height: 38px !important;
         }
         .logo {
-          max-width: 20px !important;
-          max-height: 20px !important;
+          max-width: 22px !important;
+          max-height: 22px !important;
         }
         .logo-label {
           font-size: 0.65rem !important;
-          padding: 1px 2px !important;
+          padding: 2px 3px !important;
           margin-top: 3px !important;
+          white-space: nowrap !important;
+          min-width: auto !important;
         }
       }
       @media (max-height: 500px) {
@@ -534,7 +547,8 @@
             align-items: flex-start;
             margin-top: 370px;
             position: relative;
-            gap: 32px;
+            gap: 50px;
+            padding: 0 40px;
           "
         >
           <div
@@ -542,8 +556,9 @@
               display: flex;
               flex-direction: column;
               align-items: center;
-              width: 25%;
-              min-width: 110px;
+              width: 22%;
+              min-width: 70px;
+              max-width: 90px;
             "
           >
             <a href="produire.html" class="logo-link">
@@ -559,8 +574,9 @@
               display: flex;
               flex-direction: column;
               align-items: center;
-              width: 25%;
-              min-width: 110px;
+              width: 22%;
+              min-width: 70px;
+              max-width: 90px;
             "
           >
             <a href="stocker.html" class="logo-link">
@@ -576,8 +592,9 @@
               display: flex;
               flex-direction: column;
               align-items: center;
-              width: 25%;
-              min-width: 110px;
+              width: 22%;
+              min-width: 70px;
+              max-width: 90px;
             "
           >
             <a href="charger.html" class="logo-link">
@@ -593,8 +610,9 @@
               display: flex;
               flex-direction: column;
               align-items: center;
-              width: 25%;
-              min-width: 110px;
+              width: 22%;
+              min-width: 70px;
+              max-width: 90px;
             "
           >
             <a href="entretien.html" class="logo-link">
