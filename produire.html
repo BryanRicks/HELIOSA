@@ -679,61 +679,119 @@
           <!-- Formulaire de contact -->
           <div class="bg-white p-8 rounded-xl shadow-md">
             <h3 class="text-xl font-bold mb-6">Formulaire de Contact</h3>
-            <form action="#" method="POST" class="space-y-4">
+            <form
+              action="contact-handler.php"
+              method="POST"
+              class="space-y-4"
+              id="contact-form"
+            >
+              <!-- Token CSRF -->
+              <input type="hidden" name="csrf_token" id="csrf-token" value="" />
+
               <div>
                 <label
                   for="name"
                   class="block text-sm font-medium text-gray-700"
-                  >Nom</label
+                  >Nom *</label
                 >
                 <input
                   type="text"
                   id="name"
                   name="name"
-                  required=""
+                  required
+                  minlength="2"
+                  maxlength="100"
                   class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-secondary-500 focus:outline-none"
                   placeholder="Votre nom complet"
                 />
               </div>
+
               <div>
                 <label
                   for="email"
                   class="block text-sm font-medium text-gray-700"
-                  >Email</label
+                  >Email *</label
                 >
                 <input
                   type="email"
                   id="email"
                   name="email"
-                  required=""
+                  required
+                  maxlength="255"
                   class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-secondary-500 focus:outline-none"
                   placeholder="Votre adresse email"
                 />
               </div>
+
               <div>
                 <label
                   for="message"
                   class="block text-sm font-medium text-gray-700"
-                  >Message</label
+                  >Message *</label
                 >
                 <textarea
                   id="message"
                   name="message"
                   rows="4"
-                  required=""
+                  required
+                  minlength="10"
+                  maxlength="1000"
                   class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-secondary-500 focus:outline-none"
-                  placeholder="Votre message ou question"
+                  placeholder="Votre message (10 à 1000 caractères)"
                 ></textarea>
+                <div class="text-sm text-gray-500 mt-1">
+                  <span id="char-count">0</span>/1000 caractères
+                </div>
               </div>
+
               <div>
                 <button
                   type="submit"
-                  class="w-full bg-secondary-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-secondary-600 transition-colors"
+                  id="submit-btn"
+                  class="w-full bg-secondary-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-secondary-600 transition-colors disabled:bg-gray-400"
                 >
                   Envoyer le Message
                 </button>
               </div>
             </form>
+
+            <script>
+              // Génération du token CSRF côté client
+              document.addEventListener("DOMContentLoaded", function () {
+                // Récupérer le token depuis le serveur
+                fetch("get-csrf-token.php")
+                  .then((response) => response.json())
+                  .then((data) => {
+                    document.getElementById("csrf-token").value = data.token;
+                  });
+
+                // Compteur de caractères et protection côté client
+                const messageField = document.getElementById("message");
+                const charCount = document.getElementById("char-count");
+                const submitBtn = document.getElementById("submit-btn");
+
+                messageField.addEventListener("input", function () {
+                  const length = this.value.length;
+                  charCount.textContent = length;
+
+                  if (length > 1000) {
+                    charCount.style.color = "red";
+                    submitBtn.disabled = true;
+                  } else {
+                    charCount.style.color = length > 800 ? "orange" : "gray";
+                    submitBtn.disabled = false;
+                  }
+                });
+
+                // Protection contre double soumission
+                document
+                  .getElementById("contact-form")
+                  .addEventListener("submit", function () {
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = "Envoi en cours...";
+                  });
+              });
+            </script>
           </div>
           <!-- Informations de contact -->
           <div class="bg-white p-8 rounded-xl shadow-md">
@@ -862,5 +920,109 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      // Gestion des messages de succès/erreur
+      document.addEventListener("DOMContentLoaded", function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const success = urlParams.get("success");
+        const error = urlParams.get("error");
+
+        if (success) {
+          const successMsg = document.createElement("div");
+          successMsg.innerHTML = `
+                  <div style="position: fixed; top: 20px; right: 20px; background: #10B981; color: white; padding: 15px 20px; border-radius: 8px; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                      ✅ Message envoyé avec succès ! Nous vous recontacterons rapidement.
+                  </div>
+              `;
+          document.body.appendChild(successMsg);
+
+          setTimeout(() => {
+            successMsg.remove();
+            window.history.replaceState(
+              {},
+              document.title,
+              window.location.pathname + "#contact"
+            );
+          }, 5000);
+        } else if (error) {
+          let errorMsg = "❌ Une erreur est survenue. Veuillez réessayer.";
+          if (error === "invalid")
+            errorMsg = "❌ Veuillez vérifier vos informations.";
+          if (error === "send")
+            errorMsg =
+              "❌ Erreur lors de l'envoi. Contactez-nous par téléphone.";
+
+          const errorDiv = document.createElement("div");
+          errorDiv.innerHTML = `
+                  <div style="position: fixed; top: 20px; right: 20px; background: #EF4444; color: white; padding: 15px 20px; border-radius: 8px; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                      ${errorMsg}
+                  </div>
+              `;
+          document.body.appendChild(errorDiv);
+
+          setTimeout(() => {
+            errorDiv.remove();
+            window.history.replaceState(
+              {},
+              document.title,
+              window.location.pathname + "#contact"
+            );
+          }, 5000);
+        }
+      });
+
+      // Validation avancée
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("contact-form");
+        const messageField = document.getElementById("message");
+        const emailField = document.getElementById("email");
+        const nameField = document.getElementById("name");
+
+        // Validation email en temps réel
+        emailField.addEventListener("blur", function () {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(this.value)) {
+            this.style.borderColor = "red";
+          } else {
+            this.style.borderColor = "#d1d5db";
+          }
+        });
+
+        // Protection contre les caractères malveillants
+        nameField.addEventListener("input", function () {
+          this.value = this.value.replace(/[<>'"&]/g, "");
+        });
+
+        messageField.addEventListener("input", function () {
+          const length = this.value.length;
+          document.getElementById("char-count").textContent = length;
+
+          // Bloquer les URLs suspectes
+          if (this.value.match(/https?:\/\//gi)) {
+            this.style.borderColor = "orange";
+          } else {
+            this.style.borderColor = length > 800 ? "orange" : "#d1d5db";
+          }
+        });
+
+        // Validation finale avant envoi
+        form.addEventListener("submit", function (e) {
+          const email = emailField.value;
+          const name = nameField.value;
+          const message = messageField.value;
+
+          if (name.length < 2 || email.length < 5 || message.length < 10) {
+            e.preventDefault();
+            alert("Veuillez remplir tous les champs correctement.");
+            return false;
+          }
+
+          document.getElementById("submit-btn").disabled = true;
+          document.getElementById("submit-btn").textContent =
+            "Envoi en cours...";
+        });
+      });
+    </script>
   </body>
 </html>
