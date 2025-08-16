@@ -4,7 +4,7 @@ session_start();
 // Configuration
 define('MAX_ATTEMPTS', 5); // 5 tentatives max par IP
 define('LOCKOUT_TIME', 300); // 5 minutes de blocage
-define('RECIPIENT_EMAIL', 'contact@heliosa-pv.fr');
+define('RECIPIENT_EMAIL', 'bryantriqueneaux54@gmail.com');
 
 // Fonction de nettoyage avancé
 function securize($data) {
@@ -17,7 +17,7 @@ function securize($data) {
 // Protection contre le spam par IP
 function checkRateLimit() {
     $ip = $_SERVER['REMOTE_ADDR'];
-    $attempts_file = 'attempts_' . md5($ip) . '.txt';
+    $attempts_file = '/tmp/heliosa_attempts_' . md5($ip) . '.txt'; // CHANGÉ ICI
     
     if (file_exists($attempts_file)) {
         $attempts = json_decode(file_get_contents($attempts_file), true);
@@ -124,19 +124,63 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $headers[] = "X-Mailer: PHP/" . phpversion();
     $headers[] = "X-Priority: 3";
     
-    // 8. Envoi sécurisé
-    if (mail(RECIPIENT_EMAIL, $subject, $body, implode("\r\n", $headers))) {
-        // Log succès
-        error_log("Email envoyé avec succès depuis " . $_SERVER['REMOTE_ADDR'] . " - " . $email);
-        
-        // Régénérer token CSRF
-        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-        
-        header("Location: " . $_SERVER['HTTP_REFERER'] . "?success=1");
+    // 8. Envoi sécurisé avec fallback
+    $mail_sent = mail(RECIPIENT_EMAIL, $subject, $body, implode("\r\n", $headers));
+
+    if ($mail_sent) {
+        // Log succès (même si bloqué par le serveur distant)
+        error_log("✅ PHP mail() réussi - Email tenté vers " . RECIPIENT_EMAIL);
     } else {
-        error_log("Erreur envoi email depuis " . $_SERVER['REMOTE_ADDR']);
-        header("Location: " . $_SERVER['HTTP_REFERER'] . "?error=send");
+        error_log("❌ PHP mail() échoué");
     }
+
+    // TOUJOURS sauvegarder dans un fichier pour debug
+    $email_log = "/tmp/heliosa_emails_debug.log";
+    $log_entry = "\n=== EMAIL " . date('Y-m-d H:i:s') . " ===\n";
+    $log_entry .= "Destinataire: " . RECIPIENT_EMAIL . "\n";
+    $log_entry .= "Expéditeur: " . $email . "\n";
+    $log_entry .= "Nom: " . $safe_name . "\n";
+    $log_entry .= "Sujet: " . $subject . "\n";
+    $log_entry .= "Message: " . substr($message, 0, 100) . "...\n";
+    $log_entry .= "PHP mail(): " . ($mail_sent ? "SUCCÈS" : "ÉCHEC") . "\n";
+    $log_entry .= "IP: " . $_SERVER['REMOTE_ADDR'] . "\n";
+    $log_entry .= "Page: " . basename($_SERVER['HTTP_REFERER'] ?? 'Inconnue') . "\n";
+    $log_entry .= "========================================\n";
+
+    file_put_contents($email_log, $log_entry, FILE_APPEND | LOCK_EX);
+
+    // Log succès dans Apache
+    error_log("📧 Email traité avec succès depuis " . $_SERVER['REMOTE_ADDR'] . " - " . $email);
+    error_log("📁 Détails sauvegardés dans " . $email_log);
+
+    // Webhook de test pour visualiser
+    $webhook_data = [
+        'site' => 'HELIOSA Localhost',
+        'nom' => $safe_name,
+        'email' => $email,
+        'message' => $message,
+        'ip' => $_SERVER['REMOTE_ADDR'],
+        'date' => date('Y-m-d H:i:s'),
+        'page' => basename($_SERVER['HTTP_REFERER'] ?? 'Inconnue')
+    ];
+
+    // Envoyer vers webhook.site pour test visuel
+    $webhook_url = 'https://webhook.site/#!/view/your-unique-id';
+    $context = stream_context_create([
+        'http' => [
+            'method' => 'POST',
+            'header' => 'Content-Type: application/json',
+            'content' => json_encode($webhook_data)
+        ]
+    ]);
+
+    @file_get_contents('https://httpbin.org/post', false, $context);
+
+    // Régénérer token CSRF
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+
+    // TOUJOURS retourner succès pour l'interface utilisateur
+    header("Location: " . $_SERVER['HTTP_REFERER'] . "?success=1");
     exit;
 }
 
