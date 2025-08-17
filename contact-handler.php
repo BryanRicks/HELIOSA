@@ -1,12 +1,15 @@
 <?php
+// Configuration de session pour serveur de développement
+session_save_path(sys_get_temp_dir());
 session_start();
 
-// Configuration
-define('MAX_ATTEMPTS', 5); // 5 tentatives max par IP
-define('LOCKOUT_TIME', 300); // 5 minutes de blocage
-define('RECIPIENT_EMAIL', 'bryantriqueneaux54@gmail.com');
+// Configuration sécurisée
+define('MAX_ATTEMPTS', 5);
+define('LOCKOUT_TIME', 300);
+define('BREVO_API_KEY', 'xkeysib-[VOTRE_CLE_API_ICI]'); // Remplacez par votre vraie clé API
+define('RECIPIENT_EMAIL', 'mail de reception'); // Remplacez par l'email de réception
 
-// Fonction de nettoyage avancé
+// Fonction de nettoyage (garde votre sécurité actuelle)
 function securize($data) {
     $data = trim($data);
     $data = stripslashes($data);
@@ -14,22 +17,21 @@ function securize($data) {
     return $data;
 }
 
-// Protection contre le spam par IP
+// Rate limiting (garde votre système actuel)
 function checkRateLimit() {
     $ip = $_SERVER['REMOTE_ADDR'];
-    $attempts_file = '/tmp/heliosa_attempts_' . md5($ip) . '.txt'; // CHANGÉ ICI
+    $attempts_file = sys_get_temp_dir() . '/attempts_' . md5($ip) . '.txt';
     
     if (file_exists($attempts_file)) {
         $attempts = json_decode(file_get_contents($attempts_file), true);
         $current_time = time();
         
-        // Nettoyer les anciennes tentatives
         $attempts = array_filter($attempts, function($timestamp) use ($current_time) {
             return ($current_time - $timestamp) < LOCKOUT_TIME;
         });
         
         if (count($attempts) >= MAX_ATTEMPTS) {
-            return false; // Trop de tentatives
+            return false;
         }
         
         $attempts[] = $current_time;
@@ -41,43 +43,118 @@ function checkRateLimit() {
     return true;
 }
 
-// Génération token CSRF
+// Token CSRF (garde votre sécurité actuelle)
 if (!isset($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 
-// Headers de sécurité
-header('Content-Type: application/json');
-header('Cache-Control: no-cache, no-store, must-revalidate');
-header('Pragma: no-cache');
-header('Expires: 0');
-header('X-Content-Type-Options: nosniff');
-header('X-Frame-Options: DENY');
+// ENDPOINT SÉCURISÉ POUR RÉCUPÉRATION TOKEN CSRF (POST UNIQUEMENT)
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['action'] === 'get_csrf_token') {
+    header('Content-Type: application/json');
+    
+    // Vérifier que c'est bien une requête AJAX
+    if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest') {
+        echo json_encode([
+            'csrf_token' => $_SESSION['csrf_token'],
+            'status' => 'success'
+        ]);
+    } else {
+        echo json_encode([
+            'error' => 'Invalid request',
+            'status' => 'error'
+        ]);
+    }
+    exit;
+}
 
-echo json_encode(['token' => $_SESSION['csrf_token']]);
+// Fonction d'envoi via API Brevo (SÉCURISÉE)
+function sendEmailViaBrevo($name, $email, $message) {
+    $url = 'https://api.brevo.com/v3/smtp/email';
+    
+    $data = [
+        'sender' => [
+            'name' => 'HELIOSA Contact',
+            'email' => 'mail de reception'
+        ],
+        'to' => [
+            [
+                'email' => RECIPIENT_EMAIL,
+                'name' => 'HELIOSA'
+            ]
+        ],
+        'subject' => '🌞 HELIOSA - Nouveau message depuis le site',
+        'htmlContent' => "
+            <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;'>
+                <h2 style='color: #f0b952; border-bottom: 2px solid #f0b952; padding-bottom: 10px;'>
+                    🌞 Nouveau message HELIOSA
+                </h2>
+                <div style='background: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0;'>
+                    <p><strong>👤 Nom :</strong> " . htmlspecialchars($name) . "</p>
+                    <p><strong>📧 Email :</strong> " . htmlspecialchars($email) . "</p>
+                    <p><strong>📅 Date :</strong> " . date('d/m/Y à H:i:s') . "</p>
+                    <p><strong>🌐 IP :</strong> " . $_SERVER['REMOTE_ADDR'] . "</p>
+                </div>
+                <div style='background: white; padding: 20px; border-left: 4px solid #f0b952;'>
+                    <h3 style='margin-top: 0; color: #333;'>💬 Message :</h3>
+                    <p style='line-height: 1.6; color: #555;'>" . nl2br(htmlspecialchars($message)) . "</p>
+                </div>
+                <div style='margin-top: 20px; padding: 10px; background: #e8f4f8; border-radius: 4px; font-size: 12px; color: #666;'>
+                    Envoyé depuis le site HELIOSA - Système sécurisé
+                </div>
+            </div>
+        ",
+        'replyTo' => [
+            'email' => $email,
+            'name' => $name
+        ]
+    ];
+    
+    $headers = [
+        'Accept: application/json',
+        'Content-Type: application/json',
+        'api-key: ' . BREVO_API_KEY
+    ];
+    
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+    
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+    
+    error_log("Brevo API Response: " . $response);
+    error_log("Brevo HTTP Code: " . $httpCode);
+    
+    return $httpCode >= 200 && $httpCode < 300;
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    // 1. Vérification rate limiting
+    // Rate limiting (votre sécurité)
     if (!checkRateLimit()) {
-        http_response_code(429);
+        error_log("Rate limit dépassé - IP: " . $_SERVER['REMOTE_ADDR']);
         header("Location: " . $_SERVER['HTTP_REFERER'] . "?error=rate_limit");
         exit;
     }
     
-    // 2. Vérification token CSRF
+    // CSRF (votre sécurité)
     if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
-        error_log("Tentative CSRF détectée depuis IP: " . $_SERVER['REMOTE_ADDR']);
+        error_log("Tentative CSRF - IP: " . $_SERVER['REMOTE_ADDR']);
         header("Location: " . $_SERVER['HTTP_REFERER'] . "?error=csrf");
         exit;
     }
     
-    // 3. Validation et nettoyage des données
+    // Validation (votre sécurité)
     $name = securize($_POST["name"] ?? "");
     $email = filter_var(trim($_POST["email"] ?? ""), FILTER_VALIDATE_EMAIL);
     $message = securize($_POST["message"] ?? "");
     
-    // 4. Validation des longueurs
     if (strlen($name) < 2 || strlen($name) > 100) {
         header("Location: " . $_SERVER['HTTP_REFERER'] . "?error=name_length");
         exit;
@@ -93,98 +170,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
     
-    // 5. Protection anti-spam basique
+    // Anti-spam (votre sécurité)
     $spam_words = ['viagra', 'casino', 'lottery', 'prize', 'winner'];
     $message_lower = strtolower($message);
     foreach ($spam_words as $spam) {
         if (strpos($message_lower, $spam) !== false) {
-            error_log("Message spam détecté depuis " . $_SERVER['REMOTE_ADDR']);
+            error_log("Spam détecté - IP: " . $_SERVER['REMOTE_ADDR']);
             header("Location: " . $_SERVER['HTTP_REFERER'] . "?error=spam");
             exit;
         }
     }
     
-    // 6. Préparation email sécurisé
-    $subject = "Nouveau message depuis le site HELIOSA";
-    $safe_name = preg_replace('/[^a-zA-Z0-9\s\-_àáâãäåçèéêëìíîïñòóôõöùúûüýÿ]/u', '', $name);
+    // ENVOI SÉCURISÉ VIA BREVO API
+    $success = sendEmailViaBrevo($name, $email, $message);
     
-    $body = "=== MESSAGE DEPUIS LE SITE HELIOSA ===\n\n";
-    $body .= "Nom: " . $safe_name . "\n";
-    $body .= "Email: " . $email . "\n";
-    $body .= "Date: " . date('d/m/Y à H:i:s') . "\n";
-    $body .= "IP: " . $_SERVER['REMOTE_ADDR'] . "\n\n";
-    $body .= "Message:\n" . $message . "\n\n";
-    $body .= "---\nEnvoyé depuis: " . $_SERVER['HTTP_HOST'];
-    
-    // 7. En-têtes sécurisés
-    $headers = array();
-    $headers[] = "From: noreply@heliosa-pv.fr";
-    $headers[] = "Reply-To: " . $email;
-    $headers[] = "Content-Type: text/plain; charset=UTF-8";
-    $headers[] = "X-Mailer: PHP/" . phpversion();
-    $headers[] = "X-Priority: 3";
-    
-    // 8. Envoi sécurisé avec fallback
-    $mail_sent = mail(RECIPIENT_EMAIL, $subject, $body, implode("\r\n", $headers));
-
-    if ($mail_sent) {
-        // Log succès (même si bloqué par le serveur distant)
-        error_log("✅ PHP mail() réussi - Email tenté vers " . RECIPIENT_EMAIL);
+    if ($success) {
+        error_log("✅ Email envoyé avec succès via Brevo API");
+        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+        header("Location: " . $_SERVER['HTTP_REFERER'] . "?success=1");
     } else {
-        error_log("❌ PHP mail() échoué");
+        error_log("❌ Échec envoi email via Brevo API");
+        // Sauvegarde de fallback
+        $log_entry = date('Y-m-d H:i:s') . " - ÉCHEC BREVO - " . $name . " (" . $email . "): " . $message . "\n";
+        file_put_contents('/tmp/heliosa_emails_failed.log', $log_entry, FILE_APPEND | LOCK_EX);
+        
+        header("Location: " . $_SERVER['HTTP_REFERER'] . "?error=send_failed");
     }
-
-    // TOUJOURS sauvegarder dans un fichier pour debug
-    $email_log = "/tmp/heliosa_emails_debug.log";
-    $log_entry = "\n=== EMAIL " . date('Y-m-d H:i:s') . " ===\n";
-    $log_entry .= "Destinataire: " . RECIPIENT_EMAIL . "\n";
-    $log_entry .= "Expéditeur: " . $email . "\n";
-    $log_entry .= "Nom: " . $safe_name . "\n";
-    $log_entry .= "Sujet: " . $subject . "\n";
-    $log_entry .= "Message: " . substr($message, 0, 100) . "...\n";
-    $log_entry .= "PHP mail(): " . ($mail_sent ? "SUCCÈS" : "ÉCHEC") . "\n";
-    $log_entry .= "IP: " . $_SERVER['REMOTE_ADDR'] . "\n";
-    $log_entry .= "Page: " . basename($_SERVER['HTTP_REFERER'] ?? 'Inconnue') . "\n";
-    $log_entry .= "========================================\n";
-
-    file_put_contents($email_log, $log_entry, FILE_APPEND | LOCK_EX);
-
-    // Log succès dans Apache
-    error_log("📧 Email traité avec succès depuis " . $_SERVER['REMOTE_ADDR'] . " - " . $email);
-    error_log("📁 Détails sauvegardés dans " . $email_log);
-
-    // Webhook de test pour visualiser
-    $webhook_data = [
-        'site' => 'HELIOSA Localhost',
-        'nom' => $safe_name,
-        'email' => $email,
-        'message' => $message,
-        'ip' => $_SERVER['REMOTE_ADDR'],
-        'date' => date('Y-m-d H:i:s'),
-        'page' => basename($_SERVER['HTTP_REFERER'] ?? 'Inconnue')
-    ];
-
-    // Envoyer vers webhook.site pour test visuel
-    $webhook_url = 'https://webhook.site/#!/view/your-unique-id';
-    $context = stream_context_create([
-        'http' => [
-            'method' => 'POST',
-            'header' => 'Content-Type: application/json',
-            'content' => json_encode($webhook_data)
-        ]
-    ]);
-
-    @file_get_contents('https://httpbin.org/post', false, $context);
-
-    // Régénérer token CSRF
-    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-
-    // TOUJOURS retourner succès pour l'interface utilisateur
-    header("Location: " . $_SERVER['HTTP_REFERER'] . "?success=1");
     exit;
 }
 
-// Accès direct interdit
 header("Location: index.html");
 exit;
 ?>

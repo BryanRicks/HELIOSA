@@ -531,16 +531,26 @@
               </div>
             </form>
 
-            <!-- Ajout des mêmes scripts complets que stocker.html -->
             <script>
-              // Génération du token CSRF côté client
+              // Token CSRF sécurisé via POST
               document.addEventListener("DOMContentLoaded", function () {
-                fetch("get-csrf-token.php")
+                fetch("contact-handler.php", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "X-Requested-With": "XMLHttpRequest",
+                  },
+                  body: "action=get_csrf_token",
+                })
                   .then((response) => response.json())
                   .then((data) => {
-                    document.getElementById("csrf-token").value = data.token;
+                    if (data.csrf_token) {
+                      document.getElementById("csrf-token").value =
+                        data.csrf_token;
+                    }
                   });
 
+                // UX/UI uniquement (sécurité gérée par PHP)
                 const messageField = document.getElementById("message");
                 const charCount = document.getElementById("char-count");
                 const submitBtn = document.getElementById("submit-btn");
@@ -666,18 +676,8 @@
       </div>
     </footer>
     <script>
-      // Messages de succès/erreur et validation avancée IDENTIQUE à stocker.html
+      // Messages de succès/erreur uniquement
       document.addEventListener("DOMContentLoaded", function () {
-        // Token CSRF d'abord
-        fetch("get-csrf-token.php")
-          .then((response) => response.json())
-          .then((data) => {
-            document.getElementById("csrf-token").value = data.token;
-          })
-          .catch((error) => {
-            console.error("Erreur chargement token CSRF:", error);
-          });
-
         const urlParams = new URLSearchParams(window.location.search);
         const success = urlParams.get("success");
         const error = urlParams.get("error");
@@ -707,13 +707,6 @@
           if (error === "csrf")
             errorMsg = "❌ Erreur de sécurité. Rechargez la page.";
           if (error === "spam") errorMsg = "❌ Message détecté comme spam.";
-          if (error === "name_length")
-            errorMsg = "❌ Le nom doit contenir entre 2 et 100 caractères.";
-          if (error === "message_length")
-            errorMsg =
-              "❌ Le message doit contenir entre 10 et 1000 caractères.";
-          if (error === "email_invalid")
-            errorMsg = "❌ Adresse email invalide.";
           if (error === "send")
             errorMsg =
               "❌ Erreur lors de l'envoi. Contactez-nous par téléphone.";
@@ -734,63 +727,6 @@
             );
           }, 5000);
         }
-
-        // Validation avancée COMPLÈTE identique à stocker.html
-        const form = document.getElementById("contact-form");
-        const messageField = document.getElementById("message");
-        const emailField = document.getElementById("email");
-        const nameField = document.getElementById("name");
-
-        // Validation email en temps réel
-        emailField.addEventListener("blur", function () {
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!emailRegex.test(this.value)) {
-            this.style.borderColor = "red";
-          } else {
-            this.style.borderColor = "#d1d5db";
-          }
-        });
-
-        // Protection contre les caractères malveillants
-        nameField.addEventListener("input", function () {
-          this.value = this.value.replace(/[<>'"&]/g, "");
-        });
-
-        messageField.addEventListener("input", function () {
-          const length = this.value.length;
-          document.getElementById("char-count").textContent = length;
-
-          // Bloquer les URLs suspectes
-          if (this.value.match(/https?:\/\//gi)) {
-            this.style.borderColor = "orange";
-          } else {
-            this.style.borderColor = length > 800 ? "orange" : "#d1d5db";
-          }
-
-          if (length > 1000) {
-            this.style.borderColor = "red";
-            document.getElementById("submit-btn").disabled = true;
-          } else {
-            document.getElementById("submit-btn").disabled = false;
-          }
-        });
-
-        // Validation finale avant envoi
-        form.addEventListener("submit", function (e) {
-          const email = emailField.value;
-          const name = nameField.value;
-          const message = messageField.value;
-
-          if (name.length < 2 || email.length < 5 || message.length < 10) {
-            e.preventDefault();
-            alert("Veuillez remplir tous les champs correctement.");
-            return false;
-          }
-
-          document.getElementById("submit-btn").disabled = true;
-          document.getElementById("submit-btn").textContent =
-            "Envoi en cours...";
-        });
       });
     </script>
   </body>

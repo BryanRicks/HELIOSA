@@ -490,16 +490,26 @@
               </div>
             </form>
 
-            <!-- Ajout des mêmes scripts que stocker.html -->
             <script>
-              // Génération du token CSRF côté client
+              // Token CSRF sécurisé via POST
               document.addEventListener("DOMContentLoaded", function () {
-                fetch("get-csrf-token.php")
+                fetch("contact-handler.php", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "X-Requested-With": "XMLHttpRequest",
+                  },
+                  body: "action=get_csrf_token",
+                })
                   .then((response) => response.json())
                   .then((data) => {
-                    document.getElementById("csrf-token").value = data.token;
+                    if (data.csrf_token) {
+                      document.getElementById("csrf-token").value =
+                        data.csrf_token;
+                    }
                   });
 
+                // UX/UI uniquement (sécurité gérée par PHP)
                 const messageField = document.getElementById("message");
                 const charCount = document.getElementById("char-count");
                 const submitBtn = document.getElementById("submit-btn");
@@ -630,11 +640,20 @@
     <script>
       // Messages de succès/erreur et validation avancée COMPLÈTE
       document.addEventListener("DOMContentLoaded", function () {
-        // Token CSRF d'abord
-        fetch("get-csrf-token.php")
+        // Token CSRF sécurisé via POST
+        fetch("contact-handler.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "X-Requested-With": "XMLHttpRequest",
+          },
+          body: "action=get_csrf_token",
+        })
           .then((response) => response.json())
           .then((data) => {
-            document.getElementById("csrf-token").value = data.token;
+            if (data.csrf_token) {
+              document.getElementById("csrf-token").value = data.csrf_token;
+            }
           })
           .catch((error) => {
             console.error("Erreur chargement token CSRF:", error);
@@ -690,62 +709,33 @@
           }, 5000);
         }
 
-        // Validation avancée COMPLÈTE
-        const form = document.getElementById("contact-form");
+        // UX/UI uniquement (sécurité gérée par PHP)
         const messageField = document.getElementById("message");
-        const emailField = document.getElementById("email");
-        const nameField = document.getElementById("name");
+        const submitBtn = document.getElementById("submit-btn");
 
-        // Validation email en temps réel
-        emailField.addEventListener("blur", function () {
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!emailRegex.test(this.value)) {
-            this.style.borderColor = "red";
-          } else {
-            this.style.borderColor = "#d1d5db";
-          }
-        });
-
-        // Protection contre les caractères malveillants
-        nameField.addEventListener("input", function () {
-          this.value = this.value.replace(/[<>'"&]/g, "");
-        });
-
+        // Compteur de caractères pour l'UX
         messageField.addEventListener("input", function () {
           const length = this.value.length;
-          document.getElementById("char-count").textContent = length;
+          const charCount = document.getElementById("char-count");
+          charCount.textContent = length;
 
-          // Bloquer les URLs suspectes
-          if (this.value.match(/https?:\/\//gi)) {
-            this.style.borderColor = "orange";
-          } else {
-            this.style.borderColor = length > 800 ? "orange" : "#d1d5db";
-          }
-
+          // Feedback visuel uniquement
           if (length > 1000) {
-            this.style.borderColor = "red";
-            document.getElementById("submit-btn").disabled = true;
+            charCount.style.color = "red";
+            submitBtn.disabled = true;
           } else {
-            document.getElementById("submit-btn").disabled = false;
+            charCount.style.color = length > 800 ? "orange" : "gray";
+            submitBtn.disabled = false;
           }
         });
 
-        // Validation finale avant envoi
-        form.addEventListener("submit", function (e) {
-          const email = emailField.value;
-          const name = nameField.value;
-          const message = messageField.value;
-
-          if (name.length < 2 || email.length < 5 || message.length < 10) {
-            e.preventDefault();
-            alert("Veuillez remplir tous les champs correctement.");
-            return false;
-          }
-
-          document.getElementById("submit-btn").disabled = true;
-          document.getElementById("submit-btn").textContent =
-            "Envoi en cours...";
-        });
+        // UX du bouton d'envoi
+        document
+          .getElementById("contact-form")
+          .addEventListener("submit", function () {
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Envoi en cours...";
+          });
       });
     </script>
   </body>
